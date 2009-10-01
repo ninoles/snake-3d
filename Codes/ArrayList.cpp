@@ -99,5 +99,3 @@ template<typename T>
 T ArrayList<T>::Iterator::next(){
     return _list->get(_pointer++);
 }
-
-

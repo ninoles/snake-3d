@@ -33,13 +33,14 @@ OBJECTDIR=build/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/Codes/ButtonEvents.o \
 	${OBJECTDIR}/Codes/WrapperEvent.o \
-	${OBJECTDIR}/Codes/MenuEvents.o \
 	${OBJECTDIR}/Codes/KeyBoardEvents.o \
 	${OBJECTDIR}/Codes/SAppContext.o \
 	${OBJECTDIR}/Codes/ArrayList.o \
 	${OBJECTDIR}/Codes/TesteMain.o \
+	${OBJECTDIR}/Codes/GroupPlayers.o \
 	${OBJECTDIR}/Codes/NodeMoviment.o \
-	${OBJECTDIR}/Codes/Player.o
+	${OBJECTDIR}/Codes/Player.o \
+	${OBJECTDIR}/Codes/MenuEvents.o
 
 # C Compiler Flags
 CFLAGS=
@@ -75,11 +76,6 @@ ${OBJECTDIR}/Codes/WrapperEvent.o: nbproject/Makefile-${CND_CONF}.mk Codes/Wrapp
 	${RM} $@.d
 	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/Codes/WrapperEvent.o Codes/WrapperEvent.cpp
 
-${OBJECTDIR}/Codes/MenuEvents.o: nbproject/Makefile-${CND_CONF}.mk Codes/MenuEvents.cpp 
-	${MKDIR} -p ${OBJECTDIR}/Codes
-	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/Codes/MenuEvents.o Codes/MenuEvents.cpp
-
 ${OBJECTDIR}/Codes/KeyBoardEvents.o: nbproject/Makefile-${CND_CONF}.mk Codes/KeyBoardEvents.cpp 
 	${MKDIR} -p ${OBJECTDIR}/Codes
 	${RM} $@.d
@@ -100,6 +96,11 @@ ${OBJECTDIR}/Codes/TesteMain.o: nbproject/Makefile-${CND_CONF}.mk Codes/TesteMai
 	${RM} $@.d
 	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/Codes/TesteMain.o Codes/TesteMain.cpp
 
+${OBJECTDIR}/Codes/GroupPlayers.o: nbproject/Makefile-${CND_CONF}.mk Codes/GroupPlayers.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Codes
+	${RM} $@.d
+	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/Codes/GroupPlayers.o Codes/GroupPlayers.cpp
+
 ${OBJECTDIR}/Codes/NodeMoviment.o: nbproject/Makefile-${CND_CONF}.mk Codes/NodeMoviment.cpp 
 	${MKDIR} -p ${OBJECTDIR}/Codes
 	${RM} $@.d
@@ -109,6 +110,11 @@ ${OBJECTDIR}/Codes/Player.o: nbproject/Makefile-${CND_CONF}.mk Codes/Player.cpp
 	${MKDIR} -p ${OBJECTDIR}/Codes
 	${RM} $@.d
 	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/Codes/Player.o Codes/Player.cpp
+
+${OBJECTDIR}/Codes/MenuEvents.o: nbproject/Makefile-${CND_CONF}.mk Codes/MenuEvents.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Codes
+	${RM} $@.d
+	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/Codes/MenuEvents.o Codes/MenuEvents.cpp
 
 # Subprojects
 .build-subprojects:

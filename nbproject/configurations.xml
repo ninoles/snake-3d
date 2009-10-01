@@ -23,6 +23,7 @@
       <logicalFolder name="Codes" displayName="Codes" projectFiles="true">
         <itemPath>Codes/ArrayList.cpp</itemPath>
         <itemPath>Codes/ButtonEvents.cpp</itemPath>
+        <itemPath>Codes/GroupPlayers.cpp</itemPath>
         <itemPath>Codes/KeyBoardEvents.cpp</itemPath>
         <itemPath>Codes/MenuEvents.cpp</itemPath>
         <itemPath>Codes/NodeMoviment.cpp</itemPath>
@@ -35,6 +36,18 @@
     <logicalFolder name="ResourceFiles"
                    displayName="Arquivos de recurso"
                    projectFiles="true">
+      <logicalFolder name="GDesign" displayName="GDesign" projectFiles="true">
+        <itemPath>GDesign/GameDesign.odt</itemPath>
+      </logicalFolder>
+      <logicalFolder name="UML" displayName="UML" projectFiles="true">
+        <itemPath>UML/diagramAIInterface.class.violet</itemPath>
+        <itemPath>UML/diagramArrayList.class.violet</itemPath>
+        <itemPath>UML/diagramEvents.class.violet</itemPath>
+        <itemPath>UML/diagramFileManagement.class.violet</itemPath>
+        <itemPath>UML/diagramMeshClass.class.violet</itemPath>
+        <itemPath>UML/diagramPlataformGame.class.violet</itemPath>
+        <itemPath>UML/diagramPlayers.class.violet</itemPath>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Arquivos importantes"
@@ -45,6 +58,8 @@
   <sourceRootList>
     <Elem>Codes</Elem>
     <Elem>Headers</Elem>
+    <Elem>GDesign</Elem>
+    <Elem>UML</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
