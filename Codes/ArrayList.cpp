@@ -47,8 +47,10 @@ template<typename T>
 T ArrayList<T>::get(int __index){
 	if(isSize(__index))
 		return _array[__index];
-	
-	return new T;
+
+        T tmp;
+
+        return tmp ;
 }
 
 template<typename T>
@@ -65,7 +67,9 @@ T ArrayList<T>::remove(int __index){
         return tmpValue;
     }
 
-    return new T;
+    T tmp;
+
+    return tmp;
 }
 
 template<typename T>

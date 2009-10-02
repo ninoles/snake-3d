@@ -9,20 +9,21 @@ namespace Players{
 
             private:
 
-                GenericList::ArrayList<Player> _players;
+                GenericList::ArrayList<Player> *_players;
 
             public:
 
                 GroupPlayers();
-                GroupPlayers(GenericList::ArrayList<Player> __players);
+                GroupPlayers(GenericList::ArrayList<Player> *__players);
                 
-                GenericList::ArrayList<Player> getAllPlayers();
+                GenericList::ArrayList<Player>* getAllPlayers();
 
                 void addPlayer(Player __player);
-                void removePlayer(Player __player);
                 
-                Player searchPlayer(Player __player);
+                Player removePlayer(Player __player);
                 Player* getPlayers();
+                
+                int searchPlayer(Player __player);
 
                 int getNumberOfPlayers();
                 int getBestPlayerWins();
