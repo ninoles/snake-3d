@@ -1,14 +1,15 @@
-#include "../Headers/GroupPlayers.h"
+#include "../../Headers/Player/GroupPlayers.h"
 
 using namespace Players;
 
-
 GroupPlayers::GroupPlayers(){
     _players = new GenericList::ArrayList<Player>;
+    _currentPlayerName = "";
 }
 
 GroupPlayers::GroupPlayers(GenericList::ArrayList<Player>* __players){
     _players = __players;
+    _currentPlayerName = "";
 }
 
 GenericList::ArrayList<Player>* GroupPlayers::getAllPlayers(){
@@ -69,6 +70,8 @@ int GroupPlayers::getBestPlayerMatches(){
     for(int k = 0; it.hasNext() && k < _players->getSize() - 1; ++k)
         (it.next().getNumberGames() < it.next().getNumberGames() ? bestIndex = k : bestIndex = k+1);
 
+    _currentPlayerName = _players->get(bestIndex).getName();
+
     return bestIndex;
 }
 
@@ -90,8 +93,52 @@ int GroupPlayers::getBestRelationshipScoreByMatch(){
             bestIndex = k;
         }
     }
+
+    _currentPlayerName = _players->get(bestIndex).getName();
+
+    return bestIndex;
 }
 
-#include "ArrayList.cpp"
+std::string GroupPlayers::getCurrentResearchingPlayerName(){
+    return _currentPlayerName;
+}
+
+int GroupPlayers::getMatchesByPlayer(Player __player){
+    int index = searchPlayer(__player);
+
+    if(index == -1)
+        return -1;
+
+    return _players->get(index).getNumberGames();
+}
+
+int GroupPlayers::getWinsByPlayer(Player __player){
+    int index = searchPlayer(__player);
+
+    if(index == -1)
+        return -1;
+
+    return _players->get(index).getWins();
+}
+
+int GroupPlayers::getScoreByPlayer(Player __player){
+    int index = searchPlayer(__player);
+
+    if(index == -1)
+        return -1;
+
+    return _players->get(index).getScore();
+}
+
+double GroupPlayers::getRelationshipWinsByMatches(Player __player){
+    int index = searchPlayer(__player);
+
+    if(index == -1)
+        return -1;
+
+    return _players->get(index).getWins() / _players->get(index).getNumberGames();
+}
+
+#include "../GenericList/ArrayList.cpp"
 
 

@@ -5,32 +5,68 @@
                    displayName="Arquivos de cabeçalho"
                    projectFiles="true">
       <logicalFolder name="Headers" displayName="Headers" projectFiles="true">
-        <itemPath>Headers/ArrayList.h</itemPath>
-        <itemPath>Headers/ButtonEvents.h</itemPath>
-        <itemPath>Headers/FileManagement.h</itemPath>
-        <itemPath>Headers/GroupPlayers.h</itemPath>
-        <itemPath>Headers/KeyBoardEvents.h</itemPath>
-        <itemPath>Headers/MenuEvents.h</itemPath>
-        <itemPath>Headers/NodeMoviment.h</itemPath>
-        <itemPath>Headers/Player.h</itemPath>
-        <itemPath>Headers/SAppContext.h</itemPath>
-        <itemPath>Headers/WrapperEvent.h</itemPath>
+        <logicalFolder name="Base" displayName="Base" projectFiles="true">
+          <itemPath>Headers/Base/FrameAnimatedNode.h</itemPath>
+          <itemPath>Headers/Base/FrameButton.h</itemPath>
+          <itemPath>Headers/Base/FrameCameraFPS.h</itemPath>
+          <itemPath>Headers/Base/FrameCameraMaya.h</itemPath>
+          <itemPath>Headers/Base/FrameFont.h</itemPath>
+          <itemPath>Headers/Base/FrameImage.h</itemPath>
+          <itemPath>Headers/Base/FrameMenu.h</itemPath>
+          <itemPath>Headers/Base/FrameSceneNode.h</itemPath>
+          <itemPath>Headers/Base/FrameSkyBox.h</itemPath>
+          <itemPath>Headers/Base/FrameText.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="Context" displayName="Context" projectFiles="true">
+          <itemPath>Headers/Context/SAppContext.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="Events" displayName="Events" projectFiles="true">
+          <itemPath>Headers/Events/ButtonEvents.h</itemPath>
+          <itemPath>Headers/Events/KeyBoardEvents.h</itemPath>
+          <itemPath>Headers/Events/MenuEvents.h</itemPath>
+          <itemPath>Headers/Events/NodeMoviment.h</itemPath>
+          <itemPath>Headers/Events/WrapperEvent.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="FilesMan" displayName="FilesMan" projectFiles="true">
+          <itemPath>Headers/FilesMan/FileManagement.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="GenericList" displayName="GenericList" projectFiles="true">
+          <itemPath>Headers/GenericList/ArrayList.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="Player" displayName="Player" projectFiles="true">
+          <itemPath>Headers/Player/GroupPlayers.h</itemPath>
+          <itemPath>Headers/Player/Player.h</itemPath>
+        </logicalFolder>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Arquivos de código-fonte"
                    projectFiles="true">
       <logicalFolder name="Codes" displayName="Codes" projectFiles="true">
-        <itemPath>Codes/ArrayList.cpp</itemPath>
-        <itemPath>Codes/ButtonEvents.cpp</itemPath>
-        <itemPath>Codes/GroupPlayers.cpp</itemPath>
-        <itemPath>Codes/KeyBoardEvents.cpp</itemPath>
-        <itemPath>Codes/MenuEvents.cpp</itemPath>
-        <itemPath>Codes/NodeMoviment.cpp</itemPath>
-        <itemPath>Codes/Player.cpp</itemPath>
-        <itemPath>Codes/SAppContext.cpp</itemPath>
+        <logicalFolder name="Base" displayName="Base" projectFiles="true">
+          <itemPath>Codes/Base/FrameMenu.cpp</itemPath>
+          <itemPath>Codes/Base/FrameSceneNode.cpp</itemPath>
+        </logicalFolder>
+        <logicalFolder name="Context" displayName="Context" projectFiles="true">
+          <itemPath>Codes/Context/SAppContext.cpp</itemPath>
+        </logicalFolder>
+        <logicalFolder name="Events" displayName="Events" projectFiles="true">
+          <itemPath>Codes/Events/ButtonEvents.cpp</itemPath>
+          <itemPath>Codes/Events/KeyBoardEvents.cpp</itemPath>
+          <itemPath>Codes/Events/MenuEvents.cpp</itemPath>
+          <itemPath>Codes/Events/NodeMoviment.cpp</itemPath>
+          <itemPath>Codes/Events/WrapperEvent.cpp</itemPath>
+        </logicalFolder>
+        <logicalFolder name="FilesMan" displayName="FilesMan" projectFiles="true">
+        </logicalFolder>
+        <logicalFolder name="GenericList" displayName="GenericList" projectFiles="true">
+          <itemPath>Codes/GenericList/ArrayList.cpp</itemPath>
+        </logicalFolder>
+        <logicalFolder name="Player" displayName="Player" projectFiles="true">
+          <itemPath>Codes/Player/GroupPlayers.cpp</itemPath>
+          <itemPath>Codes/Player/Player.cpp</itemPath>
+        </logicalFolder>
         <itemPath>Codes/TesteMain.cpp</itemPath>
-        <itemPath>Codes/WrapperEvent.cpp</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"

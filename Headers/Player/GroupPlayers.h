@@ -1,7 +1,7 @@
 #ifndef GROUPPLAYERS_H_
 #define GROUPPLAYERS_H_
 
-#include "ArrayList.h"
+#include "../GenericList/ArrayList.h"
 #include "Player.h"
 
 namespace Players{
@@ -10,6 +10,7 @@ namespace Players{
             private:
 
                 GenericList::ArrayList<Player> *_players;
+                std::string _currentPlayerName;
 
             public:
 
@@ -28,13 +29,14 @@ namespace Players{
                 int getNumberOfPlayers();
                 int getBestPlayerWins();
                 int getBestPlayerMatches();
-                int getBestRelationshipWinsByMatch();
+                int getBestRelationshipScoreByMatch();
 
                 std::string getCurrentResearchingPlayerName();
 
                 int getWinsByPlayer(Player __player);
                 int getMatchesByPlayer(Player __player);
-                int getRelationshipWinsByMatches(Player __player);
+                int getScoreByPlayer(Player __player);
+                double getRelationshipWinsByMatches(Player __player);
 
 	};
 };

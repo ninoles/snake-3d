@@ -10,7 +10,7 @@
 
 #include <irrlicht.h>
 
-#include "SAppContext.h"
+#include "../Context/SAppContext.h"
 #include "ButtonEvents.h"
 #include "KeyBoardEvents.h"
 #include "NodeMoviment.h"

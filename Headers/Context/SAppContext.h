@@ -3,6 +3,8 @@
 
 #include <irrlicht.h>
 
+//TODO Incluir referência ao frame que tem um SAppContext
+
 namespace Context{
 	
 	class SAppContext{

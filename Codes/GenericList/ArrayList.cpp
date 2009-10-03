@@ -1,4 +1,4 @@
-#include "../Headers/ArrayList.h"
+#include "../../Headers/GenericList/ArrayList.h"
 
 using namespace GenericList;
 
