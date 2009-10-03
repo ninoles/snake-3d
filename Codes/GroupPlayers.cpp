@@ -46,9 +46,51 @@ int GroupPlayers::searchPlayer(Player __player){
     return index;
 }
 
+int GroupPlayers::getNumberOfPlayers(){
+    return _players->getSize();
+}
 
+int GroupPlayers::getBestPlayerWins(){
+    GenericList::ArrayList<Player>::Iterator it = _players->iterator();
 
+    int bestIndex = 0;
 
+    for(int k = 0; it.hasNext() && k < _players->getSize() - 1; ++k)
+        (it.next().getWins() < it.next().getWins() ? bestIndex = k : bestIndex = k+1);
+
+    return bestIndex;
+}
+
+int GroupPlayers::getBestPlayerMatches(){
+    GenericList::ArrayList<Player>::Iterator it = _players->iterator();
+
+    int bestIndex = 0;
+
+    for(int k = 0; it.hasNext() && k < _players->getSize() - 1; ++k)
+        (it.next().getNumberGames() < it.next().getNumberGames() ? bestIndex = k : bestIndex = k+1);
+
+    return bestIndex;
+}
+
+int GroupPlayers::getBestRelationshipScoreByMatch(){
+    GenericList::ArrayList<Player>::Iterator it = _players->iterator();
+
+    Player tmpPlayer;
+    double oldPercent = 0;
+    double bestPercent = 0;
+    int bestIndex = 0;
+
+    for(int k = 0; it.hasNext(); k++){
+        tmpPlayer = it.next();
+
+        oldPercent = tmpPlayer.getScore() / tmpPlayer.getNumberGames();
+        
+        if (oldPercent >= bestPercent){
+            bestPercent = oldPercent;
+            bestIndex = k;
+        }
+    }
+}
 
 #include "ArrayList.cpp"
 
