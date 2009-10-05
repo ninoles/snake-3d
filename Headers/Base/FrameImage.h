@@ -8,10 +8,23 @@
 #ifndef _FRAMEIMAGE_H
 #define	_FRAMEIMAGE_H
 
+#include <irrlicht.h>
+
 namespace base{
 
-    class FrameImage : public irr::gui::IGUIImage{
-        
+    class FrameImage{
+
+        private:
+
+            irr::gui::IGUIImage *_image;
+
+        public:
+
+            FrameImage(irr::gui::IGUIImage *__image);
+            
+            void setImage(irr::gui::IGUIImage *__image);
+            irr::gui::IGUIImage* getImageFrame();
+
     };
     
 };

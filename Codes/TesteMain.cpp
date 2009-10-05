@@ -6,15 +6,15 @@
  */
 
 #include <stdlib.h>
+#include <iostream>
 
-#include "../Headers/GenericList/ArrayList.h"
-
-using namespace GenericList;
 
 /*
  * 
  */
 int main(int argc, char** argv) {
+
+    
 
     return 0;
 }

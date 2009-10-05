@@ -8,10 +8,23 @@
 #ifndef _FRAMESKYBOX_H
 #define	_FRAMESKYBOX_H
 
+#include <irrlicht.h>
+
 namespace base{
 
-    class FrameSkyBox : public irr::scene::ISceneNode{
-        
+    class FrameSkyBox{
+
+        private:
+
+            irr::scene::ISceneNode *_skyBox;
+
+        public:
+
+            FrameSkyBox(irr::scene::ISceneNode *__skyBox);
+
+            void setSkyBox(irr::scene::ISceneNode *__skyBox);
+            irr::scene::ISceneNode* getSkyBox();
+
     };
 };
 

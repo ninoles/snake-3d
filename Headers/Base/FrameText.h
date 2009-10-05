@@ -8,10 +8,23 @@
 #ifndef _FRAMETEXT_H
 #define	_FRAMETEXT_H
 
+#include <irrlicht.h>
+
 namespace base{
 
-    class FrameText : public irr::gui::IGUIStaticText{
-        
+    class FrameText{
+
+        private:
+
+            irr::gui::IGUIStaticText *_text;
+
+        public:
+
+            FrameText(irr::gui::IGUIStaticText *__text);
+
+            void setText(irr::gui::IGUIStaticText *__text);
+            irr::gui::IGUIStaticText* getText();
+            
     };
 };
 

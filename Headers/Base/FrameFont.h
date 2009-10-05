@@ -8,10 +8,23 @@
 #ifndef _FRAMEFONT_H
 #define	_FRAMEFONT_H
 
+#include <irrlicht.h>
+
 namespace base{
 
-    class FrameFont : public irr::gui::IGUIFont{
-        
+    class FrameFont{
+
+        private:
+
+            irr::gui::IGUIFont *_font;
+
+        public:
+
+            FrameFont(irr::gui::IGUIFont *__font);
+
+            void setFont(irr::gui::IGUIFont *__font);
+            irr::gui::IGUIFont* getFont();
+            
     };
 };
 

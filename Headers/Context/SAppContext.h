@@ -12,7 +12,6 @@ namespace Context{
 		private:
 			
 			irr::IrrlichtDevice* _device;
-			
 		public:
 			
 			SAppContext(irr::IrrlichtDevice *__device);

@@ -9,6 +9,7 @@
 #define	_NODEMOVIMENT_H
 
 #include <string>
+
 #include "KeyBoardEvents.h"
 #include "../Context/SAppContext.h"
 

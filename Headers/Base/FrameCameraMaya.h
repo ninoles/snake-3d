@@ -8,10 +8,22 @@
 #ifndef _FRAMECAMERAMAYA_H
 #define	_FRAMECAMERAMAYA_H
 
+#include <irrlicht.h>
+
 namespace base{
     
-    class FrameCameraMaya : public irr::scene::ISceneNodeAnimatorCameraMaya{
-        
+    class FrameCameraMaya{
+
+        private:
+
+            irr::scene::ISceneNodeAnimatorCameraMaya *_cameraMaya;
+
+        public:
+
+            FrameCameraMaya(irr::scene::ISceneNodeAnimatorCameraMaya *__cameraMaya);
+
+            void setCameraMaya(irr::scene::ISceneNodeAnimatorCameraMaya *__cameraMaya);
+            irr::scene::ISceneNodeAnimatorCameraMaya* getCameraMaya();
     };
 };
 

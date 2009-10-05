@@ -1,4 +1,7 @@
 #include "../../Headers/GenericList/ArrayList.h"
+#include <iostream>
+
+using namespace std;
 
 using namespace GenericList;
 
@@ -27,9 +30,10 @@ void ArrayList<T>::add(T __value){
     for(int k = 0; k < _size; k++)
             tmpArray[k] = _array[k];
 
-    _array = new T[_size++];
+    _size++;
+    _array = new T[_size];
 
-    for(int k = 0; k < _size - 1; k++)
+    for(int k = 0; k < _size-1; k++)
             _array[k] = tmpArray[k];
 
     _array[_size-1] = __value;
@@ -45,7 +49,7 @@ void ArrayList<T>::cleanAll(){
 
 template<typename T>
 T ArrayList<T>::get(int __index){
-	if(isSize(__index))
+	if(!isSize(__index))
 		return _array[__index];
 
         T tmp;
@@ -79,7 +83,7 @@ int ArrayList<T>::getSize(){
 
 template<typename T>
 bool ArrayList<T>::isSize(int __index){
-    return (!__index < 0) && (__index < _size);
+    return (__index < 0) && (__index < _size);
 }
 
 template<typename T>

@@ -8,10 +8,23 @@
 #ifndef _FRAMEANIMATEDNODE_H
 #define	_FRAMEANIMATEDNODE_H
 
+#include <irrlicht.h>
+
 namespace base{
 
-    class FrameAnimetedNode : public irr::scene::IAnimatedMeshSceneNode{
-        
+    class FrameAnimatedNode{
+
+        private:
+
+            irr::scene::IAnimatedMeshSceneNode *_mesh;
+
+        public:
+
+            FrameAnimatedNode(irr::scene::IAnimatedMeshSceneNode *__animatedNode);
+            
+            void setAnimatedSceneNode(irr::scene::IAnimatedMeshSceneNode *__animatedNode);
+            irr::scene::IAnimatedMeshSceneNode* getAnimatedScene();
+
     };
 };
 

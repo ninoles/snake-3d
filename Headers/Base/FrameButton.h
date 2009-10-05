@@ -8,10 +8,22 @@
 #ifndef _FRAMEBUTTON_H
 #define	_FRAMEBUTTON_H
 
+#include <irrlicht.h>
+
 namespace base{
 
-    class FrameButton : public irr::gui::IGUIButton{
-        
+    class FrameButton{
+
+        private:
+
+            irr::gui::IGUIButton *_button;
+
+        public:
+
+            FrameButton(irr::gui::IGUIButton *__button);
+            void setFrameButton(irr::gui::IGUIButton *__button);
+            irr::gui::IGUIButton* getFrameButton();
+
     };
 }
 
