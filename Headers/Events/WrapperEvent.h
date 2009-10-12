@@ -31,9 +31,8 @@ namespace Events{
 
         public:
 
-            WrapperEvents();
+            WrapperEvents(irr::IrrlichtDevice *__device);
 
-            void setDevice(irr::IrrlichtDevice *__device);
             void setAllEvents();
 
             bool OnEvent(const irr::SEvent& event);

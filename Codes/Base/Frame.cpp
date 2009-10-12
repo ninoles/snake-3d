@@ -8,13 +8,17 @@ Frame::Frame(){
 }
 
 Frame::Frame(int __width, int __heigth,int __bitsPerPixel, bool __fullScreen, bool __stencilBuffer){
-	_eventReceiver = new WrapperEvents();
+	_device = irr::createDevice(irr::video::EDT_SOFTWARE, irr::core::dimension2d<irr::s32>(__width, __heigth),
+                            __bitsPerPixel, __fullScreen, __stencilBuffer, false, 0);
 
-	_device = irr::createDevice(irr::video::EDT_OPENGL, irr::core::dimension2d<irr::s32>(__width, __heigth),
-                            __bitsPerPixel, __fullScreen, __stencilBuffer, false, _eventReceiver);
+	if(_device == 0)
+		return;
 
-	_eventReceiver->setDevice(_device);
+
+	_eventReceiver = new WrapperEvents(_device);
 	_eventReceiver->setAllEvents();
+
+	_device->setEventReceiver(_eventReceiver);
 
     _driver = _device->getVideoDriver();
     _guiEnv = _device->getGUIEnvironment();
@@ -49,10 +53,16 @@ bool Frame::frameRun(){
 	return _device->run();
 }
 
+bool Frame::windowActive(){
+	return _device->isWindowActive();
+}
+
 void Frame::drawFrame(){
 	_driver->beginScene(true, true, irr::video::SColor(100, 123, 156, 187));
 	_guiEnv->drawAll();
 	_sceneMang->drawAll();
+
+	_driver->endScene();
 }
 
 void Frame::closeFrame(){

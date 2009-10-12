@@ -56,6 +56,7 @@ namespace base{
             int getFPS();
 
             bool frameRun();
+            bool windowActive();
             void drawFrame();
             void closeFrame();
 

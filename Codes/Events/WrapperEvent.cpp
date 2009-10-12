@@ -1,12 +1,10 @@
 #include "../../Headers/Events/WrapperEvent.h"
+#include <iostream>
 
+using namespace std;
 using namespace Events;
 
-WrapperEvents::WrapperEvents(){
-
-}
-
-void WrapperEvents::setDevice(irr::IrrlichtDevice* __device){
+WrapperEvents::WrapperEvents(irr::IrrlichtDevice* __device){
 	_device = __device;
 }
 
@@ -19,20 +17,22 @@ void WrapperEvents::setAllEvents(){
 }
 
 bool WrapperEvents::OnEvent(const irr::SEvent& event){
-    irr::s32 idEvent = event.GUIEvent.Caller->getID();
 
-    if(event.EventType == irr::EET_KEY_INPUT_EVENT)
-        _eventNode->runMovement(event.KeyInput.Key);
-    else
-        switch(event.GUIEvent.EventType){
-            case irr::gui::EGET_BUTTON_CLICKED:
-                _eventButton->handler(idEvent);
-                break;
+	if(event.EventType == irr::EET_GUI_EVENT){
+		irr::s32 idEvent = event.GUIEvent.Caller->getID();
 
-            case irr::gui::EGET_MENU_ITEM_SELECTED:
-                _eventMenu->handler(idEvent);
-                break;
-        }
+		switch(event.GUIEvent.EventType){
+			case irr::gui::EGET_BUTTON_CLICKED:
+				_eventButton->handler(idEvent);
+				break;
+
+			case irr::gui::EGET_MENU_ITEM_SELECTED:
+				_eventMenu->handler(idEvent);
+				break;
+		}
+	} else if(event.EventType == irr::EET_KEY_INPUT_EVENT)
+		_eventNode->runMovement(event.KeyInput.Key);
+
 
     return false;
 }
