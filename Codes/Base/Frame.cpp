@@ -58,7 +58,7 @@ bool Frame::windowActive(){
 }
 
 void Frame::drawFrame(){
-	_driver->beginScene(true, true, irr::video::SColor(100, 123, 156, 187));
+	_driver->beginScene(true, true, irr::video::SColor(0,200,200,200));
 	_guiEnv->drawAll();
 	_sceneMang->drawAll();
 
@@ -77,6 +77,12 @@ irr::gui::IGUIButton * Frame::addButton(const irr::core::rect<irr::s32>& __recta
 
 irr::scene::IAnimatedMeshSceneNode* Frame::addAnimetedSceneNode(const irr::c8* __filename){
 	return _sceneMang->addAnimatedMeshSceneNode(_sceneMang->getMesh(__filename));
+}
+
+irr::gui::IGUIStaticText* Frame::addText(const wchar_t *__text, const irr::core::rect<irr::s32> __rectangle, bool __border,
+									bool __worldWrapper, irr::gui::IGUIElement *__parent, irr::s32 __id, bool __fillBackground){
+
+	return _guiEnv->addStaticText(__text, __rectangle, __border, __worldWrapper, __parent, __id, __fillBackground);
 }
 
 irr::scene::ICameraSceneNode* Frame::addCameraFPS(irr::scene::ISceneNode* __parent,

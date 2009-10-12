@@ -18,15 +18,8 @@ irr::gui::IGUIContextMenu* FrameMenu::getMainMenu(){
     return _mainMenu;
 }
 
-void FrameMenu::addSubMenu(FrameMenu *__subMenu, int __elementIndex){
-    irr::gui::IGUIContextMenu *tmp;
-
-    tmp = __subMenu->getMainMenu();
-    tmp = _mainMenu->getSubMenu(__elementIndex);
-    
-    __subMenu->setMainMenu(tmp);
-
-    delete tmp;
+irr::gui::IGUIContextMenu* FrameMenu::addSubMenu(int __elementIndex){
+	return _mainMenu->getSubMenu(__elementIndex);
 }
 
 void FrameMenu::addItemMainMenu(const wchar_t* __text, irr::s32 __idItem, bool __enabled, bool __hasSubMenu, bool __checked){

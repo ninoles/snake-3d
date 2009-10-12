@@ -70,6 +70,9 @@ namespace base{
                                     irr::SKeyMap* __keyMapArray, irr::s32 __keyMapSize, bool __noVerticalMovement,
                                     irr::f32 __jumpSpeed);
 
+            irr::gui::IGUIStaticText* addText(const wchar_t *__text, const irr::core::rect<irr::s32> __rectangle, bool __border,
+									bool __worldWrapper, irr::gui::IGUIElement *__parent, irr::s32 __id, bool __fillBackground);
+
             irr::scene::ICameraSceneNode* addCameraMaya(irr::scene::ISceneNode* __parent,
                                     irr::f32 __rotateSpeed, irr::f32 __zoomSpeed,
                                     irr::f32 __translationSpeed, irr::s32 __id);

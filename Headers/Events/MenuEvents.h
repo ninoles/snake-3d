@@ -14,7 +14,6 @@ namespace Events{
 	
 	enum GameMenu{
 		GUI_ID_PAUSE = 100,
-		GUI_ID_CONT_GAME,
 		GUI_ID_LEAVE_GAME
 	};
 	

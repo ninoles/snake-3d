@@ -30,7 +30,8 @@ namespace base{
             irr::gui::IGUIContextMenu* getMainMenu();
 
             void addItemMainMenu(const wchar_t *text, irr::s32 commandId, bool enabled, bool hasSubMenu, bool checked);
-            void addSubMenu(FrameMenu *__subMenu, int __elementIndex);
+
+            irr::gui::IGUIContextMenu* addSubMenu(int __elementIndex);
 
     };
 

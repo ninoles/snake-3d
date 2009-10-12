@@ -20,5 +20,8 @@ void ButtonEvents::handler(int __idEvent){
             break;
         case GUI_ID_START_BUTTON:
             break;
+        case GUI_ID_CLOSE_FRAME:
+        	_device->closeDevice();
+        	break;
     }
 }
