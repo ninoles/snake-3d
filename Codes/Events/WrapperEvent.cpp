@@ -2,6 +2,22 @@
 
 using namespace Events;
 
+WrapperEvents::WrapperEvents(){
+
+}
+
+void WrapperEvents::setDevice(irr::IrrlichtDevice* __device){
+	_device = __device;
+}
+
+void WrapperEvents::setAllEvents(){
+
+	_eventButton = new ButtonEvents(_device);
+	_eventMenu = new MenuEvents(_device);
+	_eventNode = new NodeMoviment(_device);
+
+}
+
 bool WrapperEvents::OnEvent(const irr::SEvent& event){
     irr::s32 idEvent = event.GUIEvent.Caller->getID();
 

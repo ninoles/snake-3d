@@ -3,11 +3,11 @@
 using namespace Events;
 
 ButtonEvents::ButtonEvents(){
-    _context = new Context::SAppContext;
+    _device = 0;
 }
 
-ButtonEvents::ButtonEvents(Context::SAppContext* __context){
-    _context = __context;
+ButtonEvents::ButtonEvents(irr::IrrlichtDevice *__device){
+	_device = __device;
 }
 
 void ButtonEvents::handler(int __idEvent){

@@ -23,7 +23,7 @@ namespace Events{
             irr::EKEY_CODE _movimentThree;
 
             irr::scene::ISceneNode *_node;
-            Context::SAppContext *_context;
+            irr::IrrlichtDevice *_device;
 
             irr::f32 _movimentSpeed;
             irr::u32 then;
@@ -32,7 +32,7 @@ namespace Events{
 
         public:
 
-            NodeMoviment(Context::SAppContext *__context);
+            NodeMoviment(irr::IrrlichtDevice *__device);
             void setNode(irr::scene::ISceneNode *__node);
             void setKeys(irr::EKEY_CODE __movimentOne, irr::EKEY_CODE __movimentTwo, irr::EKEY_CODE __movimentThree);
             void changeKey(irr::EKEY_CODE __oldKey, irr::EKEY_CODE __newKey);

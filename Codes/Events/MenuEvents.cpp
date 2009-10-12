@@ -2,6 +2,10 @@
 
 using namespace Events;
 
+MenuEvents::MenuEvents(irr::IrrlichtDevice *__device){
+	_device = __device;
+}
+
 void MenuEvents::handler(int __idEvent){
 	
 	switch(__idEvent){

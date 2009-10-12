@@ -11,9 +11,7 @@
 #include <irrlicht.h>
 #include <string>
 
-#include "../Context/SAppContext.h"
 #include "../Events/WrapperEvent.h"
-#include "../Context/SAppContext.h"
 
 #include "FrameCameraMaya.h"
 #include "FrameFont.h"
@@ -36,13 +34,13 @@ namespace base{
             irr::gui::IGUIEnvironment *_guiEnv;
             irr::scene::ISceneManager *_sceneMang;
             irr::gui::IGUIFont *_font;
+
             Events::WrapperEvents *_eventReceiver;
-            Context::SAppContext *_context;
             
         public:
 
             Frame();
-            Frame(irr::video::E_DRIVER_TYPE __driverType, int __width, int __heigth, bool __fullScreen, int __bitsPerPixel, bool __stencilBuffer);
+            Frame(int __width, int __heigth, int __bitsPerPixel, bool __fullScreen, bool __stencilBuffer);
 
             void setFont(const irr::c8* __filename, FrameFont *__font);
             void setModeCursor(bool __visible);
@@ -57,30 +55,51 @@ namespace base{
 
             int getFPS();
 
-            irr::scene::IAnimatedMeshSceneNode* addAnimetedSceneNode(std::string __absoluteWay);
+            bool frameRun();
+            void drawFrame();
+            void closeFrame();
+
+            irr::scene::IAnimatedMeshSceneNode* addAnimetedSceneNode(const irr::c8* __filename);
 
             irr::gui::IGUIButton* addButton(const irr::core::rect<irr::s32>& __rectangle, irr::gui::IGUIElement* __parent,
                                     irr::s32 __id, const wchar_t* __text, const wchar_t* __tooltiptext);
 
-            irr::scene::ISceneNodeAnimatorCameraFPS* addCameraFPS(irr::scene::ISceneNode* __parent,
+            irr::scene::ICameraSceneNode* addCameraFPS(irr::scene::ISceneNode* __parent,
                                     irr::f32 __rotateSpeed, irr::f32 __moveSpeed, irr::s32 __id,
-                                    irr::SKeyMap* __keyMapArray, irr::s32 keyMapSize, bool __noVerticalMovement,
+                                    irr::SKeyMap* __keyMapArray, irr::s32 __keyMapSize, bool __noVerticalMovement,
                                     irr::f32 __jumpSpeed);
 
-            irr::scene::ISceneNodeAnimatorCameraMaya* addCameraMaya(irr::scene::ISceneNode* __parent,
+            irr::scene::ICameraSceneNode* addCameraMaya(irr::scene::ISceneNode* __parent,
                                     irr::f32 __rotateSpeed, irr::f32 __zoomSpeed,
                                     irr::f32 __translationSpeed, irr::s32 __id);
 
             irr::gui::IGUIFont* addFontFrame(const irr::c8* __filename);
 
-            irr::gui::IGUIImage* addImage(std::string __filename, irr::core::position2d<irr::s32> __pos,
+            irr::gui::IGUIImage* addImage(const irr::c8* __filename, irr::core::position2d<irr::s32> __pos,
                                     bool __useAlphaChannel, irr::gui::IGUIElement* __parent, irr::s32 __id,
                                     const wchar_t* __text);
 
             irr::gui::IGUIFileOpenDialog* addOpenDialog(const wchar_t* __title,
                                     bool __modal, irr::gui::IGUIElement* __parent, irr::s32 __id);
 
-            FrameMenu* addMenu();
+            irr::gui::IGUIContextMenu* addMenu(irr::gui::IGUIElement *__parent, irr::s32 __id);
+
+            irr::scene::ITerrainSceneNode* addTerrainSceneNode(const irr::c8* __filename, irr::scene::ISceneNode *__parent, irr::s32 __id,
+									irr::core::vector3df __position, irr::core::vector3df __rotation,
+									irr::core::vector3df __scale, irr::video::SColor __vertexColor,
+									irr::s32 __maxLOD, irr::scene::E_TERRAIN_PATCH_SIZE __patchSize, irr::s32 __smoothFactor);
+
+            irr::scene::ISceneNode* addSkyBox(const irr::c8* __textureUp, const irr::c8* __textureDown, const irr::c8* __textureLeft,
+									const irr::c8* __textureRight, const irr::c8* __textureFt, const irr::c8* __textureBk,
+									irr::scene::ISceneNode *__parent, irr::s32 __id);
+
+            irr::scene::ITriangleSelector* addSelectorTerrainNode(irr::scene::ITerrainSceneNode *__node, irr::s32 __lod);
+
+            irr::scene::ITriangleSelector* addSelectorNode(irr::scene::IMesh *__mesh, irr::scene::ISceneNode *__node);
+
+            irr::scene::ISceneNodeAnimator* addColision(irr::scene::ITriangleSelector *__trianguleSelector, irr::scene::ISceneNode *__sceneNode,
+									irr::core::vector3df __ellipsoidRadius, irr::core::vector3df __gravityPerSecond,
+									irr::core::vector3df __ellipsoidTranslatio, irr::f32 __slidingValue);
 
     };
     

@@ -23,7 +23,7 @@ namespace Events{
 
         private:
 
-            Context::SAppContext *_context;
+            irr::IrrlichtDevice *_device;
 
             Events::ButtonEvents *_eventButton;
             Events::MenuEvents *_eventMenu;
@@ -31,12 +31,11 @@ namespace Events{
 
         public:
 
-            WrapperEvents(Context::SAppContext *__context) : _context(__context) {
-                _eventButton = new ButtonEvents(_context);
-                _eventMenu = new MenuEvents(_context);
-                _eventNode = new NodeMoviment(_context);
-            };
-            
+            WrapperEvents();
+
+            void setDevice(irr::IrrlichtDevice *__device);
+            void setAllEvents();
+
             bool OnEvent(const irr::SEvent& event);
             
     };

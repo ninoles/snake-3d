@@ -23,12 +23,12 @@ namespace Events{
 
         private:
 
-            Context::SAppContext *_context;
+            irr::IrrlichtDevice *_device;
 
         public:
 
             ButtonEvents();
-            ButtonEvents(Context::SAppContext *__context);
+            ButtonEvents(irr::IrrlichtDevice *__device);
             void handler(int __idEvent);
             
     };

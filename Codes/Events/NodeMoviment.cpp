@@ -4,10 +4,10 @@
 
 using namespace Events;
 
-NodeMoviment::NodeMoviment(Context::SAppContext *__context){
-    _context = __context;
+NodeMoviment::NodeMoviment(irr::IrrlichtDevice *__device){
+    _device = __device;
 
-    then = _context->getDevice()->getTimer()->getTime();
+    then = _device->getTimer()->getTime();
 }
 
 void NodeMoviment::setKeys(irr::EKEY_CODE __movimentOne, irr::EKEY_CODE __movimentTwo, irr::EKEY_CODE __movimentThree){
@@ -37,7 +37,7 @@ void NodeMoviment::runMovement(irr::EKEY_CODE __keyPressed){
     if(__keyPressed != _movimentOne && __keyPressed != _movimentTwo && __keyPressed != _movimentThree)
         return;
 
-    const irr::u32 now = _context->getDevice()->getTimer()->getTime();
+    const irr::u32 now = _device->getTimer()->getTime();
     const irr::f32 frameDeltaTime = (irr::f32)(now - then) / 1000.f; // Time in seconds
     then = now;
 
@@ -56,7 +56,7 @@ void NodeMoviment::runMovement(irr::EKEY_CODE __keyPressed){
 std::string NodeMoviment::toString(){
     std::cout << "Node: " << _node->getName() << ".- Moviments: " << _movimentOne << " - " << _movimentTwo
             << " - " << _movimentThree << ".- Speed: " << _movimentSpeed << ".- Device: " <<
-            _context->getDevice()->getDebugName() << std::endl;
+            _device->getDebugName() << std::endl;
 }
 
 

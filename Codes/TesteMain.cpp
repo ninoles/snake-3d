@@ -1,21 +1,11 @@
-/* 
- * File:   TesteMain.cpp
- * Author: henrique
- *
- * Created on 29 de Setembro de 2009, 10:03
- */
+#include <irrlicht.h>
 
-#include <stdlib.h>
-#include <iostream>
+#include "../Headers/Base/Frame.h"
 
+using namespace base;
 
-/*
- * 
- */
-int main(int argc, char** argv) {
+int main() {
 
-    
+	return 0;
 
-    return 0;
 }
-

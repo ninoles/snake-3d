@@ -38,7 +38,7 @@ void ArrayList<T>::add(T __value){
 
     _array[_size-1] = __value;
 
-    delete tmpArray;
+    delete[] tmpArray;
 }
 
 template<typename T>

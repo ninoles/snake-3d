@@ -44,11 +44,11 @@ namespace Events{
 		
 		private:
 			
-			Context::SAppContext *_context;
+			irr::IrrlichtDevice *_device;
 			
 		public:
 			
-			MenuEvents(Context::SAppContext *__context) : _context(__context) { };
+			MenuEvents(irr::IrrlichtDevice *__device);
 
 			void handler(int __idEvent);
 	};
