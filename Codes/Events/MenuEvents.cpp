@@ -9,13 +9,7 @@ MenuEvents::MenuEvents(irr::IrrlichtDevice *__device){
 void MenuEvents::handler(int __idEvent){
 	
 	switch(__idEvent){
-					
-		/*
-		
 		case GUI_ID_PAUSE:
-			break;
-			
-		case GUI_ID_CONT_GAME:
 			break;
 		
 		case GUI_ID_LEAVE_GAME:
@@ -43,7 +37,7 @@ void MenuEvents::handler(int __idEvent){
 			break;
 		
 		case GUI_ID_QUIT:
-			_context->getDevice()->closeDevice();
+			_device->closeDevice();
 			break;
 
 		case GUI_ID_POINT_PLAYERS:
@@ -51,8 +45,5 @@ void MenuEvents::handler(int __idEvent){
 		
 		case GUI_ID_WIN_PLAYERS:
 			break;
-		
-		*/
-	
 	}
 }

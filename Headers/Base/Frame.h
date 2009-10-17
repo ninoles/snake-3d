@@ -53,6 +53,8 @@ namespace base{
             irr::gui::IGUIEnvironment* getGUIEnviroment();
             irr::scene::ISceneManager* getSceneManager();
 
+            irr::video::ITexture* getImage(const irr::c8* __filename);
+
             int getFPS();
 
             bool frameRun();

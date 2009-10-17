@@ -1,6 +1,7 @@
 #include <irrlicht.h>
 
 #include "../Headers/Plataform/InitalFrame.h"
+#include "../Headers/Plataform/AboutFrame.h"
 #include "../Headers/Base/Frame.h"
 
 using namespace plataform;
@@ -8,9 +9,7 @@ using namespace base;
 
 int main() {
 
-	InitialFrame *frame = new InitialFrame();
-
-	frame->displayFrame(true);
+	AboutFrame *frame = new AboutFrame();
 
 	while(frame->getFrame()->frameRun())
 			if(frame->getFrame()->windowActive())

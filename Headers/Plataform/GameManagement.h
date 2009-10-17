@@ -20,10 +20,6 @@ namespace plataform{
 
 		public:
 
-			GameManagement();
-
-			static irr::video::ITexture* loadTexture(const irr::c8 *__filename);
-			static irr::gui::IGUIFont* loadFont(const irr::c8* __filename);
 
 	};
 };

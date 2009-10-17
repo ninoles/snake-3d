@@ -25,8 +25,7 @@ void AboutFrame::initComponents(){
 
 	_backGround = new FrameImage(_frame->addImage("/home/henrique/Desktop/Snake Project/snake-3d/images/aboutbox.jpg", irr::core::position2d<irr::s32>(0, 0), false, 0, 0, L""));
 
-	_closeWindow = new FrameButton(_frame->addButton(irr::core::rect<irr::s32>(150, 240, 250, 240 + 32), 0, Events::GUI_ID_CLOSE_FRAME, L"Fechar", L"Fechar janela"));
-
+	_closeWindow = new FrameButton(_frame->addButton(irr::core::rect<irr::s32>(150, 240, 250, 240 + 20), 0, Events::GUI_ID_CLOSE_FRAME, L"Fechar", L"Fechar janela"));
 }
 
 void AboutFrame::displayFrame(bool __visible){

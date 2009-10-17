@@ -27,10 +27,10 @@ void InitialFrame::initComponents(){
 }
 
 void InitialFrame::createMenu(){
-	_menu->addItemMainMenu(L"Arquivo", 0, true, true, false);
-	_menu->addItemMainMenu(L"Partidas", 0, true, true, false);
-	_menu->addItemMainMenu(L"Pontos", 0, true, true, false);
-	_menu->addItemMainMenu(L"Ajuda", 0, true, true, false);
+	_menu->addItemMainMenu(L"Arquivo", -1, true, true, false);
+	_menu->addItemMainMenu(L"Partidas", -1, true, true, false);
+	_menu->addItemMainMenu(L"Pontos", -1, true, true, false);
+	_menu->addItemMainMenu(L"Ajuda", -1, true, true, false);
 
 	FrameMenu *subMenuArchive = new FrameMenu(_menu->addSubMenu(0));
 	FrameMenu *subMenuMatches = new FrameMenu(_menu->addSubMenu(1));

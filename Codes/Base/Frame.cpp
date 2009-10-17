@@ -25,6 +25,26 @@ Frame::Frame(int __width, int __heigth,int __bitsPerPixel, bool __fullScreen, bo
     _sceneMang = _device->getSceneManager();
 }
 
+irr::IrrlichtDevice* Frame::getDevice(){
+	return _device;
+}
+
+irr::video::IVideoDriver* Frame::getVideoDriver(){
+	return _driver;
+}
+
+irr::gui::IGUIEnvironment* Frame::getGUIEnviroment(){
+	return _guiEnv;
+}
+
+irr::scene::ISceneManager* Frame::getSceneManager(){
+	return _sceneMang;
+}
+
+irr::video::ITexture* Frame::getImage(const irr::c8* __filename){
+	return _driver->getTexture(__filename);
+}
+
 void Frame::setEventReceiver(Events::WrapperEvents *__eventReceiver){
     _eventReceiver = __eventReceiver;
 }
@@ -125,7 +145,7 @@ irr::gui::IGUIFileOpenDialog* Frame::addOpenDialog(const wchar_t* __title,
 }
 
 irr::gui::IGUIContextMenu* Frame::addMenu(irr::gui::IGUIElement *__parent, irr::s32 __id){
-	return _guiEnv->addMenu(__parent, __id);
+	return _guiEnv->addMenu();
 }
 
 irr::scene::ITerrainSceneNode* Frame::addTerrainSceneNode(const irr::c8* __filename, irr::scene::ISceneNode *__parent, irr::s32 __id,

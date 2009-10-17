@@ -27,7 +27,13 @@ bool WrapperEvents::OnEvent(const irr::SEvent& event){
 				break;
 
 			case irr::gui::EGET_MENU_ITEM_SELECTED:
+				irr::gui::IGUIContextMenu *menu = (irr::gui::IGUIContextMenu*)event.GUIEvent.Caller;
+				idEvent = menu->getItemCommandId(menu->getSelectedItem());
+
 				_eventMenu->handler(idEvent);
+
+				delete menu;
+
 				break;
 		}
 	} else if(event.EventType == irr::EET_KEY_INPUT_EVENT)
