@@ -1,22 +1,22 @@
 #include <irrlicht.h>
 
-#include "../Headers/Plataform/InitalFrame.h"
-#include "../Headers/Plataform/AboutFrame.h"
 #include "../Headers/Base/Frame.h"
+#include "../Headers/Plataform/FrameManagement.h"
+
+#include <iostream>
 
 using namespace plataform;
 using namespace base;
 
 int main() {
 
-	AboutFrame *frame = new AboutFrame();
+	FrameManagement *manage = new FrameManagement(800, 600, 32, false, false);
 
-	while(frame->getFrame()->frameRun())
-			if(frame->getFrame()->windowActive())
-				frame->displayFrame(true);
+	manage->changeFrame(FRAME_ID_MAIN_MENU, false);
 
-		frame->displayFrame(false);
+	while(manage->getBaseFrame()->frameRun())
+		manage->getBaseFrame()->drawFrame();
 
-	return 0;
+
 
 }

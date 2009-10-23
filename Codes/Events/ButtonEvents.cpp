@@ -12,15 +12,17 @@ ButtonEvents::ButtonEvents(irr::IrrlichtDevice *__device){
 
 void ButtonEvents::handler(int __idEvent){
     switch(__idEvent){
-        case GUI_ID_CONT_GAME:
-            break;
         case GUI_ID_CREATE_GAME_BUTTON:
             break;
         case GUI_ID_LOAD_GAME_BUTTON:
             break;
-        case GUI_ID_START_BUTTON:
+        case GUI_ID_SCORE_BUTTON:
             break;
-        case GUI_ID_CLOSE_FRAME:
+        case GUI_ID_PREF_BUTTON:
+        	break;
+        case GUI_ID_HELP_GAME:
+        	break;
+        case GUI_ID_QUIT_GAME:
         	_device->closeDevice();
         	break;
     }

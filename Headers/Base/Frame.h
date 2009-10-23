@@ -25,6 +25,15 @@
 
 namespace base{
 
+	enum idFrames{
+
+		FRAME_ID_BASE = 1000,
+		FRAME_ID_ABOUT,
+		FRAME_ID_MAIN_MENU,
+		FRAME_ID_NEW_GAME
+
+	};
+
     class Frame{
         
         private:
@@ -33,6 +42,8 @@ namespace base{
             irr::video::IVideoDriver *_driver;
             irr::gui::IGUIEnvironment *_guiEnv;
             irr::scene::ISceneManager *_sceneMang;
+
+            irr::video::SColor _colorFrame;
             irr::gui::IGUIFont *_font;
 
             Events::WrapperEvents *_eventReceiver;
@@ -40,18 +51,27 @@ namespace base{
         public:
 
             Frame();
+            Frame(Frame *__frame);
             Frame(int __width, int __heigth, int __bitsPerPixel, bool __fullScreen, bool __stencilBuffer);
+
+            void setDevice(irr::IrrlichtDevice *__device);
+            void setVideoDriver(irr::video::IVideoDriver *__driver);
+            void setGUIEnviroment(irr::gui::IGUIEnvironment *__guiEnv);
+            void setSceneManager(irr::scene::ISceneManager *__scene);
 
             void setFont(const irr::c8* __filename, FrameFont *__font);
             void setModeCursor(bool __visible);
             void setEventReceiver(Events::WrapperEvents *__eventReceiver);
             void setTitleFrame(const wchar_t* __titleFrame);
             void setResizable(bool __resizable);
+            void setColor(int __alpha, int __red, int __green, int __blue);
 
             irr::IrrlichtDevice* getDevice();
             irr::video::IVideoDriver* getVideoDriver();
             irr::gui::IGUIEnvironment* getGUIEnviroment();
             irr::scene::ISceneManager* getSceneManager();
+            irr::gui::IGUIFont *getFont();
+            irr::video::SColor getColorFrame();
 
             irr::video::ITexture* getImage(const irr::c8* __filename);
 
