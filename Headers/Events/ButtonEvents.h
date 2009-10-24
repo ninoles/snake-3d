@@ -12,13 +12,14 @@
 
 namespace Events{
 
-	enum ButtonOptions{
+	enum MainMenuOptions{
 		GUI_ID_CREATE_GAME_BUTTON = 500,
 		GUI_ID_LOAD_GAME_BUTTON,
 		GUI_ID_SCORE_BUTTON,
 		GUI_ID_PREF_BUTTON,
 		GUI_ID_HELP_GAME,
-		GUI_ID_QUIT_GAME
+		GUI_ID_QUIT_GAME,
+		GUI_ID_MAIN_MENU_GAME
 	};
 
     class ButtonEvents{

@@ -8,9 +8,20 @@
 #ifndef _FILEMANAGEMENT_H
 #define	_FILEMANAGEMENT_H
 
+#include <irrlicht.h>
+
 namespace file{
 
     class FileManagement{
+
+		private:
+
+			irr::io::IXMLWriter _writerText;
+			irr::io::IXMLReader _readerText;
+
+		public:
+
+
 
     };
 };
