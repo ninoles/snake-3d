@@ -1,4 +1,12 @@
+/*
+ * FrameManagement.h
+ *
+ *  Created on: 26/09/2009
+ *      Author: Henrique Jonas
+ */
+
 #include "../../Headers/Events/ButtonEvents.h"
+#include "../../Headers/Plataform/GUIManagement.h"
 
 using namespace Events;
 

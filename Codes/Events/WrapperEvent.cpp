@@ -1,5 +1,11 @@
+/*
+ * FrameManagement.h
+ *
+ *  Created on: 26/09/2009
+ *      Author: Henrique Jonas
+ */
+
 #include "../../Headers/Events/WrapperEvent.h"
-#include <iostream>
 
 using namespace std;
 using namespace Events;
@@ -26,6 +32,7 @@ bool WrapperEvents::OnEvent(const irr::SEvent& event){
 				_eventButton->handler(idEvent);
 				break;
 
+			//This case isn't a option.
 			case irr::gui::EGET_MENU_ITEM_SELECTED:
 				irr::gui::IGUIContextMenu *menu = (irr::gui::IGUIContextMenu*)event.GUIEvent.Caller;
 				idEvent = menu->getItemCommandId(menu->getSelectedItem());

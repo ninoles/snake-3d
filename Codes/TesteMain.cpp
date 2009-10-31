@@ -1,22 +1,13 @@
 #include <irrlicht.h>
 
-#include "../Headers/Base/Frame.h"
-#include "../Headers/Plataform/FrameManagement.h"
-
-#include <iostream>
+#include "../Headers/Plataform/Game.h"
 
 using namespace plataform;
-using namespace base;
 
 int main() {
 
-	FrameManagement *manage = new FrameManagement(800, 600, 32, false, false);
+	Game game;
 
-	manage->changeFrame(FRAME_ID_MAIN_MENU, false);
-
-	while(manage->getBaseFrame()->frameRun())
-		manage->getBaseFrame()->drawFrame();
-
-
+	game.run();
 
 }
