@@ -8,7 +8,6 @@
 #ifndef FRAMEMANAGEMENT_H_
 #define FRAMEMANAGEMENT_H_
 
-#include "GUIManagement.h"
 #include "../Base/Frame.h"
 
 namespace plataform{

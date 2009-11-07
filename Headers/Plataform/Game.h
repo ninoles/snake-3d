@@ -5,20 +5,24 @@
  *      Author: Henrique Jonas
  */
 
+#ifndef GAME_H_
+#define GAME_H_
+
 #include <irrlicht.h>
+
 
 #include "FrameManagement.h"
 #include "GUIManagement.h"
 
 #include "../FilesMan/FileManagement.h"
 
-#ifndef GAME_H_
-#define GAME_H_
+using namespace file;
 
 namespace plataform{
 
-	enum options{
-		GAME_LOAD_ARCHIVE_GAME = 0,
+	enum Options{
+		GAME_NOTHING_OPTION = -1,
+		GAME_LOAD_ARCHIVE_GAME,
 		GAME_LOAD_ARCHIVE_HELP,
 		GAME_LOAD_ARCHIVE_INFO_SCORE,
 		GAME_SAVE_ARCHIVE_GAME,
@@ -29,21 +33,23 @@ namespace plataform{
 
 		private:
 
-			FrameManagement *_frameMan;
+			static Game *_gameSing;
 
-			static options _gameCurrentOption;
+			FrameManagement *_frameMan;
+			Options _gameCurrentOption;
+
+			Game(){ }
 
 		public:
 
-			Game();
+			static Game* getInstance();
 
-			static void setCurrentOption(options __gameOp);
+			void initDisplay();
+			void setCurrentOption(Options __gameCurrent);
 
 			void run();
-
 	};
 
 }
-
 
 #endif /* GAME_H_ */

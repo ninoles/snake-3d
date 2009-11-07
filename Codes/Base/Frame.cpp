@@ -21,7 +21,7 @@ Frame::Frame(Frame *__frame) {
 Frame::Frame(int __width, int __heigth, int __bitsPerPixel,
 		bool __fullScreen, bool __stencilBuffer) {
 
-	_device = irr::createDevice(irr::video::EDT_SOFTWARE,
+	_device = irr::createDevice(irr::video::EDT_OPENGL,
 			irr::core::dimension2d<irr::s32>(__width, __heigth),
 			__bitsPerPixel, __fullScreen, __stencilBuffer, false, 0);
 
@@ -143,6 +143,7 @@ irr::gui::IGUIButton * Frame::addButton(
 
 irr::scene::IAnimatedMeshSceneNode* Frame::addAnimetedSceneNode(
 		const irr::c8* __filename) {
+
 	return _sceneMang->addAnimatedMeshSceneNode(_sceneMang->getMesh(__filename));
 }
 

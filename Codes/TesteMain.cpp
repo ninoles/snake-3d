@@ -6,8 +6,9 @@ using namespace plataform;
 
 int main() {
 
-	Game game;
+	Game* game = Game::getInstance();
 
-	game.run();
+	game->initDisplay();
 
+	game->run();
 }

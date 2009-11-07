@@ -9,18 +9,57 @@
 
 using namespace plataform;
 
-Game::Game(){
+Game* Game::_gameSing = NULL;
 
-	//Implementar aqui o carregamento do arquivo de configuração do jogo.
+Game* Game::getInstance(){
+	if(_gameSing == 0){
+		return _gameSing = new Game();
+	}
 
+	return _gameSing;
+}
+
+void Game::initDisplay(){
 	_frameMan = new FrameManagement(800, 600, 32, false, true);
+	_gameCurrentOption = GAME_NOTHING_OPTION;
+}
 
+void Game::setCurrentOption(Options __gameCurrent){
+	_gameCurrentOption = __gameCurrent;
 }
 
 void Game::run(){
 
-	while(_frameMan->getBaseFrame()->frameRun())
+	while(_frameMan->getBaseFrame()->frameRun()){
 		_frameMan->getBaseFrame()->drawFrame();
+
+		switch(_gameCurrentOption){
+
+			case GAME_LOAD_ARCHIVE_GAME:
+				_gameCurrentOption = GAME_NOTHING_OPTION;
+				break;
+
+			case GAME_LOAD_ARCHIVE_HELP:
+				_gameCurrentOption = GAME_NOTHING_OPTION;
+				break;
+
+			case GAME_LOAD_ARCHIVE_INFO_SCORE:
+				_gameCurrentOption = GAME_NOTHING_OPTION;
+				break;
+
+			case GAME_SAVE_ARCHIVE_GAME:
+				_gameCurrentOption = GAME_NOTHING_OPTION;
+				break;
+
+			case GAME_SAVE_ARCHIVE_PREF:
+				_gameCurrentOption = GAME_NOTHING_OPTION;
+				break;
+
+			case GAME_NOTHING_OPTION:
+				break;
+
+		}
+	}
 
 }
 

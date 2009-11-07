@@ -9,7 +9,6 @@
 #define	_BUTTONEVENTS_H
 
 #include "../Context/SAppContext.h"
-#include "../Plataform/GUIManagement.h"
 
 namespace Events{
 
@@ -21,6 +20,16 @@ namespace Events{
 		GUI_ID_HELP_GAME,
 		GUI_ID_QUIT_GAME,
 		GUI_ID_MAIN_MENU_GAME
+	};
+
+	enum fileOpenDialog{
+		GUI_ID_FILE_OPEN = -1
+	};
+
+	enum recordFiles{
+		GUI_ID_SAVE_PREF = 804,
+		GUI_ID_SAVE_TYPE_GAME = 605,
+		GUI_ID_SAVE_CURRENT_GAME
 	};
 
     class ButtonEvents{
@@ -37,7 +46,6 @@ namespace Events{
             
     };
 };
-
 
 #endif	/* _BUTTONEVENTS_H */
 
