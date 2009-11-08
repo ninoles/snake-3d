@@ -35,10 +35,14 @@ void ButtonEvents::handler(int __idEvent){
         	break;
 
         case GUI_ID_LOAD_GAME_BUTTON:
-        	_device->getGUIEnvironment()->addFileOpenDialog(L"Selecione um jogo salvo", true, 0, 400);
+        	_device->getGUIEnvironment()->addFileOpenDialog(L"Selecione um jogo salvo", true, 0, 1000);
         	break;
 
         case GUI_ID_SCORE_BUTTON:
+        	_device->getGUIEnvironment()->clear();
+			_device->getGUIEnvironment()->loadGUI("xmlgui/guiScore.xml", 0);
+			break;
+
         case GUI_ID_HELP_GAME:
         	_device->getGUIEnvironment()->clear();
         	_device->getGUIEnvironment()->loadGUI("xmlgui/guiError.xml", 0);

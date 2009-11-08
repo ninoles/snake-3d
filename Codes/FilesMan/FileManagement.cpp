@@ -39,6 +39,34 @@ void FileManagement::saveElement(Player __player){
         _out << "\n";
 }
 
+/*
+ * Order of record informations of screen
+ *
+ * 1- Width
+ * 2- Heigth
+ * 3- Bits per pixel
+ * 4- FullScreen
+ * 5- Stencil Buffer
+ *
+ */
+void FileManagement::saveConfigurationVideo(int __width, int __heigth, int __bitsPerPixel,
+					bool __fullScreen, bool __stencilBuffer){
+
+	_out << __width;
+	_out << "/n";
+	_out << __heigth;
+	_out << "/n";
+	_out << __bitsPerPixel;
+	_out << "/n";
+	_out << __fullScreen;
+	_out << "/n";
+	_out << __stencilBuffer;
+	_out << "/n";
+
+	closeWrite();
+
+}
+
 void FileManagement::saveElement(string __value){
         _out << __value;
         _out << "\n";
@@ -78,6 +106,20 @@ ArrayList<Player> FileManagement::getPlayers(){
         closeRead();
 
         return listPlayers;
+}
+
+string* FileManagement::getConfigurations(){
+
+	string tmp[5];
+
+	char tmpLine[MAX_CHAR];
+
+	for(int i = 0; _in.eof(); i++){
+		_in.getline(tmpLine, MAX_CHAR);
+		tmp[i] = toString(tmpLine);
+	}
+
+	return tmp;
 }
 
 string FileManagement::toString(char *__string){

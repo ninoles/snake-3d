@@ -38,7 +38,6 @@ namespace file{
 
 			void saveElement(Players::Player __player);
 			void saveElement(std::string __value);
-
 			void saveConfigurationVideo(int __width, int __heigth, int __bitsPerPixel,
 					bool __fullScreen, bool __stencilBuffer);
 
@@ -46,7 +45,7 @@ namespace file{
 			void closeRead();
 
 			GenericList::ArrayList<Players::Player> getPlayers();
-			std::string getConfigurations();
+			std::string* getConfigurations();
 
 			std::string toString(char *__string);
 

@@ -10,7 +10,6 @@
 
 #include <irrlicht.h>
 
-
 #include "FrameManagement.h"
 #include "GUIManagement.h"
 
