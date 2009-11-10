@@ -30,13 +30,13 @@ void FileManagement::openFileRead(){
 
 void FileManagement::saveElement(Player __player){
         _out << __player.getName();
-        _out << "\n";
+        _out << endl;
         _out << __player.getNumberGames();
-        _out << "\n";
+        _out << endl;
         _out << __player.getScore();
-        _out << "\n";
+        _out << endl;
         _out << __player.getWins();
-        _out << "\n";
+        _out << endl;
 }
 
 /*
@@ -50,18 +50,21 @@ void FileManagement::saveElement(Player __player){
  *
  */
 void FileManagement::saveConfigurationVideo(int __width, int __heigth, int __bitsPerPixel,
-					bool __fullScreen, bool __stencilBuffer){
+					bool __fullScreen, bool __stencilBuffer, bool __antiAliasing, bool __joyStick){
 
 	_out << __width;
-	_out << "/n";
+	_out << endl;
 	_out << __heigth;
-	_out << "/n";
+	_out << endl;
 	_out << __bitsPerPixel;
-	_out << "/n";
+	_out << endl;
 	_out << __fullScreen;
-	_out << "/n";
+	_out << endl;
 	_out << __stencilBuffer;
-	_out << "/n";
+	_out << endl;
+	_out << __antiAliasing;
+	_out << endl;
+	_out << __joyStick;
 
 	closeWrite();
 
@@ -69,7 +72,7 @@ void FileManagement::saveConfigurationVideo(int __width, int __heigth, int __bit
 
 void FileManagement::saveElement(string __value){
         _out << __value;
-        _out << "\n";
+        _out << endl;
 }
 
 void FileManagement::closeWrite(){
@@ -78,6 +81,18 @@ void FileManagement::closeWrite(){
 
 void FileManagement::closeRead(){
         _in.close();
+}
+
+string FileManagement::getElement(){
+	if(!_in.eof()){
+
+		char tmpLine[MAX_CHAR];
+		_in.getline(tmpLine, MAX_CHAR);
+
+		return toString(tmpLine);
+	}
+
+	return "/0";
 }
 
 ArrayList<Player> FileManagement::getPlayers(){

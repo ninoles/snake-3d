@@ -49,3 +49,7 @@ bool WrapperEvents::OnEvent(const irr::SEvent& event){
 
     return false;
 }
+
+ButtonEvents* WrapperEvents::getButtonEvents(){
+	return _eventButton;
+}

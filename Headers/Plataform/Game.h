@@ -13,20 +13,13 @@
 #include "FrameManagement.h"
 #include "GUIManagement.h"
 
+#include "../Events/ButtonEvents.h"
+#include "../Events/WrapperEvent.h"
 #include "../FilesMan/FileManagement.h"
 
 using namespace file;
 
 namespace plataform{
-
-	enum Options{
-		GAME_NOTHING_OPTION = -1,
-		GAME_LOAD_ARCHIVE_GAME,
-		GAME_LOAD_ARCHIVE_HELP,
-		GAME_LOAD_ARCHIVE_INFO_SCORE,
-		GAME_SAVE_ARCHIVE_GAME,
-		GAME_SAVE_ARCHIVE_PREF
-	};
 
 	class Game{
 
@@ -35,7 +28,7 @@ namespace plataform{
 			static Game *_gameSing;
 
 			FrameManagement *_frameMan;
-			Options _gameCurrentOption;
+			FileManagement *_fileMan;
 
 			Game(){ }
 
@@ -44,7 +37,6 @@ namespace plataform{
 			static Game* getInstance();
 
 			void initDisplay();
-			void setCurrentOption(Options __gameCurrent);
 
 			void run();
 	};

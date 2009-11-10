@@ -6,22 +6,24 @@
  */
 
 #include "../../Headers/Events/ButtonEvents.h"
-#include <iostream>
 
 using namespace Events;
+using namespace file;
+using namespace plataform;
+
 using namespace std;
 
 ButtonEvents::ButtonEvents(){
     _device = 0;
+    _options = GAME_NOTHING_OPTION;
 }
 
 ButtonEvents::ButtonEvents(irr::IrrlichtDevice *__device){
 	_device = __device;
+	_options = GAME_NOTHING_OPTION;
 }
 
 void ButtonEvents::handler(int __idEvent){
-	cout << "ID: " << __idEvent << endl;
-
 	switch(__idEvent){
 
 
@@ -45,12 +47,14 @@ void ButtonEvents::handler(int __idEvent){
 
         case GUI_ID_HELP_GAME:
         	_device->getGUIEnvironment()->clear();
-        	_device->getGUIEnvironment()->loadGUI("xmlgui/guiError.xml", 0);
+        	_device->getGUIEnvironment()->loadGUI("xmlgui/guiAbout.xml", 0);
         	break;
 
         case GUI_ID_PREF_BUTTON:
         	_device->getGUIEnvironment()->clear();
         	_device->getGUIEnvironment()->loadGUI("xmlgui/guiPref.xml", 0);
+
+        	_options = GAME_LOAD_ARCHIVE_PREF;
         	break;
 
         case GUI_ID_MAIN_MENU_GAME:
@@ -84,16 +88,44 @@ void ButtonEvents::handler(int __idEvent){
          */
 
         case GUI_ID_SAVE_PREF:
-        	_device->getGUIEnvironment()->clear();
-			_device->getGUIEnvironment()->loadGUI("xmlgui/guiError.xml",0);
+        	_options = GAME_SAVE_ARCHIVE_PREF;
+
+			//Save in the file.
+
+			_fileMan = new FileManagement("conf/gameConf", ".dat");
+			_fileMan->openFileWrite(false);
+			_fileMan->saveConfigurationVideo(atoi(GUIManagement::getTokens("x", GUIManagement::getTextElement(800, _device->getGUIEnvironment()->getRootGUIElement()))[0].c_str())
+												, atoi(GUIManagement::getTokens("x", GUIManagement::getTextElement(800, _device->getGUIEnvironment()->getRootGUIElement()))[1].c_str())
+												, 32, ((irr::gui::IGUICheckBox*)GUIManagement::getElement(801, _device->getGUIEnvironment()->getRootGUIElement()))->isChecked(), false
+												, ((irr::gui::IGUICheckBox*)GUIManagement::getElement(802, _device->getGUIEnvironment()->getRootGUIElement()))->isChecked()
+												, ((irr::gui::IGUICheckBox*)GUIManagement::getElement(803, _device->getGUIEnvironment()->getRootGUIElement()))->isChecked());
+
+			_device->getGUIEnvironment()->clear();
+			_device->getGUIEnvironment()->loadGUI("xmlgui/guiMainMenu.xml",0);
 			break;
 
         case GUI_ID_SAVE_TYPE_GAME:
+        	_options = GAME_SAVE_ARCHIVE_GAME;
+
+        	//Save in the file
+
+        	_fileMan = new FileManagement("conf/matchConf", ".dat");
+        	_fileMan->openFileWrite(false);
+
+        	_fileMan->saveElement(GUIManagement::getTextElement(600, _device->getGUIEnvironment()->getRootGUIElement()));
+        	_fileMan->saveElement(GUIManagement::getTextElement(601, _device->getGUIEnvironment()->getRootGUIElement()));
+        	_fileMan->saveElement(GUIManagement::toString(((irr::gui::IGUICheckBox*)GUIManagement::getElement(602, _device->getGUIEnvironment()->getRootGUIElement()))->isChecked()));
+        	_fileMan->saveElement(GUIManagement::toString(((irr::gui::IGUICheckBox*)GUIManagement::getElement(603, _device->getGUIEnvironment()->getRootGUIElement()))->isChecked()));
+        	_fileMan->saveElement(GUIManagement::getTextElement(604, _device->getGUIEnvironment()->getRootGUIElement()));
+
+        	_fileMan->closeWrite();
+
         	_device->getGUIEnvironment()->clear();
 			_device->getGUIEnvironment()->loadGUI("xmlgui/guiError.xml",0);
 			break;
 
         case GUI_ID_SAVE_CURRENT_GAME:
+        	_options = GAME_SAVE_CURRENT_GAME;
         	_device->getGUIEnvironment()->clear();
 			_device->getGUIEnvironment()->loadGUI("xmlgui/guiError.xml",0);
 			break;
@@ -102,5 +134,28 @@ void ButtonEvents::handler(int __idEvent){
 		 * End File Record/Read Options
 		 */
 
+		/*
+		 * Start Players Score Options
+		 */
+
+        case GUI_ID_LOAD_SCORE_PLAYERS:
+        case GUI_ID_LOAD_WINS_PLAYERS:
+        case GUI_ID_LOAD_MATCH_PLAYERS:
+        	_device->getGUIEnvironment()->clear();
+			_device->getGUIEnvironment()->loadGUI("xmlgui/guiError.xml",0);
+			break;
+
+		/*
+		 * End Players Score Options
+		 */
+
 	}
+}
+
+void ButtonEvents::setGameOption(gameOptions __options){
+	_options = __options;
+}
+
+int ButtonEvents::getGameOption(){
+	return _options;
 }

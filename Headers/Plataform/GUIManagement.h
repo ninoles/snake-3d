@@ -10,8 +10,12 @@
 
 #include <irrlicht.h>
 #include <string>
+#include <cstring>
+#include <iostream>
 
 #include "../GenericList/ArrayList.h"
+
+using namespace std;
 
 namespace plataform{
 
@@ -52,6 +56,40 @@ namespace plataform{
 
 				return tmp;
 
+			}
+
+			static std::string toString(bool __value){
+				if(__value)
+					return "true";
+				return "false";
+			}
+
+			static bool toBoolean(string __phrase){
+				if(__phrase == "1" || __phrase == "True" || __phrase == "true")
+					return true;
+				return false;
+			}
+
+			static std::string* getTokens(string __delimiter, string __phrase){
+
+				char* phrase = new char[__phrase.size()+1];
+				char *tmp;
+
+				strcpy(phrase, __phrase.c_str());
+
+				tmp = strtok(phrase, __delimiter.c_str());
+
+				std::string word[MAX_CHAR];
+
+				for(int k = 0; tmp != NULL; k++){
+					word[k] = tmp;
+					tmp = strtok(NULL, __delimiter.c_str());
+				}
+
+				delete [] phrase;
+				delete [] tmp;
+
+				return word;
 			}
 
 	};

@@ -12,6 +12,7 @@
 #include <fstream>
 #include <stdio.h>
 #include <stdlib.h>
+#include <iostream>
 
 #include "../Player/Player.h"
 #include "../GenericList/ArrayList.h"
@@ -32,6 +33,7 @@ namespace file{
 			static const int MAX_CHAR = 80;
 
 			FileManagement(std::string __nameArchive, string __extension);
+			FileManagement() { }
 
 			void openFileWrite(bool __modelCreateFile);
 			void openFileRead();
@@ -39,13 +41,15 @@ namespace file{
 			void saveElement(Players::Player __player);
 			void saveElement(std::string __value);
 			void saveConfigurationVideo(int __width, int __heigth, int __bitsPerPixel,
-					bool __fullScreen, bool __stencilBuffer);
+					bool __fullScreen, bool __stencilBuffer, bool __antiAliasing, bool __joyStick);
 
 			void closeWrite();
 			void closeRead();
 
+			std::string getElement();
 			GenericList::ArrayList<Players::Player> getPlayers();
 			std::string* getConfigurations();
+
 
 			std::string toString(char *__string);
 

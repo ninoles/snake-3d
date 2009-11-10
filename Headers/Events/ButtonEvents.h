@@ -10,6 +10,9 @@
 
 #include "../Context/SAppContext.h"
 
+#include "../../Headers/Plataform/GUIManagement.h"
+#include "../../Headers/FilesMan/FileManagement.h"
+
 namespace Events{
 
 	enum MainMenuOptions{
@@ -32,11 +35,31 @@ namespace Events{
 		GUI_ID_SAVE_CURRENT_GAME
 	};
 
+	enum gameOptions{
+			GAME_NOTHING_OPTION = -1,
+			GAME_LOAD_ARCHIVE_GAME,
+			GAME_LOAD_ARCHIVE_HELP,
+			GAME_LOAD_ARCHIVE_INFO_SCORE,
+			GAME_LOAD_ARCHIVE_PREF,
+			GAME_SAVE_ARCHIVE_GAME,
+			GAME_SAVE_ARCHIVE_PREF,
+			GAME_SAVE_CURRENT_GAME
+	};
+
+	enum playerScoreOptions{
+			GUI_ID_LOAD_SCORE_PLAYERS = 900,
+			GUI_ID_LOAD_WINS_PLAYERS,
+			GUI_ID_LOAD_MATCH_PLAYERS
+	};
+
     class ButtonEvents{
 
         private:
 
             irr::IrrlichtDevice *_device;
+
+            file::FileManagement *_fileMan;
+            gameOptions _options;
 
         public:
 
@@ -44,6 +67,9 @@ namespace Events{
             ButtonEvents(irr::IrrlichtDevice *__device);
             void handler(int __idEvent);
             
+            int getGameOption();
+            void setGameOption(gameOptions __options);
+
     };
 };
 

@@ -47,7 +47,16 @@ namespace base{
             irr::gui::IGUIFont *_font;
 
             Events::WrapperEvents *_eventReceiver;
-            
+
+            /*
+             * Caracteristics of frame
+             */
+            int _width;
+            int _heigth;
+            int _bitsPerPixel;
+            bool _fullscreen;
+            bool _stencilBuffer;
+
         public:
 
             Frame();
@@ -73,6 +82,8 @@ namespace base{
             irr::gui::IGUIFont *getFont();
             irr::video::SColor getColorFrame();
 
+            Events::WrapperEvents* getEventReceiver();
+
             irr::video::ITexture* getImage(const irr::c8* __filename);
 
             int getFPS();
@@ -81,6 +92,12 @@ namespace base{
             bool windowActive();
             void drawFrame();
             void closeFrame();
+
+            int getWidth();
+            int getHeigth();
+            int getBitsPerPixel();
+            bool isFullScreen();
+            bool isStencilBuffer();
 
             irr::scene::IAnimatedMeshSceneNode* addAnimetedSceneNode(const irr::c8* __filename);
 

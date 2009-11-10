@@ -21,6 +21,12 @@ Frame::Frame(Frame *__frame) {
 Frame::Frame(int __width, int __heigth, int __bitsPerPixel,
 		bool __fullScreen, bool __stencilBuffer) {
 
+	_width = __width;
+	_heigth = __heigth;
+	_bitsPerPixel = __bitsPerPixel;
+	_fullscreen = __fullScreen;
+	_stencilBuffer = _stencilBuffer;
+
 	_device = irr::createDevice(irr::video::EDT_OPENGL,
 			irr::core::dimension2d<irr::s32>(__width, __heigth),
 			__bitsPerPixel, __fullScreen, __stencilBuffer, false, 0);
@@ -124,12 +130,32 @@ void Frame::drawFrame() {
 	_driver->endScene();
 }
 
+void Frame::setColor(int __alpha, int __red, int __green, int __blue) {
+	_colorFrame.set(__alpha, __red, __green, __blue);
+}
+
 void Frame::closeFrame() {
 	_device->drop();
 }
 
-void Frame::setColor(int __alpha, int __red, int __green, int __blue) {
-	_colorFrame.set(__alpha, __red, __green, __blue);
+int Frame::getWidth(){
+	return _width;
+}
+
+int Frame::getHeigth(){
+	return _heigth;
+}
+
+int Frame::getBitsPerPixel(){
+	return _bitsPerPixel;
+}
+
+bool Frame::isFullScreen(){
+	return _fullscreen;
+}
+
+bool Frame::isStencilBuffer(){
+	return _stencilBuffer;
 }
 
 irr::gui::IGUIButton * Frame::addButton(
@@ -139,6 +165,10 @@ irr::gui::IGUIButton * Frame::addButton(
 
 	return _guiEnv->addButton(__rectangle, __parent, __id, __text,
 			__tooltiptext);
+}
+
+Events::WrapperEvents* Frame::getEventReceiver(){
+	return _eventReceiver;
 }
 
 irr::scene::IAnimatedMeshSceneNode* Frame::addAnimetedSceneNode(

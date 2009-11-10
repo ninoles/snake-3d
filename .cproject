@@ -45,7 +45,6 @@
 <listOptionValue builtIn="false" value="GLU"/>
 <listOptionValue builtIn="false" value="Xext"/>
 <listOptionValue builtIn="false" value="X11"/>
-<listOptionValue builtIn="false" value="Xxf86vm"/>
 </option>
 <inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.949181908" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 <additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -508,6 +507,13 @@
 </tool>
 <tool id="cdt.managedbuild.tool.gnu.c.linker.exe.release.1506786484" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.release"/>
 <tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.release.409912020" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.release">
+<option id="gnu.cpp.link.option.libs.419019284" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
+<listOptionValue builtIn="false" value="Irrlicht"/>
+<listOptionValue builtIn="false" value="GL"/>
+<listOptionValue builtIn="false" value="GLU"/>
+<listOptionValue builtIn="false" value="Xext"/>
+<listOptionValue builtIn="false" value="X11"/>
+</option>
 <inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.789706565" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 <additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 <additionalInput kind="additionalinput" paths="$(LIBS)"/>
