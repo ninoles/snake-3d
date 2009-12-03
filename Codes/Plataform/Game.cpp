@@ -6,6 +6,7 @@
  */
 
 #include "../../Headers/Plataform/Game.h"
+#include <iostream>
 
 using namespace plataform;
 using namespace Events;
@@ -32,6 +33,26 @@ void Game::initDisplay(){
 	_fileMan->closeRead();
 
 	_frameMan->getBaseFrame()->setResizable(false);
+}
+
+
+void Game::generatMap(){
+
+	//Teste for print mesh
+	_frameMan->getBaseFrame()->setColor(0,255,255,255);
+
+	base::FrameAnimatedNode* tmp = new base::FrameAnimatedNode(_frameMan->getBaseFrame()->addAnimetedSceneNode("cubo.3DS"));
+
+	tmp->getAnimatedScene()->setPosition(irr::core::vector3df(0, 30, -20));
+	tmp->getAnimatedScene()->setMaterialFlag(irr::video::EMF_LIGHTING, false);
+	tmp->getAnimatedScene()->setMaterialTexture(0, _frameMan->getBaseFrame()->getVideoDriver()->getTexture("/home/henrique/workspace/snake project/snake-3d/images/logo.png"));
+
+	_frameMan->getBaseFrame()->getEventReceiver()->getNodeMoviment()->setNode(tmp->getAnimatedScene());
+	_frameMan->getBaseFrame()->getEventReceiver()->getNodeMoviment()->setKeys(irr::KEY_KEY_W, irr::KEY_KEY_S, irr::KEY_KEY_D);
+	_frameMan->getBaseFrame()->getEventReceiver()->getNodeMoviment()->setMovementSpeed(2.f);
+	_frameMan->getBaseFrame()->getSceneManager()->addCameraSceneNode(0, irr::core::vector3df(0,0,30), irr::core::vector3df(0,5,0));
+
+
 }
 
 void Game::run(){
@@ -93,12 +114,19 @@ void Game::run(){
 				((irr::gui::IGUICheckBox*)GUIManagement::getElement(803, _frameMan->getBaseFrame()->getDevice()->getGUIEnvironment()->getRootGUIElement()))->setChecked(GUIManagement::toBoolean(_fileMan->getElement()));
 
 				_fileMan->closeRead();
+
 				_frameMan->getBaseFrame()->getEventReceiver()->getButtonEvents()->setGameOption(GAME_NOTHING_OPTION);
 				break;
+
+			case GAME_START_MATCH:
+				generatMap();
+				_frameMan->getBaseFrame()->getEventReceiver()->getButtonEvents()->setGameOption(GAME_NOTHING_OPTION);
+
+				break;
+
 			case GAME_NOTHING_OPTION:
 				break;
 
 		}
 	}
-
 }

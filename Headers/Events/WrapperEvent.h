@@ -38,6 +38,7 @@ namespace Events{
             bool OnEvent(const irr::SEvent& event);
             
             Events::ButtonEvents* getButtonEvents();
+            Events::NodeMoviment* getNodeMoviment();
 
     };
 

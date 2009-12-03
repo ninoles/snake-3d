@@ -105,7 +105,7 @@ void ButtonEvents::handler(int __idEvent){
 			break;
 
         case GUI_ID_SAVE_TYPE_GAME:
-        	_options = GAME_SAVE_ARCHIVE_GAME;
+        	_options = GAME_START_MATCH;
 
         	//Save in the file
 
@@ -121,7 +121,6 @@ void ButtonEvents::handler(int __idEvent){
         	_fileMan->closeWrite();
 
         	_device->getGUIEnvironment()->clear();
-			_device->getGUIEnvironment()->loadGUI("xmlgui/guiError.xml",0);
 			break;
 
         case GUI_ID_SAVE_CURRENT_GAME:

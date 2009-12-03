@@ -37,8 +37,10 @@ namespace plataform{
 			static Game* getInstance();
 
 			void initDisplay();
+			void generatMap();
 
 			void run();
+
 	};
 
 }

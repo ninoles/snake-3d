@@ -53,3 +53,7 @@ bool WrapperEvents::OnEvent(const irr::SEvent& event){
 ButtonEvents* WrapperEvents::getButtonEvents(){
 	return _eventButton;
 }
+
+NodeMoviment* WrapperEvents::getNodeMoviment(){
+	return _eventNode;
+}
