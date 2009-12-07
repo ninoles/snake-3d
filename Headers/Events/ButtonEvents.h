@@ -1,7 +1,7 @@
 /* 
  * File:   ButtonEvents.h
  * Author: Henrique Jonas
- * Version: 0.1 BETA
+ * Version: 0.1
  * Created on 29 de Setembro de 2009, 21:32
  */
 
@@ -10,7 +10,7 @@
 
 #include "../Context/SAppContext.h"
 
-#include "../../Headers/Plataform/GUIManagement.h"
+#include "../../Headers/Platform/GUIManagement.h"
 #include "../../Headers/FilesMan/FileManagement.h"
 
 namespace Events{

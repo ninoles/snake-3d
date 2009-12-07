@@ -5,7 +5,7 @@
  *      Author: Henrique Jonas
  */
 
-#include "../../Headers/Plataform/FrameManagement.h"
+#include "../../Headers/Platform/FrameManagement.h"
 #include <iostream>
 
 using namespace plataform;

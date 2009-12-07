@@ -20,10 +20,12 @@ namespace base{
             Events::NodeMoviment *_movimentNode;
             irr::scene::ISceneNode *_sceneNode;
 
+            int _id;
 
         public:
 
-            FrameSceneNode(irr::scene::ISceneNode *__sceneNode);
+            FrameSceneNode();
+            FrameSceneNode(irr::scene::ISceneNode *__sceneNode, int __id);
             void setSceneNode(irr::scene::ISceneNode *__sceneNode);
             irr::scene::ISceneNode* getSceneNode();
 

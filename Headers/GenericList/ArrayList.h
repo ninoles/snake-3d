@@ -33,15 +33,16 @@ namespace GenericList{
 			
 			class Iterator{
 
-                            private:
+				private:
 
-                                    ArrayList<T> *_list;
-                                    int _pointer;
+						ArrayList<T> *_list;
+						int _pointer;
 
-                            public:
-                                    Iterator(ArrayList *_list);
-                                    T next();
-                                    bool hasNext();
+				public:
+						Iterator(ArrayList *_list);
+						T next();
+						bool hasNext();
+
 			};
 	}; 
 

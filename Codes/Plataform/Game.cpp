@@ -5,7 +5,7 @@
  *      Author: Henrique Jonas
  */
 
-#include "../../Headers/Plataform/Game.h"
+#include "../../Headers/Platform/Game.h"
 #include <iostream>
 
 using namespace plataform;

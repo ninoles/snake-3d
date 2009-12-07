@@ -2,7 +2,7 @@
  * PhysisNode.h
  *
  *  Created on: 19/11/2009
- *      Author: henrique
+ *      Author: Henrique Jonas
  */
 
 #ifndef PHYSISNODE_H_
@@ -15,19 +15,13 @@
 
 #include "MeshCollision.h"
 
-#define NEWTON_TO_IRR 32.0f
-#define IRR_TO_NEWTON	(1.0f / NEWTON_TO_IRR)
-
-namespace plataform{
+namespace physis{
 
 	class PhysisNode{
 
 		private:
 
 			base::FrameSceneNode *_node;
-
-			dFload _mass;
-			dFloat _inertia;
 
 			MeshCollision *_collision;
 			NewtonBody *_newtonBody;
@@ -36,11 +30,10 @@ namespace plataform{
 
 			PhysisNode();
 
-			void setMass(dFloat __mass);
-			void setInertia(dFloat __inertia);
-			void setMassMatrix(dFloat __Ixx, dFloat __Iyy, dFloat __Izz);
 			void setCollisionFromMesh(NewtonWorld *__newtonWorld);
 
+			void setNode(irr::scene::ISceneNode *__node, int __id);
+			void setBody(NewtonBody *__body);
 	};
 }
 

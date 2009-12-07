@@ -13,32 +13,33 @@
 
 #include "../Base/FrameSceneNode.h"
 
-class MeshCollision{
+namespace physis{
+	class MeshCollision{
 
-	private:
+		private:
 
-		base::FrameSceneNode *_node;
+			base::FrameSceneNode *_node;
 
-		NewtonWorld *_nWorld;
-		NewtonCollision *_newtonCol;
-		NewtonBody *_newtonBody;
+			NewtonWorld *_nWorld;
+			NewtonCollision *_newtonCol;
+			NewtonBody *_newtonBody;
 
-		float *_vertices;
-		irr::scene::IMeshBuffer *_meshBuffer;
+			float *_vertices;
+			irr::scene::IMeshBuffer *_meshBuffer;
 
-		void getVerticesFromMesh();
-		void copyToMeshBuffer();
+			irr::u32 getVerticesFromMesh();
+			void copyToMeshBuffer();
 
-	public:
+		public:
 
-		MeshCollision(NewtonBody*__newtonBody, NewtonWorld *__nWorld, base::FrameSceneNode *__node);
-		~MeshCollision();
+			MeshCollision(NewtonBody*__newtonBody, NewtonWorld *__nWorld, base::FrameSceneNode *__node);
+			~MeshCollision();
 
-		void createCollision();
+			void createCollision();
 
-		NewtonCollision* getCollisionNode();
+			NewtonCollision* getCollisionNode();
+	};
 };
-
 
 
 #endif /* MESHCOLLISION_H_ */

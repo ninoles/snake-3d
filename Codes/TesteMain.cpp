@@ -1,4 +1,4 @@
-#include "../Headers/Plataform/Game.h"
+#include "../Headers/Platform/Game.h"
 
 using namespace plataform;
 

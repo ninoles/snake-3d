@@ -2,8 +2,13 @@
 
 using namespace base;
 
-FrameSceneNode::FrameSceneNode(irr::scene::ISceneNode* __sceneNode){
+FrameSceneNode::FrameSceneNode(){
+
+}
+
+FrameSceneNode::FrameSceneNode(irr::scene::ISceneNode* __sceneNode, int __id){
     _sceneNode = __sceneNode;
+    _id = __id;
 }
 
 void FrameSceneNode::setSceneNode(irr::scene::ISceneNode* __sceneNode){
