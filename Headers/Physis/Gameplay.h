@@ -10,10 +10,15 @@
 
 #include <Newton.h>
 #include <irrlicht.h>
-#include <stdarg.h>
-
-#include "../GenericList/ArrayList.h"
 #include "../Base/FrameSceneNode.h"
+
+#define NUMBER_CONTACTS 3
+#define CONTACTS (3*NUMBER_CONTACTS)
+#define NORMALS (3*NUMBER_CONTACTS)
+
+typedef float contacts[CONTACTS];
+typedef float normals[NORMALS];
+typedef float penetration[NUMBER_CONTACTS];
 
 namespace physis{
 
@@ -24,20 +29,15 @@ namespace physis{
 			NewtonWorld *_newtonW;
 			irr::scene::ISceneManager *_sceneManagement;
 
-			GenericList::ArrayList<base::FrameSceneNode> *_nodes;
-
 		public:
 
 			Gameplay();
 			Gameplay(irr::scene::ISceneManager *__sceneManagement);
 
-			void insertFrameNode(base::FrameSceneNode __valueNode);
-			bool checkForCollisions(int numberOfNodes,...);
+			bool checkForCollisions(base::FrameSceneNode __nodeA, base::FrameSceneNode __nodeB);
 
 	};
 
 }
-
-#include "../../Codes/GenericList/ArrayList.cpp"
 
 #endif /* GAMEPLAY_H_ */

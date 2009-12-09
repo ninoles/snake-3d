@@ -22,7 +22,6 @@ namespace physis{
 
 			NewtonWorld *_nWorld;
 			NewtonCollision *_newtonCol;
-			NewtonBody *_newtonBody;
 
 			float *_vertices;
 			irr::scene::IMeshBuffer *_meshBuffer;
@@ -32,7 +31,7 @@ namespace physis{
 
 		public:
 
-			MeshCollision(NewtonBody*__newtonBody, NewtonWorld *__nWorld, base::FrameSceneNode *__node);
+			MeshCollision(NewtonWorld *__nWorld, base::FrameSceneNode *__node);
 			~MeshCollision();
 
 			void createCollision();

@@ -9,6 +9,7 @@
 #define	_FRAMESCENENODE_H
 
 #include <irrlicht.h>
+#include <Newton.h>
 
 #include "../Events/NodeMoviment.h"
 
@@ -17,20 +18,24 @@ namespace base{
     class FrameSceneNode{
         private:
 
-            Events::NodeMoviment *_movimentNode;
             irr::scene::ISceneNode *_sceneNode;
 
-            int _id;
+            NewtonCollision *_collision;
+
+            signed int _id;
 
         public:
 
             FrameSceneNode();
-            FrameSceneNode(irr::scene::ISceneNode *__sceneNode, int __id);
+            FrameSceneNode(irr::scene::ISceneNode *__sceneNode, signed int __id);
+
             void setSceneNode(irr::scene::ISceneNode *__sceneNode);
             irr::scene::ISceneNode* getSceneNode();
 
-            Events::NodeMoviment* getNodeMoviment();
-            void setNodeMoviment(Events::NodeMoviment* __movimentNode);
+            void setCollisionNode(NewtonCollision *__collision);
+            NewtonCollision* getCollision();
+
+            signed int getId();
 
     };
 

@@ -21,6 +21,7 @@ namespace base{
         public:
 
             FrameAnimatedNode(irr::scene::IAnimatedMeshSceneNode *__animatedNode);
+            FrameAnimatedNode();
             
             void setAnimatedSceneNode(irr::scene::IAnimatedMeshSceneNode *__animatedNode);
             irr::scene::IAnimatedMeshSceneNode* getAnimatedScene();

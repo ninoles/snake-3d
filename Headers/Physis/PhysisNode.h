@@ -25,15 +25,20 @@ namespace physis{
 
 			MeshCollision *_collision;
 			NewtonBody *_newtonBody;
+			NewtonWorld *_newtonWorld;
 
 		public:
 
+			PhysisNode(NewtonWorld *__newtonWorld);
 			PhysisNode();
 
-			void setCollisionFromMesh(NewtonWorld *__newtonWorld);
+			void createCollisionFromMesh(NewtonWorld *__newtonWorld);
 
-			void setNode(irr::scene::ISceneNode *__node, int __id);
-			void setBody(NewtonBody *__body);
+			void setNode(irr::scene::ISceneNode *__node);
+
+			void createBody();
+			void setMassAndInertia(dFloat __mass, dFloat __Ixx, dFloat __Iyy, dFloat __Izz);
+
 	};
 }
 

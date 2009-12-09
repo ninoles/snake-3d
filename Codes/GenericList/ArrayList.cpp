@@ -46,6 +46,28 @@ void ArrayList<T>::add(T __value){
 }
 
 template<typename T>
+void ArrayList<T>::add(T* __value){
+    if(_size != 0)
+    	T *tmpArray = new T[_size];
+
+    T *tmpArray;
+
+    for(int k = 0; k < _size; k++)
+            tmpArray[k] = _array[k];
+
+    _size++;
+    _array = new T[_size];
+
+    for(int k = 0; k < _size-1; k++)
+            _array[k] = tmpArray[k];
+
+    _array[_size-1] = __value;
+
+    if(_size > 1)
+    	delete tmpArray;
+}
+
+template<typename T>
 void ArrayList<T>::cleanAll(){
 	_array = new T;
 	_size = 0;

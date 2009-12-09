@@ -6,7 +6,7 @@ FrameSceneNode::FrameSceneNode(){
 
 }
 
-FrameSceneNode::FrameSceneNode(irr::scene::ISceneNode* __sceneNode, int __id){
+FrameSceneNode::FrameSceneNode(irr::scene::ISceneNode* __sceneNode, signed int __id){
     _sceneNode = __sceneNode;
     _id = __id;
 }
@@ -19,12 +19,14 @@ irr::scene::ISceneNode* FrameSceneNode::getSceneNode(){
     return _sceneNode;
 }
 
-void FrameSceneNode::setNodeMoviment(Events::NodeMoviment* __movimentNode){
-    _movimentNode = __movimentNode;
+void FrameSceneNode::setCollisionNode(NewtonCollision *__collision){
+	_collision = __collision;
 }
 
-Events::NodeMoviment* FrameSceneNode::getNodeMoviment(){
-    return _movimentNode;
+NewtonCollision* FrameSceneNode::getCollision(){
+	return _collision;
 }
 
-
+signed int FrameSceneNode::getId(){
+	return _id;
+}

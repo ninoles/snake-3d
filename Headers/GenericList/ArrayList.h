@@ -19,6 +19,7 @@ namespace GenericList{
 			ArrayList(T __initialValues[], int __size);
 			
 			void add(T __value);
+			void add(T *__value);
 			void cleanAll();
 			
 			T get(int __index);

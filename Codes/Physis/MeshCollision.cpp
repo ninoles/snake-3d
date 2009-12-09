@@ -11,10 +11,8 @@ using namespace irr;
 using namespace scene;
 using namespace physis;
 
-MeshCollision::MeshCollision(NewtonBody*__newtonBody, NewtonWorld *__nWorld,
-		base::FrameSceneNode *__node){
+MeshCollision::MeshCollision(NewtonWorld *__nWorld,	base::FrameSceneNode *__node){
 
-	_newtonBody = __newtonBody;
 	_nWorld = __nWorld;
 	_node = __node;
 	_meshBuffer = NULL;
@@ -64,13 +62,9 @@ void MeshCollision::createCollision(){
 	copyToMeshBuffer();
 
 	_newtonCol = NewtonCreateConvexHull(_nWorld, numberV, _vertices, sizeof(float)*3, 0.1f, 0, NULL);
-
+	_node->setCollisionNode(_newtonCol);
 }
 
 NewtonCollision* MeshCollision::getCollisionNode(){
 	return _newtonCol;
 }
-
-
-
-

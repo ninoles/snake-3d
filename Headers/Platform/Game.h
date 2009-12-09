@@ -16,8 +16,10 @@
 #include "../Events/ButtonEvents.h"
 #include "../Events/WrapperEvent.h"
 #include "../FilesMan/FileManagement.h"
+#include "../Physis/Gameplay.h"
 
 using namespace file;
+using namespace physis;
 
 namespace plataform{
 
@@ -30,7 +32,13 @@ namespace plataform{
 			FrameManagement *_frameMan;
 			FileManagement *_fileMan;
 
-			Game(){ }
+			Gameplay *_gameManagement;
+
+			Game(){
+				_gameManagement = new Gameplay();
+			}
+
+			void swapGUI(int __options);
 
 		public:
 
