@@ -34,7 +34,7 @@ namespace physis{
 
 			void createCollisionFromMesh(NewtonWorld *__newtonWorld);
 
-			void setNode(irr::scene::ISceneNode *__node);
+			void setNode(irr::scene::ISceneNode *__node, int __id);
 
 			void createBody();
 			void setMassAndInertia(dFloat __mass, dFloat __Ixx, dFloat __Iyy, dFloat __Izz);

@@ -20,7 +20,6 @@ MeshCollision::MeshCollision(NewtonWorld *__nWorld,	base::FrameSceneNode *__node
 }
 
 MeshCollision::~MeshCollision(){
-	delete [] _vertices;
 }
 
 u32 MeshCollision::getVerticesFromMesh(){

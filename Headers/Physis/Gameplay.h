@@ -34,7 +34,9 @@ namespace physis{
 			Gameplay();
 			Gameplay(irr::scene::ISceneManager *__sceneManagement);
 
-			bool checkForCollisions(base::FrameSceneNode __nodeA, base::FrameSceneNode __nodeB);
+			NewtonWorld* getNewtonWorld();
+
+			bool checkForCollisions(base::FrameSceneNode* __nodeA, base::FrameSceneNode* __nodeB);
 
 	};
 

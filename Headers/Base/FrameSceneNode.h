@@ -11,8 +11,6 @@
 #include <irrlicht.h>
 #include <Newton.h>
 
-#include "../Events/NodeMoviment.h"
-
 namespace base{
 
     class FrameSceneNode{
@@ -39,9 +37,6 @@ namespace base{
 
     };
 
-};
-
-
+}
 
 #endif	/* _FRAMESCENENODE_H */
-

@@ -41,13 +41,32 @@ void Game::generatMap(){
 	//Teste for print mesh
 	_frameMan->getBaseFrame()->setColor(0,255,255,255);
 
-	base::FrameSceneNode* tmp = new base::FrameSceneNode(_frameMan->getBaseFrame()->addAnimetedSceneNode("cubo.3DS"), 1);
+	tmp = new base::FrameSceneNode(_frameMan->getBaseFrame()->addAnimetedSceneNode("cubo.3DS"), 1);
 
-	tmp->getSceneNode()->setPosition(irr::core::vector3df(0, 50, -20));
+	tmp->getSceneNode()->setPosition(irr::core::vector3df(0, 50, 0));
 	tmp->getSceneNode()->setMaterialFlag(irr::video::EMF_LIGHTING, false);
 	tmp->getSceneNode()->setMaterialTexture(0, _frameMan->getBaseFrame()->getVideoDriver()->getTexture("/home/henrique/workspace/snake project/snake-3d/images/logo.png"));
 
 	_frameMan->getBaseFrame()->getSceneManager()->addCameraSceneNode(0, irr::core::vector3df(0,0,30), irr::core::vector3df(0,5,0));
+
+	_frameMan->getBaseFrame()->getEventReceiver()->getNodeMoviment()->insertNode(tmp);
+	_frameMan->getBaseFrame()->getEventReceiver()->getNodeMoviment()->insertKeysFromNode(1, irr::KEY_UP, irr::KEY_LEFT, irr::KEY_RIGHT, irr::KEY_DOWN);
+	_frameMan->getBaseFrame()->getEventReceiver()->getNodeMoviment()->setMovementSpeed(3.f);
+
+	tmp2 = new base::FrameSceneNode(_frameMan->getBaseFrame()->addAnimetedSceneNode("cubo.3DS"), 2);
+
+	tmp2->getSceneNode()->setPosition(irr::core::vector3df(100, 0, 0));
+	tmp2->getSceneNode()->setMaterialFlag(irr::video::EMF_LIGHTING, false);
+	tmp2->getSceneNode()->setMaterialTexture(0, _frameMan->getBaseFrame()->getVideoDriver()->getTexture("/home/henrique/workspace/snake project/snake-3d/images/logo.png"));
+
+	_frameMan->getBaseFrame()->getEventReceiver()->getNodeMoviment()->insertNode(tmp2);
+	_frameMan->getBaseFrame()->getEventReceiver()->getNodeMoviment()->insertKeysFromNode(2, irr::KEY_KEY_W, irr::KEY_KEY_A, irr::KEY_KEY_D, irr::KEY_KEY_S);
+
+	MeshCollision* meshA = new MeshCollision(_gameManagement->getNewtonWorld(), tmp);
+	MeshCollision* meshB = new MeshCollision(_gameManagement->getNewtonWorld(), tmp2);
+
+	meshA->createCollision();
+	meshB->createCollision();
 
 }
 
@@ -113,6 +132,7 @@ void Game::swapGUI(int __options){
 
 		case GAME_START_MATCH:
 			generatMap();
+			valida= true;
 			_frameMan->getBaseFrame()->getEventReceiver()->getButtonEvents()->setGameOption(GAME_NOTHING_OPTION);
 
 			break;
@@ -130,5 +150,11 @@ void Game::run(){
 
 		swapGUI(_frameMan->getBaseFrame()->getEventReceiver()->getButtonEvents()->getGameOption());
 
+		if(valida){
+			if(_gameManagement->checkForCollisions(tmp, tmp2)){
+				tmp->getSceneNode()->setMaterialTexture(0, _frameMan->getBaseFrame()->getVideoDriver()->getTexture("/home/henrique/workspace/snake project/snake-3d/images/aboutbox.jpg"));
+				tmp->getSceneNode()->getMaterial(0).EmissiveColor.set(0,0,255,255);
+			}
+		}
 	}
 }

@@ -27,7 +27,7 @@ Frame::Frame(int __width, int __heigth, int __bitsPerPixel,
 	_fullscreen = __fullScreen;
 	_stencilBuffer = _stencilBuffer;
 
-	_device = irr::createDevice(irr::video::EDT_OPENGL,
+	_device = irr::createDevice(irr::video::EDT_SOFTWARE,
 			irr::core::dimension2d<irr::s32>(__width, __heigth),
 			__bitsPerPixel, __fullScreen, __stencilBuffer, false, 0);
 
@@ -171,10 +171,10 @@ Events::WrapperEvents* Frame::getEventReceiver(){
 	return _eventReceiver;
 }
 
-irr::scene::IAnimatedMeshSceneNode* Frame::addAnimetedSceneNode(
+irr::scene::IMeshSceneNode* Frame::addAnimetedSceneNode(
 		const irr::c8* __filename) {
 
-	return _sceneMang->addAnimatedMeshSceneNode(_sceneMang->getMesh(__filename));
+	return _sceneMang->addMeshSceneNode(_sceneMang->getMesh(__filename));
 }
 
 irr::gui::IGUIStaticText* Frame::addText(const wchar_t *__text,

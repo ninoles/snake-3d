@@ -25,8 +25,8 @@ PhysisNode::PhysisNode(NewtonWorld *__newtonWorld){
 	_node = NULL;
 }
 
-void PhysisNode::setNode(scene::ISceneNode *__node){
-	_node = new FrameSceneNode(__node);
+void PhysisNode::setNode(scene::ISceneNode *__node, int __id){
+	_node = new FrameSceneNode(__node, __id);
 }
 
 void PhysisNode::createBody(){

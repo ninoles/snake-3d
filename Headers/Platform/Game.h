@@ -14,9 +14,10 @@
 #include "GUIManagement.h"
 
 #include "../Events/ButtonEvents.h"
-#include "../Events/WrapperEvent.h"
 #include "../FilesMan/FileManagement.h"
+
 #include "../Physis/Gameplay.h"
+#include "../Physis/MeshCollision.h"
 
 using namespace file;
 using namespace physis;
@@ -34,8 +35,14 @@ namespace plataform{
 
 			Gameplay *_gameManagement;
 
+			base::FrameSceneNode* tmp;
+			base::FrameSceneNode* tmp2;
+
+			bool valida;
+
 			Game(){
 				_gameManagement = new Gameplay();
+				valida = false;
 			}
 
 			void swapGUI(int __options);

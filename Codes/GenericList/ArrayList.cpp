@@ -25,15 +25,15 @@ ArrayList<T>::ArrayList(T __initialValues[], int __size){
 
 template<typename T>
 void ArrayList<T>::add(T __value){
-    if(_size != 0)
-    	T *tmpArray = new T[_size];
-
-    T *tmpArray;
+	T *tmpArray = new T[_size];
 
     for(int k = 0; k < _size; k++)
             tmpArray[k] = _array[k];
 
     _size++;
+
+    delete _array;
+
     _array = new T[_size];
 
     for(int k = 0; k < _size-1; k++)
@@ -41,21 +41,20 @@ void ArrayList<T>::add(T __value){
 
     _array[_size-1] = __value;
 
-    if(_size > 1)
-    	delete tmpArray;
+	delete tmpArray;
 }
 
 template<typename T>
 void ArrayList<T>::add(T* __value){
-    if(_size != 0)
-    	T *tmpArray = new T[_size];
-
-    T *tmpArray;
+	T *tmpArray = new T[_size];
 
     for(int k = 0; k < _size; k++)
             tmpArray[k] = _array[k];
 
     _size++;
+
+    delete _array;
+
     _array = new T[_size];
 
     for(int k = 0; k < _size-1; k++)
@@ -63,8 +62,7 @@ void ArrayList<T>::add(T* __value){
 
     _array[_size-1] = __value;
 
-    if(_size > 1)
-    	delete tmpArray;
+	delete tmpArray;
 }
 
 template<typename T>
@@ -80,7 +78,7 @@ T ArrayList<T>::get(int __index){
 
         T tmp;
 
-        return tmp ;
+        return tmp;
 }
 
 template<typename T>

@@ -99,7 +99,7 @@ namespace base{
             bool isFullScreen();
             bool isStencilBuffer();
 
-            irr::scene::IAnimatedMeshSceneNode* addAnimetedSceneNode(const irr::c8* __filename);
+            irr::scene::IMeshSceneNode* addAnimetedSceneNode(const irr::c8* __filename);
 
             irr::gui::IGUIButton* addButton(const irr::core::rect<irr::s32>& __rectangle, irr::gui::IGUIElement* __parent,
                                     irr::s32 __id, const wchar_t* __text, const wchar_t* __tooltiptext);
@@ -146,10 +146,6 @@ namespace base{
 
     };
     
-
 };
 
-
-
 #endif	/* _FRAME_H */
-
