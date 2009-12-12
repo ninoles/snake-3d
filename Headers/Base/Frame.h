@@ -9,19 +9,9 @@
 #define	_FRAME_H
 
 #include <irrlicht.h>
-#include <string>
+#include <time.h>
 
 #include "../Events/WrapperEvent.h"
-
-#include "FrameCameraMaya.h"
-#include "FrameFont.h"
-#include "FrameAnimatedNode.h"
-#include "FrameSceneNode.h"
-#include "FrameButton.h"
-#include "FrameCameraFPS.h"
-#include "FrameOpenDialog.h"
-#include "FrameImage.h"
-#include "FrameMenu.h"
 
 namespace base{
 
@@ -68,7 +58,7 @@ namespace base{
             void setGUIEnviroment(irr::gui::IGUIEnvironment *__guiEnv);
             void setSceneManager(irr::scene::ISceneManager *__scene);
 
-            void setFont(const irr::c8* __filename, FrameFont *__font);
+            void setFont(const irr::c8* __filename);
             void setModeCursor(bool __visible);
             void setEventReceiver(Events::WrapperEvents *__eventReceiver);
             void setTitleFrame(const wchar_t* __titleFrame);
@@ -99,22 +89,11 @@ namespace base{
             bool isFullScreen();
             bool isStencilBuffer();
 
-            irr::scene::IMeshSceneNode* addAnimetedSceneNode(const irr::c8* __filename);
-
             irr::gui::IGUIButton* addButton(const irr::core::rect<irr::s32>& __rectangle, irr::gui::IGUIElement* __parent,
                                     irr::s32 __id, const wchar_t* __text, const wchar_t* __tooltiptext);
 
-            irr::scene::ICameraSceneNode* addCameraFPS(irr::scene::ISceneNode* __parent,
-                                    irr::f32 __rotateSpeed, irr::f32 __moveSpeed, irr::s32 __id,
-                                    irr::SKeyMap* __keyMapArray, irr::s32 __keyMapSize, bool __noVerticalMovement,
-                                    irr::f32 __jumpSpeed);
-
             irr::gui::IGUIStaticText* addText(const wchar_t *__text, const irr::core::rect<irr::s32> __rectangle, bool __border,
 									bool __worldWrapper, irr::gui::IGUIElement *__parent, irr::s32 __id, bool __fillBackground);
-
-            irr::scene::ICameraSceneNode* addCameraMaya(irr::scene::ISceneNode* __parent,
-                                    irr::f32 __rotateSpeed, irr::f32 __zoomSpeed,
-                                    irr::f32 __translationSpeed, irr::s32 __id);
 
             irr::gui::IGUIFont* addFontFrame(const irr::c8* __filename);
 
@@ -126,23 +105,6 @@ namespace base{
                                     bool __modal, irr::gui::IGUIElement* __parent, irr::s32 __id);
 
             irr::gui::IGUIContextMenu* addMenu(irr::gui::IGUIElement *__parent, irr::s32 __id);
-
-            irr::scene::ITerrainSceneNode* addTerrainSceneNode(const irr::c8* __filename, irr::scene::ISceneNode *__parent, irr::s32 __id,
-									irr::core::vector3df __position, irr::core::vector3df __rotation,
-									irr::core::vector3df __scale, irr::video::SColor __vertexColor,
-									irr::s32 __maxLOD, irr::scene::E_TERRAIN_PATCH_SIZE __patchSize, irr::s32 __smoothFactor);
-
-            irr::scene::ISceneNode* addSkyBox(const irr::c8* __textureUp, const irr::c8* __textureDown, const irr::c8* __textureLeft,
-									const irr::c8* __textureRight, const irr::c8* __textureFt, const irr::c8* __textureBk,
-									irr::scene::ISceneNode *__parent, irr::s32 __id);
-
-            irr::scene::ITriangleSelector* addSelectorTerrainNode(irr::scene::ITerrainSceneNode *__node, irr::s32 __lod);
-
-            irr::scene::ITriangleSelector* addSelectorNode(irr::scene::IMesh *__mesh, irr::scene::ISceneNode *__node);
-
-            irr::scene::ISceneNodeAnimator* addColision(irr::scene::ITriangleSelector *__trianguleSelector, irr::scene::ISceneNode *__sceneNode,
-									irr::core::vector3df __ellipsoidRadius, irr::core::vector3df __gravityPerSecond,
-									irr::core::vector3df __ellipsoidTranslatio, irr::f32 __slidingValue);
 
     };
     

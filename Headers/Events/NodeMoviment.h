@@ -8,12 +8,10 @@
 #ifndef _NODEMOVIMENT_H
 #define	_NODEMOVIMENT_H
 
-#include <string>
+#include <irrlicht.h>
 
 #include "KeyBoardEvents.h"
-
 #include "../GenericList/ArrayList.h"
-#include "../Base/FrameSceneNode.h"
 
 #define NUMBER_OF_MOVIMENTS 4
 
@@ -30,7 +28,7 @@ namespace Events{
             irr::IrrlichtDevice *_device;
 
             GenericList::ArrayList<int> _keys;
-            GenericList::ArrayList<base::FrameSceneNode*> *_nodes;
+            GenericList::ArrayList<irr::scene::ISceneNode*> *_nodes;
 
             irr::f32 _movimentSpeed;
 
@@ -41,7 +39,7 @@ namespace Events{
             NodeMoviment(irr::IrrlichtDevice *__device);
             NodeMoviment();
 
-            void insertNode(base::FrameSceneNode *__node);
+            void insertNode(irr::scene::ISceneNode *__node);
             void insertKeysFromNode(int __idNode, irr::EKEY_CODE __movimentOne, irr::EKEY_CODE __movimentTwo, irr::EKEY_CODE __movimentThree, irr::EKEY_CODE __movimentFour);
             void changeKey(irr::EKEY_CODE __oldKey, irr::EKEY_CODE __newKey, int __idNode);
             void setMovementSpeed(irr::f32 __movementSpeed);

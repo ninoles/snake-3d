@@ -10,7 +10,6 @@
 
 #include <Newton.h>
 #include <irrlicht.h>
-#include "../Base/FrameSceneNode.h"
 
 #define NUMBER_CONTACTS 3
 #define CONTACTS (3*NUMBER_CONTACTS)
@@ -36,7 +35,7 @@ namespace physis{
 
 			NewtonWorld* getNewtonWorld();
 
-			bool checkForCollisions(base::FrameSceneNode* __nodeA, base::FrameSceneNode* __nodeB);
+			//bool checkForCollisions(base::FrameSceneNode* __nodeA, base::FrameSceneNode* __nodeB);
 
 	};
 

@@ -1,7 +1,6 @@
 #include "../../Headers/Base/Frame.h"
 
 using namespace base;
-using namespace Context;
 using namespace Events;
 
 Frame::Frame() {
@@ -94,8 +93,8 @@ void Frame::setEventReceiver(Events::WrapperEvents *__eventReceiver) {
 	_eventReceiver = __eventReceiver;
 }
 
-void Frame::setFont(const irr::c8* __filename, FrameFont *__font) {
-	__font->setFont(_guiEnv->getFont(__filename));
+void Frame::setFont(const irr::c8* __filename) {
+	_guiEnv->getFont(__filename);
 }
 
 void Frame::setModeCursor(bool __visible) {
@@ -171,12 +170,6 @@ Events::WrapperEvents* Frame::getEventReceiver(){
 	return _eventReceiver;
 }
 
-irr::scene::IMeshSceneNode* Frame::addAnimetedSceneNode(
-		const irr::c8* __filename) {
-
-	return _sceneMang->addMeshSceneNode(_sceneMang->getMesh(__filename));
-}
-
 irr::gui::IGUIStaticText* Frame::addText(const wchar_t *__text,
 		const irr::core::rect<irr::s32> __rectangle, bool __border,
 		bool __worldWrapper, irr::gui::IGUIElement *__parent, irr::s32 __id,
@@ -184,24 +177,6 @@ irr::gui::IGUIStaticText* Frame::addText(const wchar_t *__text,
 
 	return _guiEnv->addStaticText(__text, __rectangle, __border,
 			__worldWrapper, __parent, __id, __fillBackground);
-}
-
-irr::scene::ICameraSceneNode* Frame::addCameraFPS(
-		irr::scene::ISceneNode* __parent, irr::f32 __rotateSpeed,
-		irr::f32 __moveSpeed, irr::s32 __id, irr::SKeyMap* __keyMapArray,
-		irr::s32 __keyMapSize, bool __noVerticalMovement, irr::f32 __jumpSpeed) {
-
-	return _sceneMang->addCameraSceneNodeFPS(__parent, __rotateSpeed,
-			__moveSpeed, __id, __keyMapArray, __keyMapSize,
-			__noVerticalMovement, __jumpSpeed);
-}
-
-irr::scene::ICameraSceneNode* Frame::addCameraMaya(
-		irr::scene::ISceneNode* __parent, irr::f32 __rotateSpeed,
-		irr::f32 __zoomSpeed, irr::f32 __translationSpeed, irr::s32 __id) {
-
-	return _sceneMang->addCameraSceneNodeMaya(__parent, __rotateSpeed,
-			__zoomSpeed, __translationSpeed, __id);
 }
 
 irr::gui::IGUIFont * Frame::addFontFrame(const irr::c8* __filename) {
@@ -233,67 +208,3 @@ irr::gui::IGUIContextMenu* Frame::addMenu(irr::gui::IGUIElement *__parent,
 		irr::s32 __id) {
 	return _guiEnv->addMenu();
 }
-
-irr::scene::ITerrainSceneNode* Frame::addTerrainSceneNode(
-		const irr::c8* __filename, irr::scene::ISceneNode *__parent,
-		irr::s32 __id, irr::core::vector3df __position,
-		irr::core::vector3df __rotation, irr::core::vector3df __scale,
-		irr::video::SColor __vertexColor, irr::s32 __maxLOD,
-		irr::scene::E_TERRAIN_PATCH_SIZE __patchSize, irr::s32 __smoothFactor) {
-
-	return _sceneMang->addTerrainSceneNode(__filename, __parent, __id,
-			__position, __rotation, __scale, __vertexColor, __maxLOD,
-			__patchSize, __smoothFactor);
-}
-
-irr::scene::ISceneNode* Frame::addSkyBox(const irr::c8* __textureUp,
-		const irr::c8* __textureDown, const irr::c8* __textureLeft,
-		const irr::c8* __textureRight, const irr::c8* __textureFt,
-		const irr::c8* __textureBk, irr::scene::ISceneNode *__parent,
-		irr::s32 __id) {
-
-	return _sceneMang->addSkyBoxSceneNode(_driver->getTexture(__textureUp),
-			_driver->getTexture(__textureDown), _driver->getTexture(
-					__textureLeft), _driver->getTexture(__textureRight),
-			_driver->getTexture(__textureFt), _driver->getTexture(__textureBk),
-			__parent, __id);
-}
-
-irr::scene::ITriangleSelector* Frame::addSelectorNode(
-		irr::scene::IMesh *__mesh, irr::scene::ISceneNode *__node) {
-	irr::scene::ITriangleSelector *selector =
-			_sceneMang->createTriangleSelector(__mesh, __node);
-
-	__node->setTriangleSelector(selector);
-
-	return selector;
-}
-
-irr::scene::ITriangleSelector* Frame::addSelectorTerrainNode(
-		irr::scene::ITerrainSceneNode *__node, irr::s32 __lod) {
-	irr::scene::ITriangleSelector *selector =
-			_sceneMang->createTerrainTriangleSelector(__node, __lod);
-
-	__node->setTriangleSelector(selector);
-
-	return selector;
-}
-
-irr::scene::ISceneNodeAnimator* Frame::addColision(
-		irr::scene::ITriangleSelector *__trianguleSelector,
-		irr::scene::ISceneNode *__sceneNode,
-		irr::core::vector3df __ellipsoidRadius,
-		irr::core::vector3df __gravityPerSecond,
-		irr::core::vector3df __ellipsoidTranslatio, irr::f32 __slidingValue) {
-
-	irr::scene::ISceneNodeAnimator *anim =
-			_sceneMang->createCollisionResponseAnimator(__trianguleSelector,
-					__sceneNode, __ellipsoidRadius, __gravityPerSecond,
-					__ellipsoidTranslatio, __slidingValue);
-
-	__trianguleSelector->drop();
-	__sceneNode->addAnimator(anim);
-
-	return anim;
-}
-

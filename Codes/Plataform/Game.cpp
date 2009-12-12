@@ -37,7 +37,7 @@ void Game::initDisplay(){
 
 
 void Game::generatMap(){
-
+/*
 	//Teste for print mesh
 	_frameMan->getBaseFrame()->setColor(0,255,255,255);
 
@@ -67,7 +67,7 @@ void Game::generatMap(){
 
 	meshA->createCollision();
 	meshB->createCollision();
-
+*/
 }
 
 void Game::swapGUI(int __options){
@@ -132,7 +132,6 @@ void Game::swapGUI(int __options){
 
 		case GAME_START_MATCH:
 			generatMap();
-			valida= true;
 			_frameMan->getBaseFrame()->getEventReceiver()->getButtonEvents()->setGameOption(GAME_NOTHING_OPTION);
 
 			break;
@@ -150,11 +149,5 @@ void Game::run(){
 
 		swapGUI(_frameMan->getBaseFrame()->getEventReceiver()->getButtonEvents()->getGameOption());
 
-		if(valida){
-			if(_gameManagement->checkForCollisions(tmp, tmp2)){
-				tmp->getSceneNode()->setMaterialTexture(0, _frameMan->getBaseFrame()->getVideoDriver()->getTexture("/home/henrique/workspace/snake project/snake-3d/images/aboutbox.jpg"));
-				tmp->getSceneNode()->getMaterial(0).EmissiveColor.set(0,0,255,255);
-			}
-		}
 	}
 }

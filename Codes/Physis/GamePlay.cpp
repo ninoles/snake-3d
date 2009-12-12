@@ -7,8 +7,6 @@
 
 #include "../../Headers/Physis/Gameplay.h"
 
-using namespace base;
-
 using namespace physis;
 using namespace irr;
 using namespace std;
@@ -27,7 +25,7 @@ Gameplay::Gameplay(){
 	NewtonSetSolverModel(_newtonW, 1);
 }
 
-bool Gameplay::checkForCollisions(FrameSceneNode* __nodeA, FrameSceneNode* __nodeB){
+/*bool Gameplay::checkForCollisions(FrameSceneNode* __nodeA, FrameSceneNode* __nodeB){
 
 	//Matrix to store FrameSceneNode position
 	core::matrix4 matrixA, matrixB;
@@ -48,7 +46,7 @@ bool Gameplay::checkForCollisions(FrameSceneNode* __nodeA, FrameSceneNode* __nod
 
 	return numberHits > 0;
 
-}
+}*/
 
 NewtonWorld* Gameplay::getNewtonWorld(){
 	return _newtonW;

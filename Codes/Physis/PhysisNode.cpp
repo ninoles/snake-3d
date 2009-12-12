@@ -8,25 +8,20 @@
 #include "../../Headers/Physis/PhysisNode.h"
 
 using namespace irr;
-using namespace base;
 using namespace physis;
 
 PhysisNode::PhysisNode(){
 	_newtonWorld = NULL;
 	_collision = NULL;
 	_newtonBody = NULL;
-	_node = NULL;
+	_mesh = NULL;
 }
 
 PhysisNode::PhysisNode(NewtonWorld *__newtonWorld){
 	_newtonWorld = __newtonWorld;
 	_collision = NULL;
 	_newtonBody = NULL;
-	_node = NULL;
-}
-
-void PhysisNode::setNode(scene::ISceneNode *__node, int __id){
-	_node = new FrameSceneNode(__node, __id);
+	_mesh = NULL;
 }
 
 void PhysisNode::createBody(){
@@ -39,9 +34,9 @@ void PhysisNode::setMassAndInertia(dFloat __mass, dFloat __Ixx, dFloat __Iyy, dF
 		NewtonBodySetMassMatrix(_newtonBody, __mass, __Ixx, __Iyy, __Izz);
 }
 
-void PhysisNode::createCollisionFromMesh(NewtonWorld *__newtonWorld){
+void PhysisNode::createCollisionFromMesh(irr::scene::IMesh *__mesh){
 	if(_collision == NULL){
-		_collision = new MeshCollision(__newtonWorld, _node);
+		_collision = new MeshCollision(_newtonWorld, __mesh);
 		_collision->createCollision();
 	}
 }

@@ -35,14 +35,8 @@ namespace plataform{
 
 			Gameplay *_gameManagement;
 
-			base::FrameSceneNode* tmp;
-			base::FrameSceneNode* tmp2;
-
-			bool valida;
-
 			Game(){
 				_gameManagement = new Gameplay();
-				valida = false;
 			}
 
 			void swapGUI(int __options);

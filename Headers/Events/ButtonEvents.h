@@ -8,8 +8,6 @@
 #ifndef _BUTTONEVENTS_H
 #define	_BUTTONEVENTS_H
 
-#include "../Context/SAppContext.h"
-
 #include "../../Headers/Platform/GUIManagement.h"
 #include "../../Headers/FilesMan/FileManagement.h"
 

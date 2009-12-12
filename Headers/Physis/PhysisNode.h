@@ -11,8 +11,6 @@
 #include <Newton.h>
 #include <irrlicht.h>
 
-#include "../Base/FrameSceneNode.h"
-
 #include "MeshCollision.h"
 
 namespace physis{
@@ -21,7 +19,7 @@ namespace physis{
 
 		private:
 
-			base::FrameSceneNode *_node;
+			irr::scene::IMesh *_mesh;
 
 			MeshCollision *_collision;
 			NewtonBody *_newtonBody;
@@ -32,9 +30,7 @@ namespace physis{
 			PhysisNode(NewtonWorld *__newtonWorld);
 			PhysisNode();
 
-			void createCollisionFromMesh(NewtonWorld *__newtonWorld);
-
-			void setNode(irr::scene::ISceneNode *__node, int __id);
+			void createCollisionFromMesh(irr::scene::IMesh *_mesh);
 
 			void createBody();
 			void setMassAndInertia(dFloat __mass, dFloat __Ixx, dFloat __Iyy, dFloat __Izz);

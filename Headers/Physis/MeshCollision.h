@@ -11,14 +11,12 @@
 #include <Newton.h>
 #include <irrlicht.h>
 
-#include "../Base/FrameSceneNode.h"
-
 namespace physis{
 	class MeshCollision{
 
 		private:
 
-			base::FrameSceneNode *_node;
+			irr::scene::IMesh *_mesh;
 
 			NewtonWorld *_nWorld;
 			NewtonCollision *_newtonCol;
@@ -31,7 +29,7 @@ namespace physis{
 
 		public:
 
-			MeshCollision(NewtonWorld *__nWorld, base::FrameSceneNode *__node);
+			MeshCollision(NewtonWorld *__nWorld, irr::scene::IMesh *__mesh);
 			~MeshCollision();
 
 			void createCollision();

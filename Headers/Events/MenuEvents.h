@@ -8,7 +8,7 @@
 #ifndef MENUEVENTS_H_
 #define MENUEVENTS_H_
 
-#include "../Context/SAppContext.h"
+#include <irrlicht.h>
 
 namespace Events{
 	

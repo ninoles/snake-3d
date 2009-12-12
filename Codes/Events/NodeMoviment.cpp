@@ -7,7 +7,7 @@ using namespace Events;
 NodeMoviment::NodeMoviment(irr::IrrlichtDevice *__device){
     _device = __device;
 
-    _nodes = new GenericList::ArrayList<base::FrameSceneNode*>();
+    _nodes = new GenericList::ArrayList<irr::scene::ISceneNode*>();
 }
 
 NodeMoviment::NodeMoviment(){
@@ -19,7 +19,7 @@ void NodeMoviment::insertKeysFromNode(int __idNode, irr::EKEY_CODE __movimentOne
 	int index = -1;
 
 	for(int k = 0;k < _nodes->getSize(); k++)
-		if(_nodes->get(k)->getId() == __idNode)
+		if(_nodes->get(k)->getID() == __idNode)
 			index = k;
 
 	if(index == -1)
@@ -31,7 +31,7 @@ void NodeMoviment::insertKeysFromNode(int __idNode, irr::EKEY_CODE __movimentOne
 	_keys.add(__movimentFour);
 }
 
-void NodeMoviment::insertNode(base::FrameSceneNode *__node){
+void NodeMoviment::insertNode(irr::scene::ISceneNode *__node){
 	_nodes->add(__node);
 }
 
@@ -72,8 +72,7 @@ void NodeMoviment::runMovement(irr::EKEY_CODE __keyPressed){
 
     const irr::u32 now = _device->getTimer()->getTime();
 
-    irr::scene::ISceneNode *node = _nodes->get(index)->getSceneNode();
-    irr::core::vector3df nodePosition = node->getPosition(); //Pega a posícao atual do objeto na tela
+    irr::core::vector3df nodePosition = _nodes->get(index)->getPosition(); //Pega a posícao atual do objeto na tela
 
     //std::cout << "Frame Rate: " << frameDeltaTime << std::endl;
     //std::cout << "Position Y: " << nodePosition.Y << std::endl;
@@ -87,5 +86,5 @@ void NodeMoviment::runMovement(irr::EKEY_CODE __keyPressed){
     if(__keyPressed == _movimentFour)      //Movimenta-se sobreo eixo Y -> Para tras
         nodePosition.Y -=_movimentSpeed * (now/100000.f);
 
-    node->setPosition(nodePosition);
+    _nodes->get(index)->setPosition(nodePosition);
 }

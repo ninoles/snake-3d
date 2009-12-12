@@ -11,10 +11,10 @@ using namespace irr;
 using namespace scene;
 using namespace physis;
 
-MeshCollision::MeshCollision(NewtonWorld *__nWorld,	base::FrameSceneNode *__node){
+MeshCollision::MeshCollision(NewtonWorld *__nWorld, irr::scene::IMesh *__mesh){
 
 	_nWorld = __nWorld;
-	_node = __node;
+	_mesh = __mesh;
 	_meshBuffer = NULL;
 
 }
@@ -26,8 +26,8 @@ u32 MeshCollision::getVerticesFromMesh(){
 
 	u32 numberVertices = 0;
 
-	for(int indexVertices = 0; indexVertices < ((IMeshSceneNode*)_node->getSceneNode())->getMesh()->getMeshBufferCount(); indexVertices++)
-		numberVertices += ((IMeshSceneNode*)_node->getSceneNode())->getMesh()->getMeshBuffer(indexVertices)->getVertexCount();
+	for(unsigned int indexVertices = 0; indexVertices < _mesh->getMeshBufferCount(); indexVertices++)
+		numberVertices += _mesh->getMeshBuffer(indexVertices)->getVertexCount();
 
 	_vertices = new float[numberVertices * 3];
 
@@ -40,13 +40,13 @@ void MeshCollision::copyToMeshBuffer(){
 	video::S3DVertex *vertex;
 	int count = 0;
 
-	for(int indexVertices = 0; indexVertices < ((IMeshSceneNode*)_node->getSceneNode())->getMesh()->getMeshBufferCount(); indexVertices++){
+	for(unsigned int indexVertices = 0; indexVertices < _mesh->getMeshBufferCount(); indexVertices++){
 
-		_meshBuffer = ((IMeshSceneNode*)_node->getSceneNode())->getMesh()->getMeshBuffer(indexVertices);
+		_meshBuffer = _mesh->getMeshBuffer(indexVertices);
 
 		vertex = (video::S3DVertex*)_meshBuffer->getVertices();
 
-		for(int k = 0; k < _meshBuffer->getVertexCount(); k++){
+		for(unsigned int k = 0; k < _meshBuffer->getVertexCount(); k++){
 			_vertices[count++] = vertex[k].Pos.X;
 			_vertices[count++] = vertex[k].Pos.Y;
 			_vertices[count++] = vertex[k].Pos.Z;
@@ -61,7 +61,6 @@ void MeshCollision::createCollision(){
 	copyToMeshBuffer();
 
 	_newtonCol = NewtonCreateConvexHull(_nWorld, numberV, _vertices, sizeof(float)*3, 0.1f, 0, NULL);
-	_node->setCollisionNode(_newtonCol);
 }
 
 NewtonCollision* MeshCollision::getCollisionNode(){
