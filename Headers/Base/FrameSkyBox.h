@@ -26,16 +26,16 @@ namespace base{
             		int __id);
 
             FrameSkyBox(NewtonWorld *_nWorld, irr::scene::ISceneManager *__sceneManager,
-            		int __id, const irr::c8* __textureUp,
-            		const irr::c8* __textureDown, const irr::c8* __textureLeft,
-            		const irr::c8* __textureRight, const irr::c8* __textureFt,
-            		const irr::c8* __textureBk, irr::scene::ISceneNode *__parent);
+            		int __id, irr::video::ITexture* __textureUp,
+            		irr::video::ITexture* __textureDown, irr::video::ITexture* __textureLeft,
+            		irr::video::ITexture* __textureRight, irr::video::ITexture* __textureFt,
+            		irr::video::ITexture* __textureBk, irr::scene::ISceneNode *__parent);
 
 			//Main Methods
-			void createNode( const irr::c8* __textureUp,
-            		const irr::c8* __textureDown, const irr::c8* __textureLeft,
-            		const irr::c8* __textureRight, const irr::c8* __textureFt,
-            		const irr::c8* __textureBk, irr::scene::ISceneNode *__parent);
+			void createNode( irr::video::ITexture* __textureUp,
+					irr::video::ITexture* __textureDown, irr::video::ITexture* __textureLeft,
+					irr::video::ITexture* __textureRight, irr::video::ITexture* __textureFt,
+					irr::video::ITexture* __textureBk, irr::scene::ISceneNode *__parent);
 
 			void repaint();
 			void drop();

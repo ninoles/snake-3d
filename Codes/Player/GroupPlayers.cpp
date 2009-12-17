@@ -3,7 +3,7 @@
 using namespace Players;
 
 GroupPlayers::GroupPlayers(){
-    _players = new GenericList::ArrayList<Player>;
+    _players = new GenericList::ArrayList<Player>();
     _currentPlayerName = "";
 }
 

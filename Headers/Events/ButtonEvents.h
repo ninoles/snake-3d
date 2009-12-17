@@ -9,7 +9,8 @@
 #define	_BUTTONEVENTS_H
 
 #include "../../Headers/Platform/GUIManagement.h"
-#include "../../Headers/FilesMan/FileManagement.h"
+#include "../../Headers/FilesMan/ConfFrame.h"
+#include "../../Headers/FilesMan/ConfMatch.h"
 
 namespace Events{
 
@@ -56,8 +57,11 @@ namespace Events{
         private:
 
             irr::IrrlichtDevice *_device;
+            irr::gui::IGUIElement *_rootElement;
 
-            file::FileManagement *_fileMan;
+            file::ConfFrame *_confFrame;
+            file::ConfMatch *_confMatch;
+
             gameOptions _options;
 
         public:
@@ -68,6 +72,9 @@ namespace Events{
             
             int getGameOption();
             void setGameOption(gameOptions __options);
+
+            file::ConfFrame* getFrameConfig();
+            file::ConfMatch* getMatchConfig();
 
     };
 };

@@ -11,9 +11,9 @@ Player::Player(string __name,int __score, int __wins, int __numberGames){
 
 Player::Player(){
 	_name = "";
-	_score = 0;
-	_wins = 0;
-	_numberGames = 0;
+	_score = -1;
+	_wins = -1;
+	_numberGames = -1;
 }
 
 void Player::setName(string __name){

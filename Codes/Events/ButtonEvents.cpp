@@ -1,5 +1,5 @@
 /*
- * FrameManagement.h
+ * ButtonEvents.h
  *
  *  Created on: 26/09/2009
  *      Author: Henrique Jonas
@@ -7,25 +7,23 @@
 
 #include "../../Headers/Events/ButtonEvents.h"
 
-using namespace Events;
-using namespace file;
-using namespace plataform;
-
-using namespace std;
-
-ButtonEvents::ButtonEvents(){
+Events::ButtonEvents::ButtonEvents(){
     _device = 0;
     _options = GAME_NOTHING_OPTION;
 }
 
-ButtonEvents::ButtonEvents(irr::IrrlichtDevice *__device){
+Events::ButtonEvents::ButtonEvents(irr::IrrlichtDevice *__device){
 	_device = __device;
 	_options = GAME_NOTHING_OPTION;
+	_confFrame = new file::ConfFrame(__device);
+	_confMatch = new file::ConfMatch(__device);
 }
 
-void ButtonEvents::handler(int __idEvent){
-	switch(__idEvent){
+void Events::ButtonEvents::handler(int __idEvent){
 
+	_rootElement = _device->getGUIEnvironment()->getRootGUIElement();
+
+	switch(__idEvent){
 
 		/*
 		 * Start Main Menu Options
@@ -91,14 +89,11 @@ void ButtonEvents::handler(int __idEvent){
         	_options = GAME_SAVE_ARCHIVE_PREF;
 
 			//Save in the file.
-
-			_fileMan = new FileManagement("conf/gameConf", ".dat");
-			_fileMan->openFileWrite(false);
-			_fileMan->saveConfigurationVideo(atoi(GUIManagement::getTokens("x", GUIManagement::getTextElement(800, _device->getGUIEnvironment()->getRootGUIElement()))[0].c_str())
-												, atoi(GUIManagement::getTokens("x", GUIManagement::getTextElement(800, _device->getGUIEnvironment()->getRootGUIElement()))[1].c_str())
-												, 32, ((irr::gui::IGUICheckBox*)GUIManagement::getElement(801, _device->getGUIEnvironment()->getRootGUIElement()))->isChecked(), false
-												, ((irr::gui::IGUICheckBox*)GUIManagement::getElement(802, _device->getGUIEnvironment()->getRootGUIElement()))->isChecked()
-												, ((irr::gui::IGUICheckBox*)GUIManagement::getElement(803, _device->getGUIEnvironment()->getRootGUIElement()))->isChecked());
+        	_confFrame->setArchiveWrite("conf/confFrame.xml");
+        	_confFrame->writeConfigurations(GUIManagement::getTokens(GUIManagement::getTextElement(800, _rootElement), L" x ", 1),
+        			GUIManagement::getTokens(GUIManagement::getTextElement(800, _rootElement), L" x ", 2), L"32",
+        			GUIManagement::getTextElement(803, _rootElement), GUIManagement::getTextElement(802, _rootElement),
+        			GUIManagement::getTextElement(801, _rootElement), false);
 
 			_device->getGUIEnvironment()->clear();
 			_device->getGUIEnvironment()->loadGUI("xmlgui/guiMainMenu.xml",0);
@@ -108,18 +103,10 @@ void ButtonEvents::handler(int __idEvent){
         	_options = GAME_START_MATCH;
 
         	//Save in the file
-
-        	_fileMan = new FileManagement("conf/matchConf", ".dat");
-        	_fileMan->openFileWrite(false);
-
-        	_fileMan->saveElement(GUIManagement::getTextElement(600, _device->getGUIEnvironment()->getRootGUIElement()));
-        	_fileMan->saveElement(GUIManagement::getTextElement(601, _device->getGUIEnvironment()->getRootGUIElement()));
-        	_fileMan->saveElement(GUIManagement::toString(((irr::gui::IGUICheckBox*)GUIManagement::getElement(602, _device->getGUIEnvironment()->getRootGUIElement()))->isChecked()));
-        	_fileMan->saveElement(GUIManagement::toString(((irr::gui::IGUICheckBox*)GUIManagement::getElement(603, _device->getGUIEnvironment()->getRootGUIElement()))->isChecked()));
-        	_fileMan->saveElement(GUIManagement::getTextElement(604, _device->getGUIEnvironment()->getRootGUIElement()));
-
-        	_fileMan->closeWrite();
-
+        	_confMatch->setArchiveWrite("conf/confMatch.xml");
+        	_confMatch->writeConfigurations(GUIManagement::getTextElement(600, _rootElement), GUIManagement::getTextElement(601, _rootElement),
+        			GUIManagement::getTextElement(604, _rootElement), GUIManagement::getTextElement(602, _rootElement),
+        			GUIManagement::getTextElement(603, _rootElement));
         	_device->getGUIEnvironment()->clear();
 			break;
 
@@ -151,10 +138,18 @@ void ButtonEvents::handler(int __idEvent){
 	}
 }
 
-void ButtonEvents::setGameOption(gameOptions __options){
+void Events::ButtonEvents::setGameOption(gameOptions __options){
 	_options = __options;
 }
 
-int ButtonEvents::getGameOption(){
+int Events::ButtonEvents::getGameOption(){
 	return _options;
+}
+
+file::ConfFrame* Events::ButtonEvents::getFrameConfig(){
+	return _confFrame;
+}
+
+file::ConfMatch* Events::ButtonEvents::getMatchConfig(){
+	return _confMatch;
 }

@@ -20,10 +20,9 @@ namespace base{
 			int _id;
 
 			static int _ids[MAX_ID];
+			static int index;
 
 		public:
-
-			static int global_index;
 
 			BasicObject(void* __object, int __id);
 
@@ -31,20 +30,16 @@ namespace base{
 			int getId();
 
 			static void insertID(int __id){
-				_ids[global_index++] = __id;
+				_ids[index++] = __id;
+			}
+
+			static int generateID(){
+				int number = _ids[index-1];
+				return number++;
 			}
 
 			static void startCount(){
-				global_index = 0;
-			}
-
-			static bool validateID(int __id){
-				for(int index = 0; index < global_index; index++){
-					if(__id == _ids[index])
-						return false;
-				}
-
-				return true;
+				index = 0;
 			}
 
 			void dropObject();

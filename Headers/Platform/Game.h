@@ -11,18 +11,8 @@
 #include <irrlicht.h>
 
 #include "FrameManagement.h"
-#include "GUIManagement.h"
 
-#include "../Events/ButtonEvents.h"
-#include "../FilesMan/FileManagement.h"
-
-#include "../Physis/Gameplay.h"
-#include "../Physis/MeshCollision.h"
-
-using namespace file;
-using namespace physis;
-
-namespace plataform{
+namespace platform{
 
 	class Game{
 
@@ -31,15 +21,10 @@ namespace plataform{
 			static Game *_gameSing;
 
 			FrameManagement *_frameMan;
-			FileManagement *_fileMan;
-
-			Gameplay *_gameManagement;
 
 			Game(){
-				_gameManagement = new Gameplay();
-			}
 
-			void swapGUI(int __options);
+			}
 
 		public:
 

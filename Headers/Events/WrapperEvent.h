@@ -1,6 +1,6 @@
 /* 
  * File:   WrapperEvent.h
- * Author: henrique
+ * Author: Henrique Jonas
  *
  * Created on 29 de Setembro de 2009, 22:11
  */

@@ -1,6 +1,6 @@
 /* 
  * File:   Frame.h
- * Author: henrique
+ * Author: Henrique Jonas
  *
  * Created on 3 de Outubro de 2009, 22:03
  */
@@ -9,7 +9,6 @@
 #define	_FRAME_H
 
 #include <irrlicht.h>
-#include <time.h>
 
 #include "../Events/WrapperEvent.h"
 
@@ -46,18 +45,16 @@ namespace base{
             int _bitsPerPixel;
             bool _fullscreen;
             bool _stencilBuffer;
+            bool _activateJoystick;
+            bool _antiAliasing;
 
         public:
 
-            Frame();
-            Frame(Frame *__frame);
-            Frame(int __width, int __heigth, int __bitsPerPixel, bool __fullScreen, bool __stencilBuffer);
+            //Constructor
+            Frame(int __width, int __heigth, int __bitsPerPixel, bool __fullScreen, bool __stencilBuffer, bool __activateJoystick,
+            		bool __antiAliasing);
 
-            void setDevice(irr::IrrlichtDevice *__device);
-            void setVideoDriver(irr::video::IVideoDriver *__driver);
-            void setGUIEnviroment(irr::gui::IGUIEnvironment *__guiEnv);
-            void setSceneManager(irr::scene::ISceneManager *__scene);
-
+            //Main Methods
             void setFont(const irr::c8* __filename);
             void setModeCursor(bool __visible);
             void setEventReceiver(Events::WrapperEvents *__eventReceiver);
@@ -65,29 +62,35 @@ namespace base{
             void setResizable(bool __resizable);
             void setColor(int __alpha, int __red, int __green, int __blue);
 
+            //Getters
             irr::IrrlichtDevice* getDevice();
             irr::video::IVideoDriver* getVideoDriver();
-            irr::gui::IGUIEnvironment* getGUIEnviroment();
-            irr::scene::ISceneManager* getSceneManager();
+			irr::gui::IGUIEnvironment* getGUIEnviroment();
+			irr::scene::ISceneManager* getSceneManager();
+
             irr::gui::IGUIFont *getFont();
             irr::video::SColor getColorFrame();
 
-            Events::WrapperEvents* getEventReceiver();
-
-            irr::video::ITexture* getImage(const irr::c8* __filename);
+            Events::NodeMoviment* getNodeMoviment();
+            Events::ButtonEvents* getButtonEvents();
 
             int getFPS();
-
-            bool frameRun();
-            bool windowActive();
-            void drawFrame();
-            void closeFrame();
-
             int getWidth();
             int getHeigth();
             int getBitsPerPixel();
             bool isFullScreen();
             bool isStencilBuffer();
+            bool isJoystick();
+            bool isAntiAliasing();
+
+            //Frame Methods
+            void repaint(int __width, int __heigth, int __bitsPerPixel, bool __fullScreen,
+            		bool __stencilBuffer, bool __activateJoystick, bool __antiAliasing);
+            void drop();
+            void show();
+
+            //GUI Methods
+            irr::video::ITexture* getTexture(const irr::c8* __filename);
 
             irr::gui::IGUIButton* addButton(const irr::core::rect<irr::s32>& __rectangle, irr::gui::IGUIElement* __parent,
                                     irr::s32 __id, const wchar_t* __text, const wchar_t* __tooltiptext);

@@ -1,30 +1,22 @@
+/*
+ * File:   Frame.cpp
+ * Author: Henrique Jonas
+ *
+ * Created on 3 de Outubro de 2009, 22:03
+ */
+
 #include "../../Headers/Base/Frame.h"
 
-using namespace base;
-using namespace Events;
-
-Frame::Frame() {
-	_device = 0;
-}
-
-Frame::Frame(Frame *__frame) {
-
-	_device = __frame->getDevice();
-	_guiEnv = __frame->getGUIEnviroment();
-	_sceneMang = __frame->getSceneManager();
-	_font = __frame->getFont();
-	_colorFrame = __frame->getColorFrame();
-
-}
-
-Frame::Frame(int __width, int __heigth, int __bitsPerPixel,
-		bool __fullScreen, bool __stencilBuffer) {
+base::Frame::Frame(int __width, int __heigth, int __bitsPerPixel, bool __fullScreen,
+		bool __stencilBuffer, bool __activateJoystick, bool __antiAliasing) {
 
 	_width = __width;
 	_heigth = __heigth;
 	_bitsPerPixel = __bitsPerPixel;
 	_fullscreen = __fullScreen;
 	_stencilBuffer = _stencilBuffer;
+	_activateJoystick = __activateJoystick;
+	_antiAliasing = _antiAliasing;
 
 	_device = irr::createDevice(irr::video::EDT_SOFTWARE,
 			irr::core::dimension2d<irr::s32>(__width, __heigth),
@@ -33,7 +25,7 @@ Frame::Frame(int __width, int __heigth, int __bitsPerPixel,
 	if (_device == 0)
 		return;
 
-	_eventReceiver = new WrapperEvents(_device);
+	_eventReceiver = new Events::WrapperEvents(_device);
 	_eventReceiver->setAllEvents();
 
 	_device->setEventReceiver(_eventReceiver);
@@ -42,122 +34,131 @@ Frame::Frame(int __width, int __heigth, int __bitsPerPixel,
 	_guiEnv = _device->getGUIEnvironment();
 	_sceneMang = _device->getSceneManager();
 
-	_colorFrame.set(0, 200, 200, 200); //Color Default
 }
 
-void Frame::setDevice(irr::IrrlichtDevice *__device){
-	_device = __device;
-}
-
-void Frame::setGUIEnviroment(irr::gui::IGUIEnvironment *__guiEnv){
-	_guiEnv = __guiEnv;
-}
-
-void Frame::setSceneManager(irr::scene::ISceneManager *__scene){
-	_sceneMang = __scene;
-}
-
-void Frame::setVideoDriver(irr::video::IVideoDriver *__driver){
-	_driver = __driver;
-}
-
-irr::IrrlichtDevice* Frame::getDevice() {
+irr::IrrlichtDevice* base::Frame::getDevice() {
 	return _device;
 }
 
-irr::video::IVideoDriver* Frame::getVideoDriver() {
+irr::video::IVideoDriver* base::Frame::getVideoDriver() {
 	return _driver;
 }
 
-irr::gui::IGUIEnvironment* Frame::getGUIEnviroment() {
+irr::gui::IGUIEnvironment* base::Frame::getGUIEnviroment() {
 	return _guiEnv;
 }
 
-irr::scene::ISceneManager* Frame::getSceneManager() {
+irr::scene::ISceneManager* base::Frame::getSceneManager() {
 	return _sceneMang;
 }
 
-irr::video::ITexture* Frame::getImage(const irr::c8* __filename) {
-	return _driver->getTexture(__filename);
-}
-
-irr::gui::IGUIFont* Frame::getFont(){
+irr::gui::IGUIFont* base::Frame::getFont(){
 	return _font;
 }
 
-irr::video::SColor Frame::getColorFrame(){
+irr::video::SColor base::Frame::getColorFrame(){
 	return _colorFrame;
 }
 
-void Frame::setEventReceiver(Events::WrapperEvents *__eventReceiver) {
+Events::NodeMoviment* base::Frame::getNodeMoviment(){
+	return _eventReceiver->getNodeMoviment();
+}
+
+Events::ButtonEvents* base::Frame::getButtonEvents(){
+	return _eventReceiver->getButtonEvents();
+}
+
+void base::Frame::setEventReceiver(Events::WrapperEvents *__eventReceiver) {
 	_eventReceiver = __eventReceiver;
 }
 
-void Frame::setFont(const irr::c8* __filename) {
+void base::Frame::setFont(const irr::c8* __filename) {
 	_guiEnv->getFont(__filename);
 }
 
-void Frame::setModeCursor(bool __visible) {
+void base::Frame::setModeCursor(bool __visible) {
 	_device->getCursorControl()->setVisible(__visible);
 }
 
-void Frame::setResizable(bool __resizable) {
+void base::Frame::setResizable(bool __resizable) {
 	_device->setResizeAble(__resizable);
 }
 
-void Frame::setTitleFrame(const wchar_t* __titleFrame) {
+void base::Frame::setTitleFrame(const wchar_t* __titleFrame) {
 	_device->setWindowCaption(__titleFrame);
 }
 
-int Frame::getFPS() {
+int base::Frame::getFPS() {
 	return _driver->getFPS();
 }
 
-bool Frame::frameRun() {
-	return _device->run();
-}
-
-bool Frame::windowActive() {
-	return _device->isWindowActive();
-}
-
-void Frame::drawFrame() {
-	_driver->beginScene(true, true, _colorFrame);
-	_guiEnv->drawAll();
-	_sceneMang->drawAll();
-
-	_driver->endScene();
-}
-
-void Frame::setColor(int __alpha, int __red, int __green, int __blue) {
+void base::Frame::setColor(int __alpha, int __red, int __green, int __blue) {
 	_colorFrame.set(__alpha, __red, __green, __blue);
 }
 
-void Frame::closeFrame() {
-	_device->drop();
-}
-
-int Frame::getWidth(){
+int base::Frame::getWidth(){
 	return _width;
 }
 
-int Frame::getHeigth(){
+int base::Frame::getHeigth(){
 	return _heigth;
 }
 
-int Frame::getBitsPerPixel(){
+int base::Frame::getBitsPerPixel(){
 	return _bitsPerPixel;
 }
 
-bool Frame::isFullScreen(){
+bool base::Frame::isFullScreen(){
 	return _fullscreen;
 }
 
-bool Frame::isStencilBuffer(){
+bool base::Frame::isStencilBuffer(){
 	return _stencilBuffer;
 }
 
-irr::gui::IGUIButton * Frame::addButton(
+bool base::Frame::isAntiAliasing(){
+	return _antiAliasing;
+}
+
+bool base::Frame::isJoystick(){
+	return _activateJoystick;
+}
+
+void base::Frame::repaint(int __width, int __heigth, int __bitsPerPixel, bool __fullScreen,
+		bool __stencilBuffer, bool __activateJoystick, bool __antiAliasing){
+
+	drop();
+
+	_width = __width;
+	_heigth = __heigth;
+	_bitsPerPixel = __bitsPerPixel;
+	_fullscreen = __fullScreen;
+	_stencilBuffer = _stencilBuffer;
+	_activateJoystick = __activateJoystick;
+	_antiAliasing = _antiAliasing;
+
+	_device = irr::createDevice(irr::video::EDT_SOFTWARE,
+			irr::core::dimension2d<irr::s32>(__width, __heigth),
+			__bitsPerPixel, __fullScreen, __stencilBuffer, false, 0);
+
+	if (_device == 0)
+		return;
+}
+
+void base::Frame::show(){
+	_sceneMang->drawAll();
+	_guiEnv->drawAll();
+}
+
+void base::Frame::drop(){
+	_device->drop();
+}
+
+irr::video::ITexture* base::Frame::getTexture(const irr::c8* __filename){
+	return _driver->getTexture(__filename);
+}
+
+irr::gui::IGUIButton * base::Frame::addButton(
 		const irr::core::rect<irr::s32>& __rectangle,
 		irr::gui::IGUIElement* __parent, irr::s32 __id, const wchar_t* __text,
 		const wchar_t* __tooltiptext) {
@@ -166,11 +167,7 @@ irr::gui::IGUIButton * Frame::addButton(
 			__tooltiptext);
 }
 
-Events::WrapperEvents* Frame::getEventReceiver(){
-	return _eventReceiver;
-}
-
-irr::gui::IGUIStaticText* Frame::addText(const wchar_t *__text,
+irr::gui::IGUIStaticText* base::Frame::addText(const wchar_t *__text,
 		const irr::core::rect<irr::s32> __rectangle, bool __border,
 		bool __worldWrapper, irr::gui::IGUIElement *__parent, irr::s32 __id,
 		bool __fillBackground) {
@@ -179,7 +176,7 @@ irr::gui::IGUIStaticText* Frame::addText(const wchar_t *__text,
 			__worldWrapper, __parent, __id, __fillBackground);
 }
 
-irr::gui::IGUIFont * Frame::addFontFrame(const irr::c8* __filename) {
+irr::gui::IGUIFont * base::Frame::addFontFrame(const irr::c8* __filename) {
 
 	irr::gui::IGUISkin* skin = _guiEnv->getSkin();
 	irr::gui::IGUIFont* font = _guiEnv->getFont(__filename);
@@ -190,7 +187,7 @@ irr::gui::IGUIFont * Frame::addFontFrame(const irr::c8* __filename) {
 	return font;
 }
 
-irr::gui::IGUIImage* Frame::addImage(const irr::c8* __filename,
+irr::gui::IGUIImage* base::Frame::addImage(const irr::c8* __filename,
 		irr::core::position2d<irr::s32> __pos, bool __useAlphaChannel,
 		irr::gui::IGUIElement* __parent, irr::s32 __id, const wchar_t* __text) {
 
@@ -198,13 +195,13 @@ irr::gui::IGUIImage* Frame::addImage(const irr::c8* __filename,
 			__useAlphaChannel, __parent, __id, __text);
 }
 
-irr::gui::IGUIFileOpenDialog* Frame::addOpenDialog(const wchar_t* __title,
+irr::gui::IGUIFileOpenDialog* base::Frame::addOpenDialog(const wchar_t* __title,
 		bool __modal, irr::gui::IGUIElement* __parent, irr::s32 __id) {
 
 	return _guiEnv->addFileOpenDialog(__title, __modal, __parent, __id);
 }
 
-irr::gui::IGUIContextMenu* Frame::addMenu(irr::gui::IGUIElement *__parent,
+irr::gui::IGUIContextMenu* base::Frame::addMenu(irr::gui::IGUIElement *__parent,
 		irr::s32 __id) {
 	return _guiEnv->addMenu();
 }

@@ -1,5 +1,5 @@
 /*
- * FrameManagement.h
+ * WrapperEvent.cpp
  *
  *  Created on: 26/09/2009
  *      Author: Henrique Jonas

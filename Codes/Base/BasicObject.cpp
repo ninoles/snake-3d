@@ -8,10 +8,6 @@
 #include "../../Headers/Base/BasicObject.h"
 
 base::BasicObject::BasicObject(void* __object, int __id){
-
-	if(BasicObject::validateID(__id))
-		return;
-
 	_object = __object;
 	_id = __id;
 }

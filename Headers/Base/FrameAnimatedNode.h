@@ -29,7 +29,8 @@ namespace base{
             		int __id);
 
             FrameAnimatedNode(NewtonWorld *_nWorld, irr::scene::ISceneManager *__sceneManager,
-                        		int __id, const irr::c8* __filename);
+            		int __id, const irr::c8* __filename, irr::core::vector3df __rotarion, irr::core::vector3df __position,
+            		irr::core::vector3df __scale);
 
             //Main Methods
             void createNode(const irr::c8* __filename);

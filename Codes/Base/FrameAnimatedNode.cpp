@@ -5,13 +5,18 @@ base::FrameAnimatedNode::FrameAnimatedNode(NewtonWorld *_nWorld, irr::scene::ISc
 }
 
 base::FrameAnimatedNode::FrameAnimatedNode(NewtonWorld *_nWorld, irr::scene::ISceneManager *__sceneManager,
-		int __id, const irr::c8* __filename) : SceneObjects(__sceneManager, _nWorld, this, __id){
+		int __id, const irr::c8* __filename, irr::core::vector3df __rotarion, irr::core::vector3df __position,
+		irr::core::vector3df __scale) : SceneObjects(__sceneManager, _nWorld, this, __id){
 
 	_mesh = _sceneManager->addAnimatedMeshSceneNode(_sceneManager->getMesh(__filename));
 
-	_mesh->setRotation(_rotation);
-	_mesh->setPosition(_position);
-	_mesh->setScale(_scale);
+	_mesh->setRotation(__rotarion);
+	_mesh->setPosition(__position);
+	_mesh->setScale(__scale);
+
+	setPosition(__position.X, __position.Y, __position.Z);
+	setRotation(__rotarion.X, __rotarion.Y, __rotarion.Z);
+	setScale(__rotarion.X, __rotarion.Y, __rotarion.Z);
 
 	_mesh->setID(getId());
 }
@@ -74,23 +79,23 @@ void base::FrameAnimatedNode::updateAbsolutePosition(){
 }
 
 irr::core::aabbox3d<irr::f32> base::FrameAnimatedNode::getTranformedBoundingBox(){
-	_mesh->getTransformedBoundingBox();
+	return _mesh->getTransformedBoundingBox();
 }
 
 irr::core::matrix4 base::FrameAnimatedNode::getRelativeTranformation(){
-	_mesh->getRelativeTransformation();
+	return _mesh->getRelativeTransformation();
 }
 
 irr::core::vector3df base::FrameAnimatedNode::getAbsolutePosition(){
-	_mesh->getAbsolutePosition();
+	return _mesh->getAbsolutePosition();
 }
 
 irr::scene::ESCENE_NODE_TYPE base::FrameAnimatedNode::getType(){
-	_mesh->getType();
+	return _mesh->getType();
 }
 
 irr::scene::ISceneNode* base::FrameAnimatedNode::getParent(){
-	_mesh->getParent();
+	return _mesh->getParent();
 }
 
 irr::s32 base::FrameAnimatedNode::getStartFrame(){

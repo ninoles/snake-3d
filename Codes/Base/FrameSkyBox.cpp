@@ -6,25 +6,22 @@ base::FrameSkyBox::FrameSkyBox(NewtonWorld *_nWorld, irr::scene::ISceneManager *
 }
 
 base::FrameSkyBox::FrameSkyBox(NewtonWorld *_nWorld, irr::scene::ISceneManager *__sceneManager,
-		int __id, const irr::c8* __textureUp,
-		const irr::c8* __textureDown, const irr::c8* __textureLeft,
-		const irr::c8* __textureRight, const irr::c8* __textureFt,
-		const irr::c8* __textureBk, irr::scene::ISceneNode *__parent) : base::SceneObjects(__sceneManager, _nWorld, this, __id){
+		int __id, irr::video::ITexture* __textureUp,
+		irr::video::ITexture* __textureDown, irr::video::ITexture* __textureLeft,
+		irr::video::ITexture* __textureRight, irr::video::ITexture* __textureFt,
+		irr::video::ITexture* __textureBk, irr::scene::ISceneNode *__parent) : base::SceneObjects(__sceneManager, _nWorld, this, __id){
 
-	//_skyBox = _sceneManager->addSkyBoxSceneNode();
-
-	_skyBox->setID(getId());
+	_skyBox = _sceneManager->addSkyBoxSceneNode(__textureUp, __textureDown, __textureLeft, __textureRight, __textureFt, __textureBk, __parent, getId());
 
 }
 
 //Main Methods
-void base::FrameSkyBox::createNode( const irr::c8* __textureUp,
-		const irr::c8* __textureDown, const irr::c8* __textureLeft,
-		const irr::c8* __textureRight, const irr::c8* __textureFt,
-		const irr::c8* __textureBk, irr::scene::ISceneNode *__parent){
+void base::FrameSkyBox::createNode(irr::video::ITexture* __textureUp,
+		irr::video::ITexture* __textureDown, irr::video::ITexture* __textureLeft,
+		irr::video::ITexture* __textureRight, irr::video::ITexture* __textureFt,
+		irr::video::ITexture* __textureBk, irr::scene::ISceneNode *__parent){
 
-	//_skyBox = _sceneManager->addSkyBoxSceneNode();
-	_skyBox->setID(getId());
+	_skyBox = _sceneManager->addSkyBoxSceneNode(__textureUp, __textureDown, __textureLeft, __textureRight, __textureFt, __textureBk, __parent, getId());
 
 }
 
