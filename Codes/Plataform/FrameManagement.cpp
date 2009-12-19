@@ -12,7 +12,7 @@ platform::FrameManagement::FrameManagement(int __width, int __heigth, int __bits
 
 	_frame = new base::Frame(__width, __heigth, __bitsPerPixel, __fullScreen, __stencilBuffer, __activateJoystick, __antiAliasing);
 	_frame->addFontFrame("fonts/font800.xml");
-	_frame->setTitleFrame(L"Snake 3D.........");
+	_frame->setTitleFrame(L"->Snake 3D<-");
 	_frame->setColor(0,0,0,0);
 
 	_frame->getGUIEnviroment()->loadGUI("xmlgui/guiMainMenu.xml", 0);
@@ -20,7 +20,8 @@ platform::FrameManagement::FrameManagement(int __width, int __heigth, int __bits
 }
 
 void platform::FrameManagement::switchScreens(int __newScreen){
-	file::ConfFrame *conf = _frame->getButtonEvents()->getFrameConfig();
+	file::ConfFrame *conf = new file::ConfFrame();
+	conf->setArchiveRead("conf/config_video.xml");
 
 	switch(__newScreen){
 
@@ -37,11 +38,11 @@ void platform::FrameManagement::switchScreens(int __newScreen){
 			break;
 
 		case Events::GAME_SAVE_ARCHIVE_PREF:
+            _frame = new base::Frame(conf->readWidth(),conf->readHeigth(), conf->readBitsPerPixel(), conf->readFullScreen(),
+					conf->readStencilBuffer(), conf->readActivateJoy(), conf->readAntiAliasing());
 			break;
 
 		case Events::GAME_LOAD_ARCHIVE_PREF:
-			_frame = new base::Frame(conf->readWidth(),conf->readHeigth(), conf->readBitsPerPixel(), conf->readFullScreen(),
-					conf->readStencilBuffer(), conf->readActivateJoy(), conf->readAntiAliasing());
 			break;
 
 		case Events::GAME_START_MATCH:

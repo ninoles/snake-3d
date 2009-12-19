@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   Frame.h
  * Author: Henrique Jonas
  *
@@ -24,7 +24,7 @@ namespace base{
 	};
 
     class Frame{
-        
+
         private:
 
             irr::IrrlichtDevice *_device;
@@ -88,6 +88,7 @@ namespace base{
             		bool __stencilBuffer, bool __activateJoystick, bool __antiAliasing);
             void drop();
             void show();
+            bool isVisible();
 
             //GUI Methods
             irr::video::ITexture* getTexture(const irr::c8* __filename);
@@ -110,7 +111,7 @@ namespace base{
             irr::gui::IGUIContextMenu* addMenu(irr::gui::IGUIElement *__parent, irr::s32 __id);
 
     };
-    
+
 };
 
 #endif	/* _FRAME_H */

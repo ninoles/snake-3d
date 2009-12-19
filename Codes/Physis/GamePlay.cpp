@@ -14,18 +14,18 @@ using namespace std;
 Gameplay::Gameplay(scene::ISceneManager *__sceneManagement){
 	_sceneManagement = __sceneManagement;
 
-	_newtonW = NewtonCreate(NULL,NULL);
+	_newtonW = NewtonCreate();
 
 	NewtonSetSolverModel(_newtonW, 1);
 }
 
 Gameplay::Gameplay(){
-	_newtonW = NewtonCreate(NULL,NULL);
+	_newtonW = NewtonCreate();
 
 	NewtonSetSolverModel(_newtonW, 1);
 }
 
-/*bool Gameplay::checkForCollisions(FrameSceneNode* __nodeA, FrameSceneNode* __nodeB){
+bool Gameplay::checkForCollisions(base::FrameAnimatedNode* __nodeA, base::FrameAnimatedNode* __nodeB){
 
 	//Matrix to store FrameSceneNode position
 	core::matrix4 matrixA, matrixB;
@@ -41,12 +41,12 @@ Gameplay::Gameplay(){
 	normals nNormals;
 	penetration nPenetration;
 
-	int numberHits = NewtonCollisionCollide(_newtonW, NUMBER_CONTACTS, __nodeA->getCollision(), (float*)&matrixA[0],
-			__nodeB->getCollision(), (float*)&matrixB[0], nContacts, nNormals, nPenetration, 0);
+	int numberHits = NewtonCollisionCollide(_newtonW, NUMBER_CONTACTS, __nodeA->getPhysisNode()->getMeshCollision()->getCollisionNode(), (float*)&matrixA[0],
+			__nodeB->getPhysisNode()->getMeshCollision()->getCollisionNode(), (float*)&matrixB[0], nContacts, nNormals, nPenetration, 0);
 
 	return numberHits > 0;
 
-}*/
+}
 
 NewtonWorld* Gameplay::getNewtonWorld(){
 	return _newtonW;

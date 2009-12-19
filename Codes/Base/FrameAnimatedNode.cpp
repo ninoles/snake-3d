@@ -114,7 +114,7 @@ void base::FrameAnimatedNode::setCurrentFrame(irr::f32 __frame){
 	_mesh->setCurrentFrame(__frame);
 }
 
-void base::FrameAnimatedNode::setFrameLoop(irr::f32 __start, irr::f32 __end){
+void base::FrameAnimatedNode::setFrameLoop(irr::s32 __start, irr::s32 __end){
 	_mesh->setFrameLoop(__start, __end);
 }
 

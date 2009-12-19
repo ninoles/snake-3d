@@ -62,7 +62,7 @@ namespace base{
             irr::f32 getCurrentFrame();
 
             void setCurrentFrame(irr::f32 __frame);
-            void setFrameLoop(irr::f32 __start, irr::f32 __end);
+            void setFrameLoop(irr::s32 __start, irr::s32 __end);
             void setAnimationSpeed(irr::f32 __framePerSecond);
 
     };

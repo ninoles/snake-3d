@@ -8,6 +8,8 @@
 #ifndef GAMEPLAY_H_
 #define GAMEPLAY_H_
 
+#include "../Base/FrameAnimatedNode.h"
+
 #include <Newton.h>
 #include <irrlicht.h>
 
@@ -35,7 +37,7 @@ namespace physis{
 
 			NewtonWorld* getNewtonWorld();
 
-			//bool checkForCollisions(base::FrameSceneNode* __nodeA, base::FrameSceneNode* __nodeB);
+			bool checkForCollisions(base::FrameAnimatedNode* __nodeA, base::FrameAnimatedNode* __nodeB);
 
 	};
 

@@ -36,6 +36,8 @@ namespace base{
 			void setRotation(float __rX, float __rY, float __rZ);
 			void setScale(float __sX, float __sY, float __sZ);
 
+			physis::PhysisNode* getPhysisNode();
+
 	};
 }
 

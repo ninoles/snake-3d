@@ -21,6 +21,6 @@ int base::BasicObject::getId(){
 }
 
 void base::BasicObject::dropObject(){
-	delete _object;
+	_object = 0;
 	_id = -1;
 }

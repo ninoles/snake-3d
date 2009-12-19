@@ -18,6 +18,12 @@ platform::Game* platform::Game::getInstance(){
 }
 
 void platform::Game::initDisplay(){
+    file::ConfFrame *conf = new file::ConfFrame();
+    conf->setArchiveRead("conf/config_video.xml");
+    conf->readConfigurations();
+
+    _frameMan = new platform::FrameManagement(conf->readWidth(), conf->readHeigth(), conf->readBitsPerPixel(), conf->readFullScreen(),
+                            conf->readStencilBuffer(), conf->readActivateJoy(), conf->readAntiAliasing());
 
 }
 
@@ -57,4 +63,6 @@ void platform::Game::generatMap(){
 }
 
 void platform::Game::run(){
+    while(_frameMan->getBaseFrame()->isVisible())
+        _frameMan->getBaseFrame()->show();
 }

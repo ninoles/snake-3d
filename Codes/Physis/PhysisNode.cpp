@@ -40,3 +40,7 @@ void PhysisNode::createCollisionFromMesh(irr::scene::IMesh *__mesh){
 		_collision->createCollision();
 	}
 }
+
+MeshCollision* PhysisNode::getMeshCollision(){
+	return _collision;
+}

@@ -35,6 +35,8 @@ namespace physis{
 			void createBody();
 			void setMassAndInertia(dFloat __mass, dFloat __Ixx, dFloat __Iyy, dFloat __Izz);
 
+			MeshCollision* getMeshCollision();
+
 	};
 }
 

@@ -32,3 +32,7 @@ void base::SceneObjects::setScale(float __sX, float __sY, float __sZ){
 	_scale.Y = __sY;
 	_scale.Z = __sZ;
 }
+
+physis::PhysisNode* base::SceneObjects::getPhysisNode(){
+	return _physicalNode;
+}

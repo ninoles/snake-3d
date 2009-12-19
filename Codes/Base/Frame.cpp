@@ -20,7 +20,7 @@ base::Frame::Frame(int __width, int __heigth, int __bitsPerPixel, bool __fullScr
 
 	_device = irr::createDevice(irr::video::EDT_SOFTWARE,
 			irr::core::dimension2d<irr::s32>(__width, __heigth),
-			__bitsPerPixel, __fullScreen, __stencilBuffer, false, 0);
+			__bitsPerPixel, __fullScreen, _stencilBuffer, false, 0);
 
 	if (_device == 0)
 		return;
@@ -146,12 +146,18 @@ void base::Frame::repaint(int __width, int __heigth, int __bitsPerPixel, bool __
 }
 
 void base::Frame::show(){
+    _driver->beginScene(true, true, 0);
 	_sceneMang->drawAll();
 	_guiEnv->drawAll();
+	_driver->endScene();
 }
 
 void base::Frame::drop(){
 	_device->drop();
+}
+
+bool base::Frame::isVisible(){
+    return _device->run();
 }
 
 irr::video::ITexture* base::Frame::getTexture(const irr::c8* __filename){

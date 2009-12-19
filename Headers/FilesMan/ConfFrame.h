@@ -27,6 +27,7 @@ namespace file{
 		public:
 			//Constructor
 			ConfFrame(irr::IrrlichtDevice *__device);
+            ConfFrame();
 
 			//Main Methods
 			void setArchiveRead(char* __filename);

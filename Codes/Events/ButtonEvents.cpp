@@ -86,14 +86,15 @@ void Events::ButtonEvents::handler(int __idEvent){
          */
 
         case GUI_ID_SAVE_PREF:
-        	_options = GAME_SAVE_ARCHIVE_PREF;
+        	_options =GAME_SAVE_ARCHIVE_PREF;
 
 			//Save in the file.
-        	_confFrame->setArchiveWrite("conf/confFrame.xml");
+        	_confFrame->setArchiveWrite("conf/config_video.xml");
         	_confFrame->writeConfigurations(GUIManagement::getTokens(GUIManagement::getTextElement(800, _rootElement), L" x ", 1),
         			GUIManagement::getTokens(GUIManagement::getTextElement(800, _rootElement), L" x ", 2), L"32",
-        			GUIManagement::getTextElement(803, _rootElement), GUIManagement::getTextElement(802, _rootElement),
-        			GUIManagement::getTextElement(801, _rootElement), false);
+        			GUIManagement::toWChar(((irr::gui::IGUICheckBox*)GUIManagement::getElement(803, _rootElement))->isChecked()),
+        			GUIManagement::toWChar(((irr::gui::IGUICheckBox*)GUIManagement::getElement(802, _rootElement))->isChecked()),
+        			GUIManagement::toWChar(((irr::gui::IGUICheckBox*)GUIManagement::getElement(801, _rootElement))->isChecked()), L"0");
 
 			_device->getGUIEnvironment()->clear();
 			_device->getGUIEnvironment()->loadGUI("xmlgui/guiMainMenu.xml",0);
@@ -103,10 +104,12 @@ void Events::ButtonEvents::handler(int __idEvent){
         	_options = GAME_START_MATCH;
 
         	//Save in the file
-        	_confMatch->setArchiveWrite("conf/confMatch.xml");
+        	_confMatch->setArchiveWrite("conf/config_match.xml");
         	_confMatch->writeConfigurations(GUIManagement::getTextElement(600, _rootElement), GUIManagement::getTextElement(601, _rootElement),
-        			GUIManagement::getTextElement(604, _rootElement), GUIManagement::getTextElement(602, _rootElement),
-        			GUIManagement::getTextElement(603, _rootElement));
+        			GUIManagement::getTextElement(604, _rootElement),
+        			GUIManagement::toWChar(((irr::gui::IGUICheckBox*)GUIManagement::getElement(602, _rootElement))->isChecked()),
+        			GUIManagement::toWChar(((irr::gui::IGUICheckBox*)GUIManagement::getElement(603, _rootElement))->isChecked()));
+
         	_device->getGUIEnvironment()->clear();
 			break;
 

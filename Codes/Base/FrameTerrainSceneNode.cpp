@@ -96,23 +96,23 @@ void base::FrameTerrainSceneNode::updateAbsolutePosition(){
 }
 
 irr::core::aabbox3d<irr::f32> base::FrameTerrainSceneNode::getTranformedBoundingBox(){
-	_terrainNode->getTransformedBoundingBox();
+	return _terrainNode->getTransformedBoundingBox();
 }
 
 irr::core::matrix4 base::FrameTerrainSceneNode::getRelativeTranformation(){
-	_terrainNode->getRelativeTransformation();
+	return _terrainNode->getRelativeTransformation();
 }
 
 irr::core::vector3df base::FrameTerrainSceneNode::getAbsolutePosition(){
-	_terrainNode->getAbsolutePosition();
+	return _terrainNode->getAbsolutePosition();
 }
 
 irr::scene::ESCENE_NODE_TYPE base::FrameTerrainSceneNode::getType(){
-	_terrainNode->getType();
+	return _terrainNode->getType();
 }
 
 irr::scene::ISceneNode* base::FrameTerrainSceneNode::getParent(){
-	_terrainNode->getParent();
+	return _terrainNode->getParent();
 }
 
 irr::scene::ITerrainSceneNode* base::FrameTerrainSceneNode::getTerrainNode(){

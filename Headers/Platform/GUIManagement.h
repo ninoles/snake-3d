@@ -54,12 +54,6 @@ class GUIManagement{
 
 		}
 
-		static std::string toString(bool __value){
-			if(__value)
-				return "true";
-			return "false";
-		}
-
 		static bool toBoolean(string __phrase){
 			if(__phrase == "1" || __phrase == "True" || __phrase == "true")
 				return true;
@@ -88,6 +82,12 @@ class GUIManagement{
 			return word;
 		}
 
+		static wchar_t* toWChar(bool __value){
+			if(__value)
+				return L"1";
+			return L"0";
+		}
+
 		static wchar_t* getTokens(const wchar_t* __phrase, wchar_t* __delimiter, int __token){
 
 			int count_1 = 0;
@@ -108,7 +108,7 @@ class GUIManagement{
 			wchar_t *phraseRet;
 
 			if(__token == 1){
-				phraseRet = new wchar_t[count_1+3];
+				phraseRet = new wchar_t[count_1];
 
 				for(int k = 0; k < count_1; k++)
 					phraseRet[k] = __phrase[k];
@@ -141,7 +141,6 @@ class GUIManagement{
 
 			return phrase;
 		}
-
 };
 
 #endif /* GUIMANAGEMENT_H_ */

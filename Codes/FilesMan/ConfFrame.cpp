@@ -11,6 +11,9 @@ file::ConfFrame::ConfFrame(irr::IrrlichtDevice *__device){
 	_device = __device;
 }
 
+file::ConfFrame::ConfFrame(){
+}
+
 void file::ConfFrame::setArchiveRead(char* __filename){
 	_xmlArchive = irr::io::createIrrXMLReader(__filename);
 }
