@@ -36,7 +36,11 @@ namespace base{
 			void setRotation(float __rX, float __rY, float __rZ);
 			void setScale(float __sX, float __sY, float __sZ);
 
+			//Getters
 			physis::PhysisNode* getPhysisNode();
+			irr::core::vector3df getPosition();
+			irr::core::vector3df getScale();
+			irr::core::vector3df getRotation();
 
 	};
 }

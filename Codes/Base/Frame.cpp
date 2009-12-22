@@ -6,21 +6,25 @@
  */
 
 #include "../../Headers/Base/Frame.h"
+#include <iostream.h>
 
-base::Frame::Frame(int __width, int __heigth, int __bitsPerPixel, bool __fullScreen,
+base::Frame::Frame(int __width, int __heigth, irr::u8 __bitsPerPixel, bool __fullScreen,
 		bool __stencilBuffer, bool __activateJoystick, bool __antiAliasing) {
 
-	_width = __width;
-	_heigth = __heigth;
-	_bitsPerPixel = __bitsPerPixel;
-	_fullscreen = __fullScreen;
-	_stencilBuffer = _stencilBuffer;
-	_activateJoystick = __activateJoystick;
-	_antiAliasing = _antiAliasing;
+	parameters.AntiAlias = __antiAliasing;
+	parameters.DriverType = irr::video::EDT_OPENGL;
+	parameters.EventReceiver = 0;
+	parameters.Fullscreen = __fullScreen;
+	parameters.HighPrecisionFPU = true;
+	parameters.IgnoreInput = false;
+	parameters.Stencilbuffer = __stencilBuffer;
+	parameters.Vsync = true;
+	parameters.WindowSize = irr::core::dimension2d<irr::s32>(__width, __heigth);
 
-	_device = irr::createDevice(irr::video::EDT_SOFTWARE,
-			irr::core::dimension2d<irr::s32>(__width, __heigth),
-			__bitsPerPixel, __fullScreen, _stencilBuffer, false, 0);
+	_activateJoyStick = __activateJoystick;
+
+
+	_device = irr::createDeviceEx(parameters);
 
 	if (_device == 0)
 		return;
@@ -97,56 +101,57 @@ void base::Frame::setColor(int __alpha, int __red, int __green, int __blue) {
 }
 
 int base::Frame::getWidth(){
-	return _width;
+	return parameters.WindowSize.Width;
 }
 
 int base::Frame::getHeigth(){
-	return _heigth;
+	return parameters.WindowSize.Height;
 }
 
 int base::Frame::getBitsPerPixel(){
-	return _bitsPerPixel;
+	return 32;
 }
 
 bool base::Frame::isFullScreen(){
-	return _fullscreen;
+	return parameters.Fullscreen;
 }
 
 bool base::Frame::isStencilBuffer(){
-	return _stencilBuffer;
+	return parameters.Stencilbuffer;
 }
 
 bool base::Frame::isAntiAliasing(){
-	return _antiAliasing;
+	return parameters.AntiAlias;
 }
 
 bool base::Frame::isJoystick(){
-	return _activateJoystick;
+	return _activateJoyStick;
 }
 
-void base::Frame::repaint(int __width, int __heigth, int __bitsPerPixel, bool __fullScreen,
+void base::Frame::repaint(int __width, int __heigth, irr::u8 __bitsPerPixel, bool __fullScreen,
 		bool __stencilBuffer, bool __activateJoystick, bool __antiAliasing){
 
 	drop();
 
-	_width = __width;
-	_heigth = __heigth;
-	_bitsPerPixel = __bitsPerPixel;
-	_fullscreen = __fullScreen;
-	_stencilBuffer = _stencilBuffer;
-	_activateJoystick = __activateJoystick;
-	_antiAliasing = _antiAliasing;
+	parameters.AntiAlias = __antiAliasing;
+	parameters.DriverType = irr::video::EDT_OPENGL;
+	parameters.EventReceiver = 0;
+	parameters.Fullscreen = __fullScreen;
+	parameters.HighPrecisionFPU = true;
+	parameters.IgnoreInput = false;
+	parameters.Stencilbuffer = __stencilBuffer;
+	parameters.Vsync = true;
+	parameters.WindowSize = irr::core::dimension2d<irr::s32>(__width, __heigth);
+	_activateJoyStick = __activateJoystick;
 
-	_device = irr::createDevice(irr::video::EDT_SOFTWARE,
-			irr::core::dimension2d<irr::s32>(__width, __heigth),
-			__bitsPerPixel, __fullScreen, __stencilBuffer, false, 0);
+	_device = irr::createDeviceEx(parameters);
 
 	if (_device == 0)
 		return;
 }
 
 void base::Frame::show(){
-    _driver->beginScene(true, true, 0);
+    _driver->beginScene(true, true, _colorFrame);
 	_sceneMang->drawAll();
 	_guiEnv->drawAll();
 	_driver->endScene();

@@ -108,7 +108,7 @@ class GUIManagement{
 			wchar_t *phraseRet;
 
 			if(__token == 1){
-				phraseRet = new wchar_t[count_1];
+				phraseRet = new wchar_t[count_1+3];
 
 				for(int k = 0; k < count_1; k++)
 					phraseRet[k] = __phrase[k];

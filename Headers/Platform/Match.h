@@ -8,7 +8,10 @@
 #ifndef MATCH_H_INCLUDED
 #define MATCH_H_INCLUDED
 
+#include <irrlicht.h>
+
 #include "../FilesMan/ConfMatch.h"
+#include "../Player/GroupPlayers.h"
 
 namespace platform{
 
@@ -24,20 +27,20 @@ namespace platform{
         private:
 
             int _maxPoints;
-            int _intelligence;
+            bool _intelligence;
             int _numberOfPlayers;
             Dificulty _dificulty;
 
+            Players::GroupPlayers *_players;
+
+            file::ConfMatch *_config;
+
         public:
 
-            Match();
+			Match();
 
             void setProperties();
-
-
-
     };
 }
-
 
 #endif // MATCH_H_INCLUDED

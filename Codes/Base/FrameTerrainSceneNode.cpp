@@ -21,6 +21,24 @@ base::FrameTerrainSceneNode::FrameTerrainSceneNode(NewtonWorld *_nWorld, irr::sc
 		_terrainNode = _sceneManager->addTerrainSceneNode(__filename, __parent, __id, _position, _rotation, _scale, __vertexColor,
 				__maxLOD, __patchSize, __smoothFactor);
 
+	_terrainNode->setPosition(_position);
+	_terrainNode->setScale(_scale);
+	_terrainNode->setRotation(_rotation);
+
+	_terrainNode->setID(getId());
+}
+
+void base::FrameTerrainSceneNode::createTerrain(const irr::c8* __filename, irr::scene::ISceneNode *__parent,
+					irr::video::SColor __vertexColor, irr::s32 __maxLOD,
+					irr::scene::E_TERRAIN_PATCH_SIZE __patchSize, irr::s32 __smoothFactor){
+
+	_terrainNode = _sceneManager->addTerrainSceneNode(__filename, __parent, getId(), _position, _rotation, _scale, __vertexColor,
+					__maxLOD, __patchSize, __smoothFactor);
+
+	_terrainNode->setPosition(_position);
+	_terrainNode->setScale(_scale);
+	_terrainNode->setRotation(_rotation);
+
 	_terrainNode->setID(getId());
 }
 

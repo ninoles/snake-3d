@@ -11,6 +11,10 @@ file::ConfMatch::ConfMatch(irr::IrrlichtDevice *__device){
 	_device = __device;
 }
 
+file::ConfMatch::ConfMatch(){
+
+}
+
 void file::ConfMatch::setArchiveRead(char* __filename){
 	_xmlArchive = irr::io::createIrrXMLReader(__filename);
 }

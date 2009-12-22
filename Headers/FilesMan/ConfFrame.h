@@ -21,8 +21,9 @@ namespace file{
 			irr::io::IrrXMLReader *_xmlArchive;
 			irr::io::IXMLWriter *_xmlArchiveWr;
 
-			int _width, _heigth, _bitsPerPixel;
+			int _width, _heigth;
 			bool _fullscreen, _stencilBuffer, _antiAliasing, _activateJoyStick;
+			irr::u8 _bitsPerPixel;
 
 		public:
 			//Constructor
@@ -38,7 +39,7 @@ namespace file{
 
 			int readWidth();
 			int readHeigth();
-			int readBitsPerPixel();
+			irr::u8 readBitsPerPixel();
 			bool readActivateJoy();
 			bool readAntiAliasing();
 			bool readFullScreen();

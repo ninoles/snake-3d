@@ -7,7 +7,7 @@
 
 #include "../../Headers/Platform/FrameManagement.h"
 
-platform::FrameManagement::FrameManagement(int __width, int __heigth, int __bitsPerPixel, bool __fullScreen,
+platform::FrameManagement::FrameManagement(int __width, int __heigth, irr::u8 __bitsPerPixel, bool __fullScreen,
 		bool __stencilBuffer, bool __activateJoystick, bool __antiAliasing){
 
 	_frame = new base::Frame(__width, __heigth, __bitsPerPixel, __fullScreen, __stencilBuffer, __activateJoystick, __antiAliasing);

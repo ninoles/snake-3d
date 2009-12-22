@@ -44,6 +44,10 @@ void base::FrameCameraFPS::repaint(){
 	_camera->setScale(_scale);
 }
 
+void base::FrameCameraFPS::insertKeyMoviment(irr::EKEY_CODE __key){
+	_moviments[_indexMoviment++] = __key;
+}
+
 void base::FrameCameraFPS::bindTargetAndRotation(bool __bound){
 	_camera->bindTargetAndRotation(__bound);
 }
@@ -108,4 +112,8 @@ void base::FrameCameraFPS::createTrianguleSelector(irr::scene::ITerrainSceneNode
 			__ellipsoidTranslation, __slidingValue);
 
 	_camera->addAnimator(_animCollision);
+}
+
+irr::EKEY_CODE* base::FrameCameraFPS::getKeyMoviment(){
+	return _moviments;
 }

@@ -16,6 +16,7 @@ namespace Players{
 
                 GroupPlayers();
                 GroupPlayers(GenericList::ArrayList<Player> *__players);
+                GroupPlayers(int __numberOfPlayers);
                 
                 GenericList::ArrayList<Player>* getAllPlayers();
 

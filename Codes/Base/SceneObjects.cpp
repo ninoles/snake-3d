@@ -36,3 +36,15 @@ void base::SceneObjects::setScale(float __sX, float __sY, float __sZ){
 physis::PhysisNode* base::SceneObjects::getPhysisNode(){
 	return _physicalNode;
 }
+
+irr::core::vector3df base::SceneObjects::getPosition(){
+	return _position;
+}
+
+irr::core::vector3df base::SceneObjects::getScale(){
+	return _scale;
+}
+
+irr::core::vector3df base::SceneObjects::getRotation(){
+	return _rotation;
+}

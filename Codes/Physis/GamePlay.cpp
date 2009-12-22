@@ -25,7 +25,7 @@ Gameplay::Gameplay(){
 	NewtonSetSolverModel(_newtonW, 1);
 }
 
-bool Gameplay::checkForCollisions(base::FrameAnimatedNode* __nodeA, base::FrameAnimatedNode* __nodeB){
+void Gameplay::checkForCollisions(base::FrameAnimatedNode* __nodeA, base::FrameAnimatedNode* __nodeB){
 
 	//Matrix to store FrameSceneNode position
 	core::matrix4 matrixA, matrixB;
@@ -44,7 +44,13 @@ bool Gameplay::checkForCollisions(base::FrameAnimatedNode* __nodeA, base::FrameA
 	int numberHits = NewtonCollisionCollide(_newtonW, NUMBER_CONTACTS, __nodeA->getPhysisNode()->getMeshCollision()->getCollisionNode(), (float*)&matrixA[0],
 			__nodeB->getPhysisNode()->getMeshCollision()->getCollisionNode(), (float*)&matrixB[0], nContacts, nNormals, nPenetration, 0);
 
-	return numberHits > 0;
+	if(numberHits > 0){
+		__nodeA->_movimentNode = false;
+		__nodeB->_movimentNode = false;
+	} else {
+		__nodeA->_movimentNode = true;
+		__nodeB->_movimentNode = true;
+	}
 
 }
 

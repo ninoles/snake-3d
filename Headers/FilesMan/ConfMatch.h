@@ -29,6 +29,7 @@ namespace file{
 			public:
 				//Constructor
 				ConfMatch(irr::IrrlichtDevice *__device);
+				ConfMatch();
 
 				//Main Methods
 				void setArchiveRead(char* __filename);

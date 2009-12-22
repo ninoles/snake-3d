@@ -2,6 +2,10 @@
 
 base::FrameAnimatedNode::FrameAnimatedNode(NewtonWorld *_nWorld, irr::scene::ISceneManager *__sceneManager,
 		int __id) : SceneObjects(__sceneManager, _nWorld, this, __id){
+
+	_indexMoviment = 0;
+	_movimentNode = true;
+
 }
 
 base::FrameAnimatedNode::FrameAnimatedNode(NewtonWorld *_nWorld, irr::scene::ISceneManager *__sceneManager,
@@ -19,22 +23,30 @@ base::FrameAnimatedNode::FrameAnimatedNode(NewtonWorld *_nWorld, irr::scene::ISc
 	setScale(__rotarion.X, __rotarion.Y, __rotarion.Z);
 
 	_mesh->setID(getId());
+
+	_indexMoviment = 0;
+	_movimentNode = true;
+
 }
 
-void base::FrameAnimatedNode::createNode(const irr::c8* __filename){
+void base::FrameAnimatedNode::createNode(const irr::c8* __filename,  irr::core::vector3df __rotarion, irr::core::vector3df __position,
+		irr::core::vector3df __scale){
 	_mesh = _sceneManager->addAnimatedMeshSceneNode(_sceneManager->getMesh(__filename));
 
-	_mesh->setRotation(_rotation);
-	_mesh->setPosition(_position);
-	_mesh->setScale(_scale);
+	_mesh->setRotation(__rotarion);
+	_mesh->setPosition(__position);
+	_mesh->setScale(__scale);
+
+	setPosition(__position.X, __position.Y, __position.Z);
+	setRotation(__rotarion.X, __rotarion.Y, __rotarion.Z);
+	setScale(__rotarion.X, __rotarion.Y, __rotarion.Z);
 
 	_mesh->setID(getId());
 }
 
 void base::FrameAnimatedNode::repaint(){
-	_mesh->setRotation(_rotation);
 	_mesh->setPosition(_position);
-	_mesh->setScale(_scale);
+	_mesh->setRotation(_rotation);
 }
 
 void base::FrameAnimatedNode::drop(){
@@ -44,6 +56,10 @@ void base::FrameAnimatedNode::drop(){
 
 void base::FrameAnimatedNode::createCollision(){
 	_physicalNode->createCollisionFromMesh(getMesh());
+}
+
+void base::FrameAnimatedNode::insertKeyMoviment(irr::EKEY_CODE __key){
+	_moviments[_indexMoviment++] = __key;
 }
 
 irr::scene::IAnimatedMeshSceneNode* base::FrameAnimatedNode::getAnimatedMesh(){
@@ -56,6 +72,10 @@ irr::scene::ISceneNode* base::FrameAnimatedNode::getSceneNode(){
 
 irr::scene::IMesh* base::FrameAnimatedNode::getMesh(){
 	return dynamic_cast<irr::scene::IMesh*>(_mesh->getMesh());
+}
+
+irr::EKEY_CODE* base::FrameAnimatedNode::getKeyMoviment(){
+	return _moviments;
 }
 
 void base::FrameAnimatedNode::setMaterialFlag(irr::video::E_MATERIAL_FLAG __flag, bool __newvalue){

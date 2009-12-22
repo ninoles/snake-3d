@@ -11,6 +11,11 @@
 #include <irrlicht.h>
 
 #include "FrameManagement.h"
+#include "../Physis/Gameplay.h"
+
+#include "../Base/FrameAnimatedNode.h"
+#include "../Base/FrameCameraFPS.h"
+#include "../Base/FrameTerrainSceneNode.h"
 
 namespace platform{
 
@@ -22,8 +27,12 @@ namespace platform{
 
 			FrameManagement *_frameMan;
 
-			Game(){
+			physis::Gameplay *_gamePlay;
 
+			base::FrameAnimatedNode *_node1;
+			base::FrameAnimatedNode *_node2;
+
+			Game(){
 			}
 
 		public:

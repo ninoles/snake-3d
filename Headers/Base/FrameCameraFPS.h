@@ -12,6 +12,8 @@
 
 #include "SceneObjects.h"
 
+#define MOVIMENTS 4
+
 namespace base{
 
     class FrameCameraFPS : public SceneObjects{
@@ -22,6 +24,9 @@ namespace base{
 
             irr::scene::ITriangleSelector *_selector;
             irr::scene::ISceneNodeAnimator *_animCollision;
+
+            irr::EKEY_CODE _moviments[MOVIMENTS];
+		    int _indexMoviment;
 
         public:
 
@@ -42,6 +47,7 @@ namespace base{
         			irr::f32 __jumpSpeed);
             void dropCamera();
             void repaint();
+            void insertKeyMoviment(irr::EKEY_CODE __key);
 
             //Camera Methods
             void bindTargetAndRotation(bool __bound);
@@ -60,6 +66,7 @@ namespace base{
             //Getters
             irr::scene::ICameraSceneNode* getCamera();
             irr::scene::ISceneNodeAnimatorCameraFPS* getCameraFPS();
+            irr::EKEY_CODE* getKeyMoviment();
 
             //Interface Methods
             void createTrianguleSelector(irr::scene::ITerrainSceneNode *__terrainNodeconst, irr::core::vector3df __ellipsoidRadius,

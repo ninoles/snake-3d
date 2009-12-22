@@ -21,7 +21,7 @@ namespace platform{
 
 		public:
 
-			FrameManagement(int __width, int __heigth, int __bitsPerPixel, bool __fullScreen,
+			FrameManagement(int __width, int __heigth, irr::u8 __bitsPerPixel, bool __fullScreen,
 					bool __stencilBuffer, bool __activateJoystick, bool __antiAliasing);
 
 			void switchScreens(int __newScreen);

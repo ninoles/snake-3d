@@ -12,6 +12,11 @@ GroupPlayers::GroupPlayers(GenericList::ArrayList<Player>* __players){
     _currentPlayerName = "";
 }
 
+GroupPlayers::GroupPlayers(int __numberOfPlayers){
+    _players = new GenericList::ArrayList<Player>(__numberOfPlayers);
+    _currentPlayerName = "";
+}
+
 GenericList::ArrayList<Player>* GroupPlayers::getAllPlayers(){
     return _players;
 }

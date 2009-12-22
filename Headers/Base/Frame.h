@@ -37,22 +37,14 @@ namespace base{
 
             Events::WrapperEvents *_eventReceiver;
 
-            /*
-             * Caracteristics of frame
-             */
-            int _width;
-            int _heigth;
-            int _bitsPerPixel;
-            bool _fullscreen;
-            bool _stencilBuffer;
-            bool _activateJoystick;
-            bool _antiAliasing;
+        	irr::SIrrlichtCreationParameters parameters;
+        	bool _activateJoyStick;
 
         public:
 
             //Constructor
-            Frame(int __width, int __heigth, int __bitsPerPixel, bool __fullScreen, bool __stencilBuffer, bool __activateJoystick,
-            		bool __antiAliasing);
+            Frame(int __width, int __heigth, irr::u8 __bitsPerPixel, bool __fullScreen,
+            		bool __stencilBuffer, bool __activateJoystick, bool __antiAliasing);
 
             //Main Methods
             void setFont(const irr::c8* __filename);
@@ -84,7 +76,7 @@ namespace base{
             bool isAntiAliasing();
 
             //Frame Methods
-            void repaint(int __width, int __heigth, int __bitsPerPixel, bool __fullScreen,
+            void repaint(int __width, int __heigth, irr::u8 __bitsPerPixel, bool __fullScreen,
             		bool __stencilBuffer, bool __activateJoystick, bool __antiAliasing);
             void drop();
             void show();

@@ -14,6 +14,8 @@
 #include "SceneObjects.h"
 #include "../Physis/PhysisNode.h"
 
+#define MOVIMENTS 2
+
 namespace base{
 
     class FrameAnimatedNode : public SceneObjects{
@@ -21,8 +23,14 @@ namespace base{
         private:
 
             irr::scene::IAnimatedMeshSceneNode *_mesh;
+            irr::EKEY_CODE _moviments[MOVIMENTS];
+
+            int _indexMoviment;
 
         public:
+
+            //This field has the function to tell if the mesh is colliding with another mesh.
+            bool _movimentNode;
 
             //Constructor
             FrameAnimatedNode(NewtonWorld *_nWorld, irr::scene::ISceneManager *__sceneManager,
@@ -33,15 +41,18 @@ namespace base{
             		irr::core::vector3df __scale);
 
             //Main Methods
-            void createNode(const irr::c8* __filename);
+            void createNode(const irr::c8* __filename,  irr::core::vector3df __rotarion, irr::core::vector3df __position,
+            		irr::core::vector3df __scale);
             void repaint();
             void drop();
             void createCollision();
+            void insertKeyMoviment(irr::EKEY_CODE __key);
 
             //Getters
             irr::scene::IAnimatedMeshSceneNode* getAnimatedMesh();
             irr::scene::ISceneNode* getSceneNode();
             irr::scene::IMesh* getMesh();
+            irr::EKEY_CODE* getKeyMoviment();
 
             //Mesh Methods
             void setMaterialFlag(irr::video::E_MATERIAL_FLAG __flag, bool __newvalue);
