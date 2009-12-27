@@ -18,7 +18,7 @@ namespace platform{
     class Match{
 
         enum Dificulty{
-            DIF_EASY,
+            DIF_EASY = 1,
             DIF_MEDIUM,
             DIF_HARD,
             DIF_EXTREME
@@ -29,7 +29,7 @@ namespace platform{
             int _maxPoints;
             bool _intelligence;
             int _numberOfPlayers;
-            Dificulty _dificulty;
+            int _dificulty;
 
             Players::GroupPlayers *_players;
 
@@ -40,6 +40,12 @@ namespace platform{
 			Match();
 
             void setProperties();
+
+            void randomPoints();
+            void randomBonus();
+            void randomPositionPlayers();
+
+            void endMatch();
     };
 }
 

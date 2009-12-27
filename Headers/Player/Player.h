@@ -2,6 +2,10 @@
 #define PLAYER_H_
 
 #include <string>
+#include <irrlicht.h>
+#include <Newton.h>
+
+#include "../Platform/Snake.h"
 
 using namespace std;
 
@@ -15,6 +19,8 @@ class Player{
 		int _wins;
 		int _numberGames;
 		
+		platform::Snake *_snake;
+
 	public:
 		
 		Player(string __name,int __score, int __wins, int __numberGames);
@@ -32,6 +38,8 @@ class Player{
 		void setNumberGames(int __numberGames);
 		int getNumberGames();
 		
+		void createSnake(irr::core::vector3df __initialPosition, irr::scene::ISceneManager *__sceneManager, NewtonWorld *__newtonW);
+
 		bool operator==(Player &__player) const;
 			
 	};

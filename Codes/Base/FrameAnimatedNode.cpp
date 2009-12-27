@@ -44,6 +44,16 @@ void base::FrameAnimatedNode::createNode(const irr::c8* __filename,  irr::core::
 	_mesh->setID(getId());
 }
 
+void base::FrameAnimatedNode::createNode(const irr::c8* __filename){
+	_mesh = _sceneManager->addAnimatedMeshSceneNode(_sceneManager->getMesh(__filename));
+
+	_mesh->setRotation(_rotation);
+	_mesh->setPosition(_position);
+	_mesh->setScale(_scale);
+
+	_mesh->setID(getId());
+}
+
 void base::FrameAnimatedNode::repaint(){
 	_mesh->setPosition(_position);
 	_mesh->setRotation(_rotation);

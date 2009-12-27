@@ -1,3 +1,4 @@
+
 /* 
  * File:   FrameAnimatedNode.h
  * Author: Henrique Jonas
@@ -43,6 +44,7 @@ namespace base{
             //Main Methods
             void createNode(const irr::c8* __filename,  irr::core::vector3df __rotarion, irr::core::vector3df __position,
             		irr::core::vector3df __scale);
+            void createNode(const irr::c8* __filename);
             void repaint();
             void drop();
             void createCollision();

@@ -9,7 +9,6 @@
 
 platform::Match::Match(){
 	_config = new file::ConfMatch();
-	_dificulty = 0;
 	_intelligence = false;
 	_maxPoints = 0;
 	_numberOfPlayers = 0;
@@ -24,4 +23,20 @@ void platform::Match::setProperties(){
 	_numberOfPlayers = _config->getNumberOfPlayers();
 
 	_players = new Players::GroupPlayers(_numberOfPlayers);
+}
+
+void platform::Match::randomPoints(){
+
+}
+
+void platform::Match::randomBonus(){
+
+}
+
+void platform::Match::randomPositionPlayers(){
+
+}
+
+void platform::Match::endMatch(){
+
 }

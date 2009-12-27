@@ -1,12 +1,14 @@
 #include "../../Headers/Player/Player.h"
 
 using namespace Players;
+using namespace platform;
 
 Player::Player(string __name,int __score, int __wins, int __numberGames){
 	_name = __name;
 	_score = __score;
 	_wins = __wins;
 	_numberGames = __numberGames;
+	_snake = new Snake();
 }
 
 Player::Player(){
@@ -14,6 +16,7 @@ Player::Player(){
 	_score = -1;
 	_wins = -1;
 	_numberGames = -1;
+	_snake = new Snake();
 }
 
 void Player::setName(string __name){
@@ -46,6 +49,10 @@ int Player::getWins(){
 
 int Player::getScore(){
 	return _score;
+}
+
+void Player::createSnake(irr::core::vector3df __initialPosition, irr::scene::ISceneManager *__sceneManager, NewtonWorld *__newtonW){
+	_snake->createSnake(__initialPosition, __sceneManager, __newtonW);
 }
 
 bool Player::operator ==(Player& __player) const{

@@ -41,8 +41,11 @@ namespace platform{
 		public:
 
 			Snake(irr::core::vector3df __initialPosition, irr::scene::ISceneManager *__sceneManager, NewtonWorld *__newtonW);
+			Snake();
 
+			void createSnake(irr::core::vector3df __initialPosition, irr::scene::ISceneManager *__sceneManager, NewtonWorld *__newtonW);
 			void insertNode();
+			void insertMoviment(int __idPlayer);
 			void snakeForward();
 			void turnLeft(irr::core::vector3df __newPosition);
 			void turnRight(irr::core::vector3df __newPosition);

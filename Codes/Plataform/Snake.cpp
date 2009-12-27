@@ -20,6 +20,30 @@ platform::Snake::Snake(irr::core::vector3df __initialPosition, irr::scene::IScen
 
 	renderSnake();
 
+	_head->createCollision();
+	_tail->createCollision();
+	_node->createCollision();
+}
+
+platform::Snake::Snake(){
+	_nodes = new GenericList::ArrayList<base::FrameAnimatedNode*>();
+}
+
+void platform::Snake::createSnake(irr::core::vector3df __initialPosition, irr::scene::ISceneManager *__sceneManager, NewtonWorld *__newtonW){
+	_sceneManager = __sceneManager;
+	_absolutePositionFromHead = __initialPosition;
+
+	_head = new base::FrameAnimatedNode(__newtonW, __sceneManager, 0);
+	_tail = new base::FrameAnimatedNode(__newtonW, __sceneManager, 1);
+	_node = new base::FrameAnimatedNode(__newtonW, __sceneManager, 2);
+
+	_nodes->add(_node);
+
+	renderSnake();
+
+	_head->createCollision();
+	_tail->createCollision();
+	_node->createCollision();
 }
 
 //False -> Move the tail back
@@ -91,6 +115,19 @@ void platform::Snake::insertNode(){
 	adjustNodes(1, true);
 }
 
+void platform::Snake::insertMoviment(int __idPlayer){
+
+	if(__idPlayer == 1 && _head->getKeyMoviment() == 0){
+		_head->insertKeyMoviment(irr::KEY_KEY_A);
+		_head->insertKeyMoviment(irr::KEY_KEY_D);
+
+	} else if(__idPlayer == 2 && _head->getKeyMoviment() == 0){
+		_head->insertKeyMoviment(irr::KEY_LEFT);
+		_head->insertKeyMoviment(irr::KEY_RIGHT);
+	}
+
+}
+
 void platform::Snake::snakeForward(){
 	_head->setPosition(_head->getPosition().X+FACTOR_FORWARD_SNAKE, _head->getPosition().Y, _head->getPosition().Z);
 
@@ -111,9 +148,9 @@ void platform::Snake::deleteNodes(int __numberNodes)
 }
 
 void platform::Snake::renderSnake(){
-	_head->createNode("cubo.3ds",irr::core::vector3df(0,0,0),irr::core::vector3df(0,0,0),irr::core::vector3df(1,1,1));
-	_node->createNode("cubo.3ds",irr::core::vector3df(0,0,0),irr::core::vector3df(FACTOR_RANGE_MESH,0,0),irr::core::vector3df(1,1,1));
-	_tail->createNode("cubo.3ds",irr::core::vector3df(0,0,0),irr::core::vector3df(2*FACTOR_RANGE_MESH,0,0),irr::core::vector3df(1,1,1));
+	_head->createNode("meshes/cabeca.ms3d",irr::core::vector3df(0,0,0),irr::core::vector3df(0,0,0),irr::core::vector3df(1,1,1));
+	_node->createNode("meshes/corpo.ms3d",irr::core::vector3df(0,0,0),irr::core::vector3df(FACTOR_RANGE_MESH,0,0),irr::core::vector3df(1,1,1));
+	_tail->createNode("meshes/cauda.ms3d",irr::core::vector3df(0,0,0),irr::core::vector3df(2*FACTOR_RANGE_MESH,0,0),irr::core::vector3df(1,1,1));
 }
 
 void platform::Snake::repaintSnake(){
