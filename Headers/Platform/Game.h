@@ -8,14 +8,28 @@
 #ifndef GAME_H_
 #define GAME_H_
 
+#ifdef WIN32
+
+    #include <windows.h>
+    #define sleepms(x) Sleep(x)
+
+#elif defined(__linux__) || defined(MAC_OS)
+
+    #include <unistd.h>
+    #define sleepms(x) usleep(x * 1000)
+
+#else
+
+    #warning "Could not find an implementation for sleep for current OS. Game won't sleep"
+
+    #define sleepms(x)
+
+#endif
+
 #include <irrlicht.h>
 
 #include "FrameManagement.h"
-#include "../Physis/Gameplay.h"
-
-#include "../Base/FrameAnimatedNode.h"
-#include "../Base/FrameCameraFPS.h"
-#include "../Base/FrameTerrainSceneNode.h"
+#include "Gameplay.h"
 
 namespace platform{
 
@@ -27,10 +41,7 @@ namespace platform{
 
 			FrameManagement *_frameMan;
 
-			physis::Gameplay *_gamePlay;
-
-			base::FrameAnimatedNode *_node1;
-			base::FrameAnimatedNode *_node2;
+			platform::Gameplay *_gamePlay;
 
 			Game(){
 			}

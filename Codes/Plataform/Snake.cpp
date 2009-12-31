@@ -112,7 +112,7 @@ void platform::Snake::turnRight(irr::core::vector3df __newPosition){
 }
 
 void platform::Snake::insertNode(){
-	adjustNodes(1, true);
+	adjustNodes(1, false);
 }
 
 void platform::Snake::insertMoviment(int __idPlayer){
@@ -148,9 +148,9 @@ void platform::Snake::deleteNodes(int __numberNodes)
 }
 
 void platform::Snake::renderSnake(){
-	_head->createNode("meshes/cabeca.ms3d",irr::core::vector3df(0,0,0),irr::core::vector3df(0,0,0),irr::core::vector3df(1,1,1));
-	_node->createNode("meshes/corpo.ms3d",irr::core::vector3df(0,0,0),irr::core::vector3df(FACTOR_RANGE_MESH,0,0),irr::core::vector3df(1,1,1));
-	_tail->createNode("meshes/cauda.ms3d",irr::core::vector3df(0,0,0),irr::core::vector3df(2*FACTOR_RANGE_MESH,0,0),irr::core::vector3df(1,1,1));
+	_head->createNode("meshes/cabeca.ms3d",irr::core::vector3df(0,0,0), _absolutePositionFromHead,irr::core::vector3df(1,1,1));
+	_node->createNode("meshes/corpo.ms3d",irr::core::vector3df(0,0,0),irr::core::vector3df(_absolutePositionFromHead.X+FACTOR_RANGE_MESH,_absolutePositionFromHead.Y,_absolutePositionFromHead.Z),irr::core::vector3df(1,1,1));
+	_tail->createNode("meshes/cauda.ms3d",irr::core::vector3df(0,0,0),irr::core::vector3df(_absolutePositionFromHead.X+(2*FACTOR_RANGE_MESH),_absolutePositionFromHead.Y,_absolutePositionFromHead.Z),irr::core::vector3df(1,1,1));
 }
 
 void platform::Snake::repaintSnake(){

@@ -39,6 +39,8 @@ namespace Players{
                 int getScoreByPlayer(Player __player);
                 double getRelationshipWinsByMatches(Player __player);
 
+                void moveSnakesToForward();
+
 	};
 };
 

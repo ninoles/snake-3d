@@ -13,7 +13,15 @@ platform::Map::Map(irr::scene::ISceneManager *__sceneManager, irr::video::IVideo
 	_newtonW = __newtonW;
 }
 
-void platform::Map::initMaps(){
+platform::Map::Map(){
+
+}
+
+void platform::Map::initMaps(irr::scene::ISceneManager *__sceneManager, irr::video::IVideoDriver *__videoDriver, NewtonWorld *__newtonW){
+	_sceneManager = __sceneManager;
+	_videoDriver = __videoDriver;
+	_newtonW = __newtonW;
+
 	_mapOne = new base::FrameAnimatedNode(_newtonW, _sceneManager, 0);
 	_mapTwo = new base::FrameAnimatedNode(_newtonW, _sceneManager, 1);
 	_mapThree = new base::FrameAnimatedNode(_newtonW, _sceneManager, 2);

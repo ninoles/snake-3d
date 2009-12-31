@@ -9,9 +9,12 @@
 #define MATCH_H_INCLUDED
 
 #include <irrlicht.h>
+#include <time.h>
 
 #include "../FilesMan/ConfMatch.h"
 #include "../Player/GroupPlayers.h"
+#include "Map.h"
+#include "Point.h"
 
 namespace platform{
 
@@ -32,20 +35,28 @@ namespace platform{
             int _dificulty;
 
             Players::GroupPlayers *_players;
-
+            platform::Map *_map;
+            platform::Point *_points;
+            base::FrameAnimatedNode *_bonus;
             file::ConfMatch *_config;
-
-        public:
-
-			Match();
 
             void setProperties();
 
             void randomPoints();
             void randomBonus();
-            void randomPositionPlayers();
+            irr::core::vector3df randomPositionPlayers();
 
-            void endMatch();
+            bool endMatch();
+
+        public:
+
+			Match();
+
+			void initMatch(irr::video::IVideoDriver *__driver, irr::scene::ISceneManager *__sceneManager, NewtonWorld *__newtonW);
+            void runMatch();
+
+            Players::GroupPlayers* getGroupPlayers();
+            platform::Map* getMap();
     };
 }
 

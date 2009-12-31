@@ -5,30 +5,39 @@
  *      Author: Henrique Jonas
  */
 
-#include "../../Headers/Physis/Gameplay.h"
+#include "../../Headers/Platform/Gameplay.h"
 
-using namespace physis;
-using namespace irr;
-using namespace std;
-
-Gameplay::Gameplay(scene::ISceneManager *__sceneManagement){
+platform::Gameplay::Gameplay(irr::scene::ISceneManager *__sceneManagement, irr::video::IVideoDriver *__driver){
 	_sceneManagement = __sceneManagement;
-
+	_driver = __driver;
 	_newtonW = NewtonCreate();
+	_match = new Match();
 
-	NewtonSetSolverModel(_newtonW, 1);
+	NewtonSetSolverModel(_newtonW, 0);
 }
 
-Gameplay::Gameplay(){
-	_newtonW = NewtonCreate();
-
-	NewtonSetSolverModel(_newtonW, 1);
+void platform::Gameplay::initMatch(){
+	_match->initMatch(_driver, _sceneManagement, _newtonW);
+	_match->getMap()->initMaps(_sceneManagement, _driver, _newtonW);
 }
 
-void Gameplay::checkForCollisions(base::FrameAnimatedNode* __nodeA, base::FrameAnimatedNode* __nodeB){
+void platform::Gameplay::randomMap(){
+	_match->getMap()->generateRandomMap();
+	_match->getMap()->loadSkyBox();
+}
 
-	//Matrix to store FrameSceneNode position
-	core::matrix4 matrixA, matrixB;
+void platform::Gameplay::checkCollisionToPoint(){
+
+}
+
+void platform::Gameplay::run(){
+	_match->runMatch();
+}
+
+void platform::Gameplay::checkForCollisions(base::FrameAnimatedNode* __nodeA, base::FrameAnimatedNode* __nodeB){
+
+	//Matrix to store FrameAnimatedNode position
+	irr::core::matrix4 matrixA, matrixB;
 
 	//Copy position
 	matrixA.makeIdentity();
@@ -54,22 +63,6 @@ void Gameplay::checkForCollisions(base::FrameAnimatedNode* __nodeA, base::FrameA
 
 }
 
-NewtonWorld* Gameplay::getNewtonWorld(){
+NewtonWorld* platform::Gameplay::getNewtonWorld(){
 	return _newtonW;
 }
-
-/*
- * This method is deprecated
- *
-bool Gameplay::checkForCollisions(int numberOfNodes, ...){
-
-	int idNode;
-
-	va_list list;
-	va_start(list, numberOfNodes);
-
-	idNode = va_arg(list, int);
-
-	return false;
-}*/
-

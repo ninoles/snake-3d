@@ -144,6 +144,12 @@ double GroupPlayers::getRelationshipWinsByMatches(Player __player){
     return _players->get(index).getWins() / _players->get(index).getNumberGames();
 }
 
+void GroupPlayers::moveSnakesToForward(){
+	for(int k = 0; k < _players->getSize(); k++){
+		_players->get(k).getSnake()->snakeForward();
+	}
+}
+
 #include "../GenericList/ArrayList.cpp"
 
 

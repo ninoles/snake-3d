@@ -55,6 +55,10 @@ void Player::createSnake(irr::core::vector3df __initialPosition, irr::scene::ISc
 	_snake->createSnake(__initialPosition, __sceneManager, __newtonW);
 }
 
+platform::Snake* Player::getSnake(){
+	return _snake;
+}
+
 bool Player::operator ==(Player& __player) const{
 	return _name == __player.getName();
 }

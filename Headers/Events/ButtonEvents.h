@@ -43,7 +43,8 @@ namespace Events{
 			GAME_SAVE_ARCHIVE_GAME,
 			GAME_SAVE_ARCHIVE_PREF,
 			GAME_SAVE_CURRENT_GAME,
-			GAME_START_MATCH
+			GAME_START_MATCH,
+			GAME_PLAY_GAME
 	};
 
 	enum playerScoreOptions{

@@ -58,6 +58,4 @@ namespace platform{
     };
 }
 
-#include "../../Codes/GenericList/ArrayList.cpp"
-
 #endif // SNAKE_H_INCLUDED

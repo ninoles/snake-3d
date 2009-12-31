@@ -31,9 +31,9 @@
 #define SKY_FRONT	"textures/sky_front.jpg"
 
 #define MAP_ONE		"meshes/map_1_teste.3ds"
-#define MAP_TWO		""
-#define MAP_THREE	""
-#define MAP_FOUR	""
+#define MAP_TWO		"meshes/map_1_teste.3ds"
+#define MAP_THREE	"meshes/map_1_teste.3ds"
+#define MAP_FOUR	"meshes/map_1_teste.3ds"
 
 namespace platform{
 
@@ -55,8 +55,9 @@ namespace platform{
 		public:
 
 			Map(irr::scene::ISceneManager *__sceneManager, irr::video::IVideoDriver *__videoDriver, NewtonWorld *__newtonW);
+			Map();
 
-			void initMaps();
+			void initMaps(irr::scene::ISceneManager *__sceneManager, irr::video::IVideoDriver *__videoDriver, NewtonWorld *__newtonW);
 			void loadSkyBox();
 
 			void generateRandomMap();

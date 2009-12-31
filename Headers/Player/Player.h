@@ -39,6 +39,7 @@ class Player{
 		int getNumberGames();
 		
 		void createSnake(irr::core::vector3df __initialPosition, irr::scene::ISceneManager *__sceneManager, NewtonWorld *__newtonW);
+		platform::Snake* getSnake();
 
 		bool operator==(Player &__player) const;
 			
