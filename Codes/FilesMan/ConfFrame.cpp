@@ -36,8 +36,6 @@ void file::ConfFrame::readConfigurations(){
 					_width = _xmlArchive->getAttributeValueAsInt("value");
 				else if(!strcmp("heigth", _xmlArchive->getNodeName()))
 					_heigth = _xmlArchive->getAttributeValueAsInt("value");
-				else if(!strcmp("bitsPerPixel", _xmlArchive->getNodeName()))
-					_bitsPerPixel = (unsigned char)_xmlArchive->getAttributeValue("value");
 				else if(!strcmp("fullScreen", _xmlArchive->getNodeName()))
 					_fullscreen = _xmlArchive->getAttributeValueAsInt("value");
 				else if(!strcmp("stencilBuffer", _xmlArchive->getNodeName()))

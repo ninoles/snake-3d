@@ -10,6 +10,7 @@
 
 #include <irrlicht.h>
 #include <time.h>
+#include <iostream>
 
 #include "../FilesMan/ConfMatch.h"
 #include "../Player/GroupPlayers.h"
@@ -57,6 +58,7 @@ namespace platform{
 
             Players::GroupPlayers* getGroupPlayers();
             platform::Map* getMap();
+            platform::Point* getPoint();
     };
 }
 

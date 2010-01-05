@@ -15,13 +15,13 @@
 #include "../Base/FrameAnimatedNode.h"
 #include "../Base/FrameSkyBox.h"
 
-#define POSITION_X_MAP 0
+#define POSITION_X_MAP 10
 #define POSITION_Y_MAP 0
-#define POSITION_Z_MAP 0
+#define POSITION_Z_MAP 20
 
-#define SCALE_X_MAP 0
-#define SCALE_Y_MAP 0
-#define SCALE_Z_MAP 0
+#define SCALE_X_MAP 1
+#define SCALE_Y_MAP 1
+#define SCALE_Z_MAP 1
 
 #define SKY_LEFT	"textures/sky_left.jpg"
 #define SKY_RIGHT	"textures/sky_right.jpg"
@@ -30,10 +30,10 @@
 #define SKY_BACK	"textures/sky_back.jpg"
 #define SKY_FRONT	"textures/sky_front.jpg"
 
-#define MAP_ONE		"meshes/map_1_teste.3ds"
-#define MAP_TWO		"meshes/map_1_teste.3ds"
-#define MAP_THREE	"meshes/map_1_teste.3ds"
-#define MAP_FOUR	"meshes/map_1_teste.3ds"
+#define MAP_ONE		"maps/map_1/map.3ds"
+#define MAP_TWO		"maps/map_1/map.3ds"
+#define MAP_THREE	"maps/map_1/map.3ds"
+#define MAP_FOUR	"maps/map_1/map.3ds"
 
 namespace platform{
 

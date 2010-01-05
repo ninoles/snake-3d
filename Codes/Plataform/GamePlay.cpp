@@ -66,3 +66,7 @@ void platform::Gameplay::checkForCollisions(base::FrameAnimatedNode* __nodeA, ba
 NewtonWorld* platform::Gameplay::getNewtonWorld(){
 	return _newtonW;
 }
+
+platform::Match* platform::Gameplay::getMatch(){
+	return _match;
+}

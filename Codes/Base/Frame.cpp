@@ -6,7 +6,7 @@
  */
 
 #include "../../Headers/Base/Frame.h"
-#include <iostream.h>
+#include <iostream>
 
 base::Frame::Frame(int __width, int __heigth, irr::u8 __bitsPerPixel, bool __fullScreen,
 		bool __stencilBuffer, bool __activateJoystick, bool __antiAliasing) {
@@ -20,6 +20,8 @@ base::Frame::Frame(int __width, int __heigth, irr::u8 __bitsPerPixel, bool __ful
 	parameters.Stencilbuffer = __stencilBuffer;
 	parameters.Vsync = true;
 	parameters.WindowSize = irr::core::dimension2d<irr::s32>(__width, __heigth);
+	parameters.Doublebuffer = true;
+	parameters.Bits = 32;
 
 	_activateJoyStick = __activateJoystick;
 
@@ -85,7 +87,7 @@ void base::Frame::setModeCursor(bool __visible) {
 }
 
 void base::Frame::setResizable(bool __resizable) {
-	_device->setResizeAble(__resizable);
+	_device->setResizable(__resizable);
 }
 
 void base::Frame::setTitleFrame(const wchar_t* __titleFrame) {

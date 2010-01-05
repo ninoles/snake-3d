@@ -49,6 +49,7 @@ namespace platform{
 			void checkForCollisions(base::FrameAnimatedNode* __nodeA, base::FrameAnimatedNode* __nodeB);
 
 			NewtonWorld* getNewtonWorld();
+			Match* getMatch();
 
 	};
 

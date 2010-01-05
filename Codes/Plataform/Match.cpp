@@ -17,6 +17,7 @@ platform::Match::Match(){
 }
 
 void platform::Match::setProperties(){
+	_config->setArchiveRead("conf/config_match.xml");
 	_config->readConfiguration();
 
 	_dificulty = _config->getDificulty();
@@ -24,7 +25,14 @@ void platform::Match::setProperties(){
 	_maxPoints = _config->getMaxPoints();
 	_numberOfPlayers = _config->getNumberOfPlayers();
 
-	_players = new Players::GroupPlayers(_numberOfPlayers);
+	_players = new Players::GroupPlayers();
+
+	for(int k = 0; k < _numberOfPlayers; k++){
+		Players::Player tmp;
+		_players->addPlayer(tmp);
+	}
+
+	std::cout << "Number created players: " << _players->getNumberOfPlayers() << std::endl;
 }
 
 void platform::Match::initMatch(irr::video::IVideoDriver *__driver, irr::scene::ISceneManager *__sceneManager, NewtonWorld *__newtonW){
@@ -35,6 +43,8 @@ void platform::Match::initMatch(irr::video::IVideoDriver *__driver, irr::scene::
 	_map = new platform::Map(__sceneManager, __driver, __newtonW);
 	_points = new platform::Point(__sceneManager, __newtonW, 100);
 
+	_points->setMaxPoints(_maxPoints);
+
 	for(int k = 0; k < _players->getNumberOfPlayers(); k++)
 		_players->getAllPlayers()->get(k).createSnake(randomPositionPlayers(), __sceneManager, __newtonW);
 
@@ -42,8 +52,6 @@ void platform::Match::initMatch(irr::video::IVideoDriver *__driver, irr::scene::
 
 void platform::Match::runMatch(){
 	if(!endMatch() && _points->isRepetitions()){
-		randomPoints();
-		_players->moveSnakesToForward();
 	}
 }
 
@@ -53,13 +61,8 @@ void platform::Match::randomPoints(){
 
 	srand(time(NULL));
 
-	positionX = rand();
-	positionZ = rand();
-
-	while((positionX < 0 || positionX > 13) && (positionZ < 0 || positionZ > 13)){
-		positionX = rand();
-		positionZ = rand();
-	}
+	positionX = (rand() % 3) + 6;
+	positionZ = 0;
 
 	_points->insertPointInPosition(irr::core::vector3df(positionX, _points->getAnimatedNode()->getPosition().Y, positionZ));
 
@@ -75,17 +78,12 @@ irr::core::vector3df platform::Match::randomPositionPlayers(){
 
 	srand(time(NULL));
 
-	position.X = rand();
-	position.Z = rand();
-
-	while((position.X < 5 || position.X > 13) && (position.Z < 5 || position.Z > 13)){
-		position.X = rand();
-		position.Z = rand();
-	}
-
-	position.Y = POSITION_Y_MAP;
+	position.X = (rand() % 8) + 6;
+	position.Z = (rand() % -40) + 5;
+	position.Y = POSITION_Y_MAP + 0.4;
 
 	return position;
+
 }
 
 bool platform::Match::endMatch(){
@@ -102,4 +100,8 @@ Players::GroupPlayers* platform::Match::getGroupPlayers(){
 
 platform::Map* platform::Match::getMap(){
 	return _map;
+}
+
+platform::Point* platform::Match::getPoint(){
+	return _points;
 }

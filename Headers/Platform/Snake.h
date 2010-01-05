@@ -14,11 +14,11 @@
 #include <irrlicht.h>
 #include <Newton.h>
 
-#define FACTOR_FORWARD_SNAKE 0.9
+#define FACTOR_FORWARD_SNAKE 0.1
 #define FACTOR_1_TURN_SNAKE  0.4
 #define FACTOR_2_TURN_SNAKE  0.75
 
-#define FACTOR_RANGE_MESH 10.75
+#define FACTOR_RANGE_MESH 0.65
 
 namespace platform{
 

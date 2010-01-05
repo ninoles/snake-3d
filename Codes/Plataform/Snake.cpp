@@ -30,6 +30,7 @@ platform::Snake::Snake(){
 }
 
 void platform::Snake::createSnake(irr::core::vector3df __initialPosition, irr::scene::ISceneManager *__sceneManager, NewtonWorld *__newtonW){
+
 	_sceneManager = __sceneManager;
 	_absolutePositionFromHead = __initialPosition;
 
@@ -129,15 +130,15 @@ void platform::Snake::insertMoviment(int __idPlayer){
 }
 
 void platform::Snake::snakeForward(){
-	_head->setPosition(_head->getPosition().X+FACTOR_FORWARD_SNAKE, _head->getPosition().Y, _head->getPosition().Z);
+	_head->setPosition(_head->getPosition().X, _head->getPosition().Y, _head->getPosition().Z-FACTOR_FORWARD_SNAKE);
 
 	irr::core::vector3df positionNode;
 	for(int k = 0; k < _nodes->getSize(); k++){
 		positionNode = _nodes->get(k)->getPosition();
-		_nodes->get(k)->setPosition(positionNode.X+FACTOR_FORWARD_SNAKE, positionNode.Y, positionNode.Z);
+		_nodes->get(k)->setPosition(positionNode.X, positionNode.Y, positionNode.Z-FACTOR_FORWARD_SNAKE);
 	}
 
-	_tail->setPosition(_tail->getPosition().X+FACTOR_FORWARD_SNAKE, _tail->getPosition().Y, _tail->getPosition().Z);
+	_tail->setPosition(_tail->getPosition().X, _tail->getPosition().Y, _tail->getPosition().Z-FACTOR_FORWARD_SNAKE);
 
 	repaintSnake();
 }
@@ -148,14 +149,13 @@ void platform::Snake::deleteNodes(int __numberNodes)
 }
 
 void platform::Snake::renderSnake(){
-	_head->createNode("meshes/cabeca.ms3d",irr::core::vector3df(0,0,0), _absolutePositionFromHead,irr::core::vector3df(1,1,1));
-	_node->createNode("meshes/corpo.ms3d",irr::core::vector3df(0,0,0),irr::core::vector3df(_absolutePositionFromHead.X+FACTOR_RANGE_MESH,_absolutePositionFromHead.Y,_absolutePositionFromHead.Z),irr::core::vector3df(1,1,1));
-	_tail->createNode("meshes/cauda.ms3d",irr::core::vector3df(0,0,0),irr::core::vector3df(_absolutePositionFromHead.X+(2*FACTOR_RANGE_MESH),_absolutePositionFromHead.Y,_absolutePositionFromHead.Z),irr::core::vector3df(1,1,1));
+	_head->createNode("snake/cabeca.ms3d",irr::core::vector3df(0,0,0), _absolutePositionFromHead,irr::core::vector3df(0.3,0.3,0.3));
+	_node->createNode("snake/corpo.ms3d",irr::core::vector3df(0,0,0),irr::core::vector3df(_absolutePositionFromHead.X, _absolutePositionFromHead.Y, _absolutePositionFromHead.Z+FACTOR_RANGE_MESH),irr::core::vector3df(0.3,0.3,0.3));
+	_tail->createNode("snake/cauda.ms3d",irr::core::vector3df(0,0,0),irr::core::vector3df(_absolutePositionFromHead.X,_absolutePositionFromHead.Y,_absolutePositionFromHead.Z+(2.6*FACTOR_RANGE_MESH)),irr::core::vector3df(0.3,0.3,0.3));
 }
 
 void platform::Snake::repaintSnake(){
 	_head->repaint();
-	_node->repaint();
 	_tail->repaint();
 
 	for(int k = 0; k < _nodes->getSize(); k++)
@@ -169,3 +169,5 @@ irr::EKEY_CODE* platform::Snake::getHeadMoviments(){
 base::FrameAnimatedNode* platform::Snake::getHead(){
 	return _head;
 }
+
+#include "../GenericList/ArrayList.cpp"

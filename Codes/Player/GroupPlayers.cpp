@@ -4,17 +4,14 @@ using namespace Players;
 
 GroupPlayers::GroupPlayers(){
     _players = new GenericList::ArrayList<Player>();
-    _currentPlayerName = "";
 }
 
 GroupPlayers::GroupPlayers(GenericList::ArrayList<Player>* __players){
     _players = __players;
-    _currentPlayerName = "";
 }
 
 GroupPlayers::GroupPlayers(int __numberOfPlayers){
     _players = new GenericList::ArrayList<Player>(__numberOfPlayers);
-    _currentPlayerName = "";
 }
 
 GenericList::ArrayList<Player>* GroupPlayers::getAllPlayers(){
@@ -75,8 +72,6 @@ int GroupPlayers::getBestPlayerMatches(){
     for(int k = 0; it.hasNext() && k < _players->getSize() - 1; ++k)
         (it.next().getNumberGames() < it.next().getNumberGames() ? bestIndex = k : bestIndex = k+1);
 
-    _currentPlayerName = _players->get(bestIndex).getName();
-
     return bestIndex;
 }
 
@@ -99,13 +94,7 @@ int GroupPlayers::getBestRelationshipScoreByMatch(){
         }
     }
 
-    _currentPlayerName = _players->get(bestIndex).getName();
-
     return bestIndex;
-}
-
-std::string GroupPlayers::getCurrentResearchingPlayerName(){
-    return _currentPlayerName;
 }
 
 int GroupPlayers::getMatchesByPlayer(Player __player){

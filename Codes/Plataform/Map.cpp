@@ -26,6 +26,7 @@ void platform::Map::initMaps(irr::scene::ISceneManager *__sceneManager, irr::vid
 	_mapTwo = new base::FrameAnimatedNode(_newtonW, _sceneManager, 1);
 	_mapThree = new base::FrameAnimatedNode(_newtonW, _sceneManager, 2);
 	_mapFour  = new base::FrameAnimatedNode(_newtonW, _sceneManager, 3);
+	_skyBox = new base::FrameSkyBox(_newtonW, _sceneManager, 4);
 
 	_mapOne->setPosition(POSITION_X_MAP, POSITION_Y_MAP, POSITION_Z_MAP);
 	_mapTwo->setPosition(POSITION_X_MAP, POSITION_Y_MAP, POSITION_Z_MAP);
@@ -39,7 +40,6 @@ void platform::Map::initMaps(irr::scene::ISceneManager *__sceneManager, irr::vid
 }
 
 void platform::Map::loadSkyBox(){
-	_skyBox = new base::FrameSkyBox(_newtonW, _sceneManager, 4);
 	_skyBox->createNode(_videoDriver->getTexture(SKY_TOP), _videoDriver->getTexture(SKY_BOTTOM), _videoDriver->getTexture(SKY_LEFT),
 			_videoDriver->getTexture(SKY_RIGHT), _videoDriver->getTexture(SKY_FRONT), _videoDriver->getTexture(SKY_BACK), 0);
 }
@@ -47,12 +47,7 @@ void platform::Map::loadSkyBox(){
 void platform::Map::generateRandomMap(){
 	srand(time(NULL));
 
-	int number = rand();
-
-	while(number < 1 || number > 4)
-		number = rand();
-
-	flushScene();
+	int number = (rand() % 4)+1;
 
 	switch(number){
 
@@ -60,16 +55,17 @@ void platform::Map::generateRandomMap(){
 			_mapOne->createNode(MAP_ONE);
 			break;
 		case 2:
-			_mapOne->createNode(MAP_TWO);
+			_mapTwo->createNode(MAP_TWO);
 			break;
 		case 3:
-			_mapOne->createNode(MAP_THREE);
+			_mapThree->createNode(MAP_THREE);
 			break;
 		case 4:
-			_mapOne->createNode(MAP_FOUR);
+			_mapFour->createNode(MAP_FOUR);
 			break;
 
 	}
+
 }
 
 void platform::Map::flushScene(){

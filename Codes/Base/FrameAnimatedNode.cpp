@@ -13,6 +13,7 @@ base::FrameAnimatedNode::FrameAnimatedNode(NewtonWorld *_nWorld, irr::scene::ISc
 		irr::core::vector3df __scale) : SceneObjects(__sceneManager, _nWorld, this, __id){
 
 	_mesh = _sceneManager->addAnimatedMeshSceneNode(_sceneManager->getMesh(__filename));
+	_mesh->setMaterialFlag(irr::video::EMF_LIGHTING, false);
 
 	_mesh->setRotation(__rotarion);
 	_mesh->setPosition(__position);
@@ -32,6 +33,7 @@ base::FrameAnimatedNode::FrameAnimatedNode(NewtonWorld *_nWorld, irr::scene::ISc
 void base::FrameAnimatedNode::createNode(const irr::c8* __filename,  irr::core::vector3df __rotarion, irr::core::vector3df __position,
 		irr::core::vector3df __scale){
 	_mesh = _sceneManager->addAnimatedMeshSceneNode(_sceneManager->getMesh(__filename));
+	_mesh->setMaterialFlag(irr::video::EMF_LIGHTING, false);
 
 	_mesh->setRotation(__rotarion);
 	_mesh->setPosition(__position);
@@ -46,6 +48,7 @@ void base::FrameAnimatedNode::createNode(const irr::c8* __filename,  irr::core::
 
 void base::FrameAnimatedNode::createNode(const irr::c8* __filename){
 	_mesh = _sceneManager->addAnimatedMeshSceneNode(_sceneManager->getMesh(__filename));
+	_mesh->setMaterialFlag(irr::video::EMF_LIGHTING, false);
 
 	_mesh->setRotation(_rotation);
 	_mesh->setPosition(_position);
@@ -55,8 +58,7 @@ void base::FrameAnimatedNode::createNode(const irr::c8* __filename){
 }
 
 void base::FrameAnimatedNode::repaint(){
-	_mesh->setPosition(_position);
-	_mesh->setRotation(_rotation);
+	getSceneNode()->setPosition(_position);
 }
 
 void base::FrameAnimatedNode::drop(){

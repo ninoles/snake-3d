@@ -10,7 +10,6 @@ namespace Players{
             private:
 
                 GenericList::ArrayList<Player> *_players;
-                std::string _currentPlayerName;
 
             public:
 
@@ -31,8 +30,6 @@ namespace Players{
                 int getBestPlayerWins();
                 int getBestPlayerMatches();
                 int getBestRelationshipScoreByMatch();
-
-                std::string getCurrentResearchingPlayerName();
 
                 int getWinsByPlayer(Player __player);
                 int getMatchesByPlayer(Player __player);

@@ -14,7 +14,7 @@ platform::Point::Point(irr::scene::ISceneManager *__sceneManager, NewtonWorld *_
 }
 
 void platform::Point::initComponent(){
-	_mesh->createNode("meshes/ponto.3ds", irr::core::vector3df(0,0,0), irr::core::vector3df(0,0,0), irr::core::vector3df(0,0,0));
+	_mesh->createNode("others/ponto.3ds", irr::core::vector3df(0,0,0), irr::core::vector3df(0,0,0), irr::core::vector3df(1,1,1));
 	_mesh->createCollision();
 	_mesh->setVisible(false);
 }
@@ -31,7 +31,7 @@ void platform::Point::setVisible(bool __visible){
 }
 
 void platform::Point::setMaxPoints(int __maxPoints){
-	_value = __maxPoints/REPETITIONS;
+	_value = __maxPoints/10;
 }
 
 int platform::Point::getValue(){

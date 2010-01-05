@@ -3,8 +3,8 @@
 
 <cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
 <storageModule moduleId="org.eclipse.cdt.core.settings">
-<cconfiguration id="cdt.managedbuild.config.gnu.mingw.exe.debug.842550004">
-<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.mingw.exe.debug.842550004" moduleId="org.eclipse.cdt.core.settings" name="Debug">
+<cconfiguration id="cdt.managedbuild.config.gnu.mingw.exe.debug.1360877843">
+<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.mingw.exe.debug.1360877843" moduleId="org.eclipse.cdt.core.settings" name="Debug">
 <externalSettings/>
 <extensions>
 <extension id="org.eclipse.cdt.core.PE" point="org.eclipse.cdt.core.BinaryParser"/>
@@ -14,45 +14,41 @@
 </extensions>
 </storageModule>
 <storageModule moduleId="cdtBuildSystem" version="4.0.0">
-<configuration artifactExtension="exe" artifactName="snake3d" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" cleanCommand="rm -rf" description="" errorParsers="org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.GLDErrorParser" id="cdt.managedbuild.config.gnu.mingw.exe.debug.842550004" name="Debug" parent="cdt.managedbuild.config.gnu.mingw.exe.debug">
-<folderInfo id="cdt.managedbuild.config.gnu.mingw.exe.debug.842550004." name="/" resourcePath="">
-<toolChain errorParsers="" id="cdt.managedbuild.toolchain.gnu.mingw.exe.debug.259686930" name="MinGW GCC" superClass="cdt.managedbuild.toolchain.gnu.mingw.exe.debug">
-<targetPlatform id="cdt.managedbuild.target.gnu.platform.mingw.exe.debug.1143304856" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.mingw.exe.debug"/>
-<builder buildPath="${workspace_loc:/snake 3d/Debug}" errorParsers="" id="cdt.managedbuild.tool.gnu.builder.mingw.base.326498401" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="CDT Internal Builder" superClass="cdt.managedbuild.tool.gnu.builder.mingw.base">
-<outputEntries>
-<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="Debug"/>
-<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="Release"/>
-</outputEntries>
-</builder>
-<tool errorParsers="org.eclipse.cdt.core.GASErrorParser" id="cdt.managedbuild.tool.gnu.assembler.mingw.exe.debug.168672483" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.mingw.exe.debug">
-<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1261062175" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+<configuration artifactName="Snake-3D" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.mingw.exe.debug.1360877843" name="Debug" parent="cdt.managedbuild.config.gnu.mingw.exe.debug">
+<folderInfo id="cdt.managedbuild.config.gnu.mingw.exe.debug.1360877843." name="/" resourcePath="">
+<toolChain id="cdt.managedbuild.toolchain.gnu.mingw.exe.debug.1630726619" name="MinGW GCC" superClass="cdt.managedbuild.toolchain.gnu.mingw.exe.debug">
+<targetPlatform id="cdt.managedbuild.target.gnu.platform.mingw.exe.debug.620353947" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.mingw.exe.debug"/>
+<builder buildPath="${workspace_loc:/Snake-3D/Debug}" id="cdt.managedbuild.tool.gnu.builder.mingw.base.1348682156" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="CDT Internal Builder" superClass="cdt.managedbuild.tool.gnu.builder.mingw.base"/>
+<tool id="cdt.managedbuild.tool.gnu.assembler.mingw.exe.debug.674162273" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.mingw.exe.debug">
+<inputType id="cdt.managedbuild.tool.gnu.assembler.input.6742570" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 </tool>
-<tool id="cdt.managedbuild.tool.gnu.archiver.mingw.base.1896369374" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.mingw.base"/>
-<tool errorParsers="org.eclipse.cdt.core.GCCErrorParser" id="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.exe.debug.573384822" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.exe.debug">
-<option id="gnu.cpp.compiler.mingw.exe.debug.option.optimization.level.1106340136" name="Optimization Level" superClass="gnu.cpp.compiler.mingw.exe.debug.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
-<option id="gnu.cpp.compiler.mingw.exe.debug.option.debugging.level.482879416" name="Debug Level" superClass="gnu.cpp.compiler.mingw.exe.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
-<option id="gnu.cpp.compiler.option.include.paths.631556915" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
+<tool id="cdt.managedbuild.tool.gnu.archiver.mingw.base.750224943" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.mingw.base"/>
+<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.exe.debug.1178283597" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.exe.debug">
+<option id="gnu.cpp.compiler.mingw.exe.debug.option.optimization.level.1703813577" name="Optimization Level" superClass="gnu.cpp.compiler.mingw.exe.debug.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
+<option id="gnu.cpp.compiler.mingw.exe.debug.option.debugging.level.1993806418" name="Debug Level" superClass="gnu.cpp.compiler.mingw.exe.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
+<option id="gnu.cpp.compiler.option.include.paths.350047071" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
 <listOptionValue builtIn="false" value="&quot;C:\Documents and Settings\Henrique\Desktop\API'S\NewtonWin-2.14\sdk&quot;"/>
-<listOptionValue builtIn="false" value="&quot;C:\Documents and Settings\Henrique\Desktop\API'S\irrlicht-1.5.1\include&quot;"/>
+<listOptionValue builtIn="false" value="&quot;C:\Documents and Settings\Henrique\Desktop\API'S\irrlicht-1.6\include&quot;"/>
 </option>
-<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.542159293" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1602950357" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 </tool>
-<tool errorParsers="org.eclipse.cdt.core.GCCErrorParser" id="cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.debug.1279247176" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.debug">
-<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.mingw.exe.debug.option.optimization.level.128127359" name="Optimization Level" superClass="gnu.c.compiler.mingw.exe.debug.option.optimization.level" valueType="enumerated"/>
-<option id="gnu.c.compiler.mingw.exe.debug.option.debugging.level.247854379" name="Debug Level" superClass="gnu.c.compiler.mingw.exe.debug.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
-<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1232247744" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+<tool id="cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.debug.636746882" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.debug">
+<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.mingw.exe.debug.option.optimization.level.2063438533" name="Optimization Level" superClass="gnu.c.compiler.mingw.exe.debug.option.optimization.level" valueType="enumerated"/>
+<option id="gnu.c.compiler.mingw.exe.debug.option.debugging.level.375674204" name="Debug Level" superClass="gnu.c.compiler.mingw.exe.debug.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
+<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1815165091" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 </tool>
-<tool id="cdt.managedbuild.tool.gnu.c.linker.mingw.exe.debug.1217349046" name="MinGW C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.mingw.exe.debug"/>
-<tool errorParsers="org.eclipse.cdt.core.GLDErrorParser" id="cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.debug.600336320" name="MinGW C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.debug">
-<option id="gnu.cpp.link.option.paths.626047938" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
-<listOptionValue builtIn="false" value="&quot;C:\Documents and Settings\Henrique\Desktop\API'S\irrlicht-1.5.1\bin\gcc&quot;"/>
-<listOptionValue builtIn="false" value="&quot;C:\Documents and Settings\Henrique\Desktop\API'S\NewtonWin-2.14\sdk\x32\dll_vs9&quot;"/>
-</option>
-<option id="gnu.cpp.link.option.libs.510148030" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
+<tool id="cdt.managedbuild.tool.gnu.c.linker.mingw.exe.debug.592528226" name="MinGW C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.mingw.exe.debug"/>
+<tool id="cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.debug.1517884531" name="MinGW C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.debug">
+<option id="gnu.cpp.link.option.libs.1268828184" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 <listOptionValue builtIn="false" value="Irrlicht"/>
+<listOptionValue builtIn="false" value="pthread"/>
 <listOptionValue builtIn="false" value="Newton"/>
 </option>
-<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1398778466" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
+<option id="gnu.cpp.link.option.paths.2077641097" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
+<listOptionValue builtIn="false" value="&quot;C:\Documents and Settings\Henrique\Desktop\API'S\NewtonWin-2.14\sdk\x32\dll_vs9&quot;"/>
+<listOptionValue builtIn="false" value="&quot;C:\Documents and Settings\Henrique\Desktop\API'S\irrlicht-1.6\bin\Win32-gcc&quot;"/>
+</option>
+<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.5633067" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 <additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 <additionalInput kind="additionalinput" paths="$(LIBS)"/>
 </inputType>
@@ -61,9 +57,6 @@
 </folderInfo>
 </configuration>
 </storageModule>
-<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
-<storageModule moduleId="org.eclipse.cdt.core.language.mapping"/>
-<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 <storageModule moduleId="scannerConfiguration">
 <autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile"/>
 <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
@@ -146,90 +139,7 @@
 <parser enabled="true"/>
 </scannerInfoProvider>
 </profile>
-<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.mingw.exe.release.1966299448;cdt.managedbuild.config.gnu.mingw.exe.release.1966299448.;cdt.managedbuild.tool.gnu.cpp.compiler.mingw.exe.release.551751690;cdt.managedbuild.tool.gnu.cpp.compiler.input.737468740">
-<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
-<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
-<buildOutputProvider>
-<openAction enabled="true" filePath=""/>
-<parser enabled="true"/>
-</buildOutputProvider>
-<scannerInfoProvider id="specsFile">
-<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
-<parser enabled="true"/>
-</scannerInfoProvider>
-</profile>
-<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerFileProfile">
-<buildOutputProvider>
-<openAction enabled="true" filePath=""/>
-<parser enabled="true"/>
-</buildOutputProvider>
-<scannerInfoProvider id="makefileGenerator">
-<runAction arguments="-f ${project_name}_scd.mk" command="make" useDefault="true"/>
-<parser enabled="true"/>
-</scannerInfoProvider>
-</profile>
-<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfile">
-<buildOutputProvider>
-<openAction enabled="true" filePath=""/>
-<parser enabled="true"/>
-</buildOutputProvider>
-<scannerInfoProvider id="specsFile">
-<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
-<parser enabled="true"/>
-</scannerInfoProvider>
-</profile>
-<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP">
-<buildOutputProvider>
-<openAction enabled="true" filePath=""/>
-<parser enabled="true"/>
-</buildOutputProvider>
-<scannerInfoProvider id="specsFile">
-<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.cpp" command="g++" useDefault="true"/>
-<parser enabled="true"/>
-</scannerInfoProvider>
-</profile>
-<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC">
-<buildOutputProvider>
-<openAction enabled="true" filePath=""/>
-<parser enabled="true"/>
-</buildOutputProvider>
-<scannerInfoProvider id="specsFile">
-<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.c" command="gcc" useDefault="true"/>
-<parser enabled="true"/>
-</scannerInfoProvider>
-</profile>
-<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfile">
-<buildOutputProvider>
-<openAction enabled="true" filePath=""/>
-<parser enabled="true"/>
-</buildOutputProvider>
-<scannerInfoProvider id="specsFile">
-<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
-<parser enabled="true"/>
-</scannerInfoProvider>
-</profile>
-<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileCPP">
-<buildOutputProvider>
-<openAction enabled="true" filePath=""/>
-<parser enabled="true"/>
-</buildOutputProvider>
-<scannerInfoProvider id="specsFile">
-<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.cpp" command="g++" useDefault="true"/>
-<parser enabled="true"/>
-</scannerInfoProvider>
-</profile>
-<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileC">
-<buildOutputProvider>
-<openAction enabled="true" filePath=""/>
-<parser enabled="true"/>
-</buildOutputProvider>
-<scannerInfoProvider id="specsFile">
-<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.c" command="gcc" useDefault="true"/>
-<parser enabled="true"/>
-</scannerInfoProvider>
-</profile>
-</scannerConfigBuildInfo>
-<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.mingw.exe.debug.842550004;cdt.managedbuild.config.gnu.mingw.exe.debug.842550004.;cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.debug.1279247176;cdt.managedbuild.tool.gnu.c.compiler.input.1232247744">
+<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.mingw.exe.release.759973277;cdt.managedbuild.config.gnu.mingw.exe.release.759973277.;cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.release.1184582795;cdt.managedbuild.tool.gnu.c.compiler.input.1582852642">
 <autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 <buildOutputProvider>
@@ -312,8 +222,8 @@
 </scannerInfoProvider>
 </profile>
 </scannerConfigBuildInfo>
-<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.mingw.exe.release.1966299448;cdt.managedbuild.config.gnu.mingw.exe.release.1966299448.;cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.release.1239633315;cdt.managedbuild.tool.gnu.c.compiler.input.1362941563">
-<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.mingw.exe.release.759973277;cdt.managedbuild.config.gnu.mingw.exe.release.759973277.;cdt.managedbuild.tool.gnu.cpp.compiler.mingw.exe.release.1292513645;cdt.managedbuild.tool.gnu.cpp.compiler.input.1573711432">
+<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
 <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 <buildOutputProvider>
 <openAction enabled="true" filePath=""/>
@@ -395,8 +305,91 @@
 </scannerInfoProvider>
 </profile>
 </scannerConfigBuildInfo>
-<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.mingw.exe.debug.842550004;cdt.managedbuild.config.gnu.mingw.exe.debug.842550004.;cdt.managedbuild.tool.gnu.cpp.compiler.mingw.exe.debug.573384822;cdt.managedbuild.tool.gnu.cpp.compiler.input.542159293">
+<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.mingw.exe.debug.1360877843;cdt.managedbuild.config.gnu.mingw.exe.debug.1360877843.;cdt.managedbuild.tool.gnu.cpp.compiler.mingw.exe.debug.1178283597;cdt.managedbuild.tool.gnu.cpp.compiler.input.1602950357">
 <autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
+<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerFileProfile">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="makefileGenerator">
+<runAction arguments="-f ${project_name}_scd.mk" command="make" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfile">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.cpp" command="g++" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.c" command="gcc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfile">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileCPP">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.cpp" command="g++" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileC">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.c" command="gcc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+</scannerConfigBuildInfo>
+<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.mingw.exe.debug.1360877843;cdt.managedbuild.config.gnu.mingw.exe.debug.1360877843.;cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.debug.636746882;cdt.managedbuild.tool.gnu.c.compiler.input.1815165091">
+<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 <buildOutputProvider>
 <openAction enabled="true" filePath=""/>
@@ -479,9 +472,12 @@
 </profile>
 </scannerConfigBuildInfo>
 </storageModule>
+<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+<storageModule moduleId="org.eclipse.cdt.core.language.mapping"/>
+<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 </cconfiguration>
-<cconfiguration id="cdt.managedbuild.config.gnu.mingw.exe.release.1966299448">
-<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.mingw.exe.release.1966299448" moduleId="org.eclipse.cdt.core.settings" name="Release">
+<cconfiguration id="cdt.managedbuild.config.gnu.mingw.exe.release.759973277">
+<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.mingw.exe.release.759973277" moduleId="org.eclipse.cdt.core.settings" name="Release">
 <externalSettings/>
 <extensions>
 <extension id="org.eclipse.cdt.core.PE" point="org.eclipse.cdt.core.BinaryParser"/>
@@ -491,49 +487,36 @@
 </extensions>
 </storageModule>
 <storageModule moduleId="cdtBuildSystem" version="4.0.0">
-<configuration artifactName="snake3d" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.mingw.exe.release.1966299448" name="Release" parent="cdt.managedbuild.config.gnu.mingw.exe.release">
-<folderInfo id="cdt.managedbuild.config.gnu.mingw.exe.release.1966299448." name="/" resourcePath="">
-<toolChain id="cdt.managedbuild.toolchain.gnu.mingw.exe.release.1287857605" name="MinGW GCC" superClass="cdt.managedbuild.toolchain.gnu.mingw.exe.release">
-<targetPlatform id="cdt.managedbuild.target.gnu.platform.mingw.exe.release.55640149" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.mingw.exe.release"/>
-<builder buildPath="${workspace_loc:/snake 3d/Release}" id="cdt.managedbuild.tool.gnu.builder.mingw.base.1278547015" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="CDT Internal Builder" superClass="cdt.managedbuild.tool.gnu.builder.mingw.base"/>
-<tool id="cdt.managedbuild.tool.gnu.assembler.mingw.exe.release.1427250239" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.mingw.exe.release">
-<inputType id="cdt.managedbuild.tool.gnu.assembler.input.590839501" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+<configuration artifactName="Snake-3D" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.mingw.exe.release.759973277" name="Release" parent="cdt.managedbuild.config.gnu.mingw.exe.release">
+<folderInfo id="cdt.managedbuild.config.gnu.mingw.exe.release.759973277." name="/" resourcePath="">
+<toolChain id="cdt.managedbuild.toolchain.gnu.mingw.exe.release.1791596053" name="MinGW GCC" superClass="cdt.managedbuild.toolchain.gnu.mingw.exe.release">
+<targetPlatform id="cdt.managedbuild.target.gnu.platform.mingw.exe.release.1359620170" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.mingw.exe.release"/>
+<builder buildPath="${workspace_loc:/Snake-3D/Release}" id="cdt.managedbuild.tool.gnu.builder.mingw.base.1869507820" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="CDT Internal Builder" superClass="cdt.managedbuild.tool.gnu.builder.mingw.base"/>
+<tool id="cdt.managedbuild.tool.gnu.assembler.mingw.exe.release.1533464090" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.mingw.exe.release">
+<inputType id="cdt.managedbuild.tool.gnu.assembler.input.2056392851" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 </tool>
-<tool id="cdt.managedbuild.tool.gnu.archiver.mingw.base.1954625560" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.mingw.base"/>
-<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.exe.release.551751690" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.exe.release">
-<option id="gnu.cpp.compiler.mingw.exe.release.option.optimization.level.469009276" name="Optimization Level" superClass="gnu.cpp.compiler.mingw.exe.release.option.optimization.level" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
-<option id="gnu.cpp.compiler.mingw.exe.release.option.debugging.level.875032908" name="Debug Level" superClass="gnu.cpp.compiler.mingw.exe.release.option.debugging.level" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
-<option id="gnu.cpp.compiler.option.include.paths.143082161" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
-<listOptionValue builtIn="false" value="&quot;C:\Documents and Settings\Henrique\Desktop\snake project\API'S\NewtonWin-2.14\sdk&quot;"/>
-<listOptionValue builtIn="false" value="&quot;C:\Documents and Settings\Henrique\Desktop\snake project\API'S\irrlicht-1.5.1\include&quot;"/>
-</option>
-<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.737468740" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+<tool id="cdt.managedbuild.tool.gnu.archiver.mingw.base.1476968228" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.mingw.base"/>
+<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.exe.release.1292513645" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.exe.release">
+<option id="gnu.cpp.compiler.mingw.exe.release.option.optimization.level.1153024040" name="Optimization Level" superClass="gnu.cpp.compiler.mingw.exe.release.option.optimization.level" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
+<option id="gnu.cpp.compiler.mingw.exe.release.option.debugging.level.1838863324" name="Debug Level" superClass="gnu.cpp.compiler.mingw.exe.release.option.debugging.level" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
+<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1573711432" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 </tool>
-<tool id="cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.release.1239633315" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.release">
-<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.mingw.exe.release.option.optimization.level.727132389" name="Optimization Level" superClass="gnu.c.compiler.mingw.exe.release.option.optimization.level" valueType="enumerated"/>
-<option id="gnu.c.compiler.mingw.exe.release.option.debugging.level.533834954" name="Debug Level" superClass="gnu.c.compiler.mingw.exe.release.option.debugging.level" value="gnu.c.debugging.level.none" valueType="enumerated"/>
-<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1362941563" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+<tool id="cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.release.1184582795" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.release">
+<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.mingw.exe.release.option.optimization.level.813551146" name="Optimization Level" superClass="gnu.c.compiler.mingw.exe.release.option.optimization.level" valueType="enumerated"/>
+<option id="gnu.c.compiler.mingw.exe.release.option.debugging.level.666411935" name="Debug Level" superClass="gnu.c.compiler.mingw.exe.release.option.debugging.level" value="gnu.c.debugging.level.none" valueType="enumerated"/>
+<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1582852642" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 </tool>
-<tool id="cdt.managedbuild.tool.gnu.c.linker.mingw.exe.release.1179434664" name="MinGW C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.mingw.exe.release"/>
-<tool id="cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.release.413403066" name="MinGW C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.release">
-<option id="gnu.cpp.link.option.paths.1504927028" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
-<listOptionValue builtIn="false" value="&quot;C:\Documents and Settings\Henrique\Desktop\snake project\API'S\NewtonWin-2.14\sdk&quot;"/>
-</option>
-<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.2037687088" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
+<tool id="cdt.managedbuild.tool.gnu.c.linker.mingw.exe.release.389120103" name="MinGW C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.mingw.exe.release"/>
+<tool id="cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.release.1646753619" name="MinGW C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.release">
+<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1931486774" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 <additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 <additionalInput kind="additionalinput" paths="$(LIBS)"/>
 </inputType>
 </tool>
 </toolChain>
 </folderInfo>
-<sourceEntries>
-<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-</sourceEntries>
 </configuration>
 </storageModule>
-<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
-<storageModule moduleId="org.eclipse.cdt.core.language.mapping"/>
-<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 <storageModule moduleId="scannerConfiguration">
 <autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile"/>
 <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
@@ -616,90 +599,7 @@
 <parser enabled="true"/>
 </scannerInfoProvider>
 </profile>
-<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.mingw.exe.release.1966299448;cdt.managedbuild.config.gnu.mingw.exe.release.1966299448.;cdt.managedbuild.tool.gnu.cpp.compiler.mingw.exe.release.551751690;cdt.managedbuild.tool.gnu.cpp.compiler.input.737468740">
-<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
-<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
-<buildOutputProvider>
-<openAction enabled="true" filePath=""/>
-<parser enabled="true"/>
-</buildOutputProvider>
-<scannerInfoProvider id="specsFile">
-<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
-<parser enabled="true"/>
-</scannerInfoProvider>
-</profile>
-<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerFileProfile">
-<buildOutputProvider>
-<openAction enabled="true" filePath=""/>
-<parser enabled="true"/>
-</buildOutputProvider>
-<scannerInfoProvider id="makefileGenerator">
-<runAction arguments="-f ${project_name}_scd.mk" command="make" useDefault="true"/>
-<parser enabled="true"/>
-</scannerInfoProvider>
-</profile>
-<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfile">
-<buildOutputProvider>
-<openAction enabled="true" filePath=""/>
-<parser enabled="true"/>
-</buildOutputProvider>
-<scannerInfoProvider id="specsFile">
-<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
-<parser enabled="true"/>
-</scannerInfoProvider>
-</profile>
-<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP">
-<buildOutputProvider>
-<openAction enabled="true" filePath=""/>
-<parser enabled="true"/>
-</buildOutputProvider>
-<scannerInfoProvider id="specsFile">
-<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.cpp" command="g++" useDefault="true"/>
-<parser enabled="true"/>
-</scannerInfoProvider>
-</profile>
-<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC">
-<buildOutputProvider>
-<openAction enabled="true" filePath=""/>
-<parser enabled="true"/>
-</buildOutputProvider>
-<scannerInfoProvider id="specsFile">
-<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.c" command="gcc" useDefault="true"/>
-<parser enabled="true"/>
-</scannerInfoProvider>
-</profile>
-<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfile">
-<buildOutputProvider>
-<openAction enabled="true" filePath=""/>
-<parser enabled="true"/>
-</buildOutputProvider>
-<scannerInfoProvider id="specsFile">
-<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
-<parser enabled="true"/>
-</scannerInfoProvider>
-</profile>
-<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileCPP">
-<buildOutputProvider>
-<openAction enabled="true" filePath=""/>
-<parser enabled="true"/>
-</buildOutputProvider>
-<scannerInfoProvider id="specsFile">
-<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.cpp" command="g++" useDefault="true"/>
-<parser enabled="true"/>
-</scannerInfoProvider>
-</profile>
-<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileC">
-<buildOutputProvider>
-<openAction enabled="true" filePath=""/>
-<parser enabled="true"/>
-</buildOutputProvider>
-<scannerInfoProvider id="specsFile">
-<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.c" command="gcc" useDefault="true"/>
-<parser enabled="true"/>
-</scannerInfoProvider>
-</profile>
-</scannerConfigBuildInfo>
-<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.mingw.exe.debug.842550004;cdt.managedbuild.config.gnu.mingw.exe.debug.842550004.;cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.debug.1279247176;cdt.managedbuild.tool.gnu.c.compiler.input.1232247744">
+<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.mingw.exe.release.759973277;cdt.managedbuild.config.gnu.mingw.exe.release.759973277.;cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.release.1184582795;cdt.managedbuild.tool.gnu.c.compiler.input.1582852642">
 <autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 <buildOutputProvider>
@@ -782,8 +682,8 @@
 </scannerInfoProvider>
 </profile>
 </scannerConfigBuildInfo>
-<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.mingw.exe.release.1966299448;cdt.managedbuild.config.gnu.mingw.exe.release.1966299448.;cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.release.1239633315;cdt.managedbuild.tool.gnu.c.compiler.input.1362941563">
-<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.mingw.exe.release.759973277;cdt.managedbuild.config.gnu.mingw.exe.release.759973277.;cdt.managedbuild.tool.gnu.cpp.compiler.mingw.exe.release.1292513645;cdt.managedbuild.tool.gnu.cpp.compiler.input.1573711432">
+<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
 <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 <buildOutputProvider>
 <openAction enabled="true" filePath=""/>
@@ -865,8 +765,91 @@
 </scannerInfoProvider>
 </profile>
 </scannerConfigBuildInfo>
-<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.mingw.exe.debug.842550004;cdt.managedbuild.config.gnu.mingw.exe.debug.842550004.;cdt.managedbuild.tool.gnu.cpp.compiler.mingw.exe.debug.573384822;cdt.managedbuild.tool.gnu.cpp.compiler.input.542159293">
+<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.mingw.exe.debug.1360877843;cdt.managedbuild.config.gnu.mingw.exe.debug.1360877843.;cdt.managedbuild.tool.gnu.cpp.compiler.mingw.exe.debug.1178283597;cdt.managedbuild.tool.gnu.cpp.compiler.input.1602950357">
 <autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
+<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerFileProfile">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="makefileGenerator">
+<runAction arguments="-f ${project_name}_scd.mk" command="make" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfile">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.cpp" command="g++" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.c" command="gcc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfile">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileCPP">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.cpp" command="g++" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileC">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.c" command="gcc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+</scannerConfigBuildInfo>
+<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.mingw.exe.debug.1360877843;cdt.managedbuild.config.gnu.mingw.exe.debug.1360877843.;cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.debug.636746882;cdt.managedbuild.tool.gnu.c.compiler.input.1815165091">
+<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 <buildOutputProvider>
 <openAction enabled="true" filePath=""/>
@@ -949,9 +932,12 @@
 </profile>
 </scannerConfigBuildInfo>
 </storageModule>
+<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+<storageModule moduleId="org.eclipse.cdt.core.language.mapping"/>
+<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 </cconfiguration>
 </storageModule>
 <storageModule moduleId="cdtBuildSystem" version="4.0.0">
-<project id="snake 3d.cdt.managedbuild.target.gnu.mingw.exe.1200919550" name="Executable" projectType="cdt.managedbuild.target.gnu.mingw.exe"/>
+<project id="Snake-3D.cdt.managedbuild.target.gnu.mingw.exe.1622707661" name="Executable" projectType="cdt.managedbuild.target.gnu.mingw.exe"/>
 </storageModule>
 </cproject>

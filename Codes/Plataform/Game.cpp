@@ -24,11 +24,7 @@ void platform::Game::initDisplay(){
 
     _frameMan = new platform::FrameManagement(conf->readWidth(), conf->readHeigth(), conf->readBitsPerPixel(), conf->readFullScreen(),
                             conf->readStencilBuffer(), conf->readActivateJoy(), conf->readAntiAliasing());
-
     _gamePlay = new platform::Gameplay(_frameMan->getBaseFrame()->getSceneManager(), _frameMan->getBaseFrame()->getVideoDriver());
-}
-
-void platform::Game::generatMap(){
 
 }
 
@@ -38,13 +34,19 @@ void platform::Game::run(){
     	_frameMan->getBaseFrame()->show();
 
         if(_frameMan->getBaseFrame()->getButtonEvents()->getGameOption() == 7){
+        	_frameMan->getBaseFrame()->setColor(255,255,255,255);
+
+         	_camera = new base::FrameCameraFPS(_gamePlay->getNewtonWorld(), _frameMan->getBaseFrame()->getSceneManager(), 0);
+                	_camera->createCamera(0, 100.0f, 0.08f, 0, 0, false, 0);
+        			_camera->setPosition(30, 70, -10);
+
         	_gamePlay->initMatch();
 			_gamePlay->randomMap();
 			_frameMan->getBaseFrame()->getButtonEvents()->setGameOption(Events::GAME_PLAY_GAME);
+			_frameMan->getBaseFrame()->setModeCursor(false);
         }
-        else if(_frameMan->getBaseFrame()->getButtonEvents()->getGameOption() == 8){
+        else if (_frameMan->getBaseFrame()->getButtonEvents()->getGameOption() == 8){
         	_gamePlay->run();
-        	sleepms(2000);
         }
 
     }
