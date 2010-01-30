@@ -25,8 +25,8 @@ base::Frame::Frame(int __width, int __heigth, irr::u8 __bitsPerPixel, bool __ful
 
 	_activateJoyStick = __activateJoystick;
 
-
 	_device = irr::createDeviceEx(parameters);
+	_device->maximizeWindow();
 
 	if (_device == 0)
 		return;
@@ -153,10 +153,8 @@ void base::Frame::repaint(int __width, int __heigth, irr::u8 __bitsPerPixel, boo
 }
 
 void base::Frame::show(){
+	_driver->setViewPort(irr::core::rect<irr::s32>(0,0,parameters.WindowSize.Width,parameters.WindowSize.Height));
     _driver->beginScene(true, true, _colorFrame);
-	_sceneMang->drawAll();
-	_guiEnv->drawAll();
-	_driver->endScene();
 }
 
 void base::Frame::drop(){

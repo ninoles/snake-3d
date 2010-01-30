@@ -12,6 +12,15 @@ base::BasicObject::BasicObject(void* __object, int __id){
 	_id = __id;
 }
 
+base::BasicObject::BasicObject(){
+
+}
+
+void base::BasicObject::init(void* __object, int __id){
+	_object = __object;
+	_id = __id;
+}
+
 void* base::BasicObject::getObject(){
 	return _object;
 }

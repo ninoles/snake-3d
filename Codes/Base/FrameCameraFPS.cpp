@@ -39,9 +39,8 @@ void base::FrameCameraFPS::dropCamera(){
 }
 
 void base::FrameCameraFPS::repaint(){
-	_camera->setRotation(_rotation);
 	_camera->setPosition(_position);
-	_camera->setScale(_scale);
+	_camera->setRotation(_rotation);
 }
 
 void base::FrameCameraFPS::insertKeyMoviment(irr::EKEY_CODE __key){

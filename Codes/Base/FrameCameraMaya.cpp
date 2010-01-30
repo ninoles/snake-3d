@@ -10,7 +10,7 @@ base::FrameCameraMaya::FrameCameraMaya(NewtonWorld *_nWorld, irr::scene::ISceneM
 					irr::f32 __zoomSpeed, irr::f32 __translationSpeed)
 					: base::SceneObjects(__sceneManager, _nWorld, this, __id){
 
-	_sceneManager->addCameraSceneNodeMaya(__parent, __rotateSpeed, __zoomSpeed, __translationSpeed, __id);
+	_camera = _sceneManager->addCameraSceneNodeMaya(__parent, __rotateSpeed, __zoomSpeed, __translationSpeed, __id);
 
 	_camera->setRotation(_rotation);
 	_camera->setPosition(_position);
@@ -21,11 +21,7 @@ base::FrameCameraMaya::FrameCameraMaya(NewtonWorld *_nWorld, irr::scene::ISceneM
 void base::FrameCameraMaya::createCamera(irr::scene::ISceneNode* __parent, irr::f32 __rotateSpeed,
 		irr::f32 __zoomSpeed, irr::f32 __translationSpeed){
 
-	_sceneManager->addCameraSceneNodeMaya(__parent, __rotateSpeed, __zoomSpeed, __translationSpeed, getId());
-
-	_camera->setRotation(_rotation);
-	_camera->setPosition(_position);
-	_camera->setScale(_scale);
+	_camera = _sceneManager->addCameraSceneNodeMaya(__parent, __rotateSpeed, __zoomSpeed, __translationSpeed, getId());
 }
 
 void base::FrameCameraMaya::dropCamera(){
@@ -34,9 +30,8 @@ void base::FrameCameraMaya::dropCamera(){
 }
 
 void base::FrameCameraMaya::repaint(){
-	_camera->setRotation(_rotation);
-	_camera->setPosition(_position);
-	_camera->setScale(_scale);
+	getCamera()->setPosition(_position);
+	getCamera()->setRotation(_rotation);
 }
 
 void base::FrameCameraMaya::bindTargetAndRotation(bool __bound){

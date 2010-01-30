@@ -43,8 +43,6 @@ namespace platform{
 
             void setProperties();
 
-            void randomPoints();
-            void randomBonus();
             irr::core::vector3df randomPositionPlayers();
 
             bool endMatch();
@@ -55,6 +53,9 @@ namespace platform{
 
 			void initMatch(irr::video::IVideoDriver *__driver, irr::scene::ISceneManager *__sceneManager, NewtonWorld *__newtonW);
             void runMatch();
+
+            void randomPoints();
+            void randomBonus();
 
             Players::GroupPlayers* getGroupPlayers();
             platform::Map* getMap();

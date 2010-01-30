@@ -17,10 +17,12 @@ namespace Events{
 		private:
 			
 			bool _keysDown[irr::KEY_KEY_CODES_COUNT];
-			
+
 		public:
 
                     KeyBoardEvents();
+                    void inputKey(irr::EKEY_CODE __keyCode);
+                    void deleteKey(irr::EKEY_CODE __keyCode);
                     bool isKeyDown(irr::EKEY_CODE __keyCode);
 
         };

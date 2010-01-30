@@ -12,6 +12,7 @@
 
 #include "FrameManagement.h"
 #include "Gameplay.h"
+#include "ThreadMatch.h"
 
 #include "../Base/FrameCameraFPS.h"
 
@@ -26,8 +27,7 @@ namespace platform{
 			FrameManagement *_frameMan;
 
 			platform::Gameplay *_gamePlay;
-
-			base::FrameCameraFPS *_camera;
+			platform::ThreadMatch *_threadMatch;
 
 			Game(){
 			}

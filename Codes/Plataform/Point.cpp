@@ -11,10 +11,13 @@ platform::Point::Point(irr::scene::ISceneManager *__sceneManager, NewtonWorld *_
 	_mesh = new base::FrameAnimatedNode(__newtonW, __sceneManager, 100);
 	_value = 0;
 	_currentRepetition = 0;
+
+	initComponent();
+
 }
 
 void platform::Point::initComponent(){
-	_mesh->createNode("others/ponto.3ds", irr::core::vector3df(0,0,0), irr::core::vector3df(0,0,0), irr::core::vector3df(1,1,1));
+	_mesh->createNode("plants/ponto.3ds", irr::core::vector3df(0,0,0), irr::core::vector3df(0,0,0), irr::core::vector3df(3,3,3));
 	_mesh->createCollision();
 	_mesh->setVisible(false);
 }
@@ -23,7 +26,6 @@ void platform::Point::insertPointInPosition(irr::core::vector3df __position){
 	_mesh->setPosition(__position.X, __position.Y, __position.Z);
 	_mesh->repaint();
 	_mesh->setVisible(true);
-	_currentRepetition++;
 }
 
 void platform::Point::setVisible(bool __visible){

@@ -48,6 +48,8 @@ namespace platform{
 			void checkCollisionToPoint();
 			void checkForCollisions(base::FrameAnimatedNode* __nodeA, base::FrameAnimatedNode* __nodeB);
 
+			void splitScreenForPlayers();
+
 			NewtonWorld* getNewtonWorld();
 			Match* getMatch();
 

@@ -9,15 +9,23 @@
 #ifndef _FRAMEANIMATEDNODE_H
 #define	_FRAMEANIMATEDNODE_H
 
+#define MOVIMENTS 2
+
 #include <irrlicht.h>
 #include <Newton.h>
 
 #include "SceneObjects.h"
 #include "../Physis/PhysisNode.h"
 
-#define MOVIMENTS 2
-
 namespace base{
+
+	enum directions{
+		NOTHING = -1,
+		NORTH,
+		WEST,
+		SOUTH,
+		EAST,
+	};
 
     class FrameAnimatedNode : public SceneObjects{
 
@@ -27,6 +35,8 @@ namespace base{
             irr::EKEY_CODE _moviments[MOVIMENTS];
 
             int _indexMoviment;
+
+            directions _direction;
 
         public:
 
@@ -41,7 +51,15 @@ namespace base{
             		int __id, const irr::c8* __filename, irr::core::vector3df __rotarion, irr::core::vector3df __position,
             		irr::core::vector3df __scale);
 
+            FrameAnimatedNode();
+
+            void initComponent(NewtonWorld *_nWorld, irr::scene::ISceneManager *__sceneManager,
+            		int __id);
+
             //Main Methods
+            void createNode(NewtonWorld *_nWorld, irr::scene::ISceneManager *__sceneManager,
+            		int __id,const irr::c8* __filename,  irr::core::vector3df __rotarion, irr::core::vector3df __position,
+            		irr::core::vector3df __scale);
             void createNode(const irr::c8* __filename,  irr::core::vector3df __rotarion, irr::core::vector3df __position,
             		irr::core::vector3df __scale);
             void createNode(const irr::c8* __filename);
@@ -49,12 +67,14 @@ namespace base{
             void drop();
             void createCollision();
             void insertKeyMoviment(irr::EKEY_CODE __key);
+            void setDirection(directions __direction);
 
             //Getters
             irr::scene::IAnimatedMeshSceneNode* getAnimatedMesh();
             irr::scene::ISceneNode* getSceneNode();
             irr::scene::IMesh* getMesh();
             irr::EKEY_CODE* getKeyMoviment();
+            directions getDirection();
 
             //Mesh Methods
             void setMaterialFlag(irr::video::E_MATERIAL_FLAG __flag, bool __newvalue);

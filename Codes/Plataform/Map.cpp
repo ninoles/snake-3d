@@ -11,10 +11,11 @@ platform::Map::Map(irr::scene::ISceneManager *__sceneManager, irr::video::IVideo
 	_sceneManager = __sceneManager;
 	_videoDriver = __videoDriver;
 	_newtonW = __newtonW;
+	_numberMap = -1;
 }
 
 platform::Map::Map(){
-
+	_numberMap = -1;
 }
 
 void platform::Map::initMaps(irr::scene::ISceneManager *__sceneManager, irr::video::IVideoDriver *__videoDriver, NewtonWorld *__newtonW){
@@ -48,6 +49,7 @@ void platform::Map::generateRandomMap(){
 	srand(time(NULL));
 
 	int number = (rand() % 4)+1;
+	_numberMap = number;
 
 	switch(number){
 
@@ -70,5 +72,21 @@ void platform::Map::generateRandomMap(){
 
 void platform::Map::flushScene(){
 	_sceneManager->clear();
+}
+
+base::FrameAnimatedNode* platform::Map::getMap(){
+	switch(_numberMap){
+
+		case 1:
+			return _mapOne;
+		case 2:
+			return _mapTwo;
+		case 3:
+			return _mapThree;
+		case 4:
+			return _mapFour;
+		default:
+			return NULL;
+	}
 }
 

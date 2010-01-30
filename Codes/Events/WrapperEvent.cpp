@@ -43,8 +43,9 @@ bool WrapperEvents::OnEvent(const irr::SEvent& event){
 
 				break;
 		}
-	} else if(event.EventType == irr::EET_KEY_INPUT_EVENT)
-		_eventNode->runMovement(event.KeyInput.Key);
+	} else if(event.EventType == irr::EET_KEY_INPUT_EVENT){
+		_eventNode->verifyKey(event.KeyInput.Key);
+	}
 
 
     return false;

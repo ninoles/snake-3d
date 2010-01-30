@@ -48,6 +48,8 @@ namespace platform{
 
 			base::FrameSkyBox *_skyBox;
 
+			int _numberMap;
+
 			irr::scene::ISceneManager *_sceneManager;
 			irr::video::IVideoDriver *_videoDriver;
 			NewtonWorld *_newtonW;
@@ -62,6 +64,8 @@ namespace platform{
 
 			void generateRandomMap();
 			void flushScene();
+
+			base::FrameAnimatedNode* getMap();
 
 	};
 }

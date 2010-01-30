@@ -22,9 +22,14 @@ namespace base{
 			static int _ids[MAX_ID];
 			static int index;
 
+		protected:
+
+			void init(void* __object, int __id);
+
 		public:
 
 			BasicObject(void* __object, int __id);
+			BasicObject();
 
 			void* getObject();
 			int getId();

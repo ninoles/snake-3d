@@ -9,7 +9,7 @@ Player::Player(string __name,int __score, int __wins, int __numberGames){
 	_wins = __wins;
 	_numberGames = __numberGames;
 	_snake = new Snake();
-	_thread = new Thread();
+	_thread = new ThreadSnake();
 }
 
 Player::Player(){
@@ -18,7 +18,7 @@ Player::Player(){
 	_wins = -1;
 	_numberGames = -1;
 	_snake = new Snake();
-	_thread = new Thread();
+	_thread = new ThreadSnake();
 }
 
 void Player::setName(string __name){

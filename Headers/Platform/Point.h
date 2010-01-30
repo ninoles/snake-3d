@@ -13,7 +13,7 @@
 
 #include "../Base/FrameAnimatedNode.h"
 
-#define REPETITIONS 15
+#define REPETITIONS 20
 
 namespace platform{
 

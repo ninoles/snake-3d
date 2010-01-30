@@ -32,6 +32,7 @@ void platform::Gameplay::checkCollisionToPoint(){
 
 void platform::Gameplay::run(){
 	_match->runMatch();
+	splitScreenForPlayers();
 }
 
 void platform::Gameplay::checkForCollisions(base::FrameAnimatedNode* __nodeA, base::FrameAnimatedNode* __nodeB){
@@ -59,6 +60,20 @@ void platform::Gameplay::checkForCollisions(base::FrameAnimatedNode* __nodeA, ba
 	} else {
 		__nodeA->_movimentNode = true;
 		__nodeB->_movimentNode = true;
+	}
+
+}
+
+void platform::Gameplay::splitScreenForPlayers(){
+
+	if(_match->getGroupPlayers()->getNumberOfPlayers() > 1){
+
+		_sceneManagement->setActiveCamera(_match->getGroupPlayers()->getAllPlayers()->get(0).getSnake()->getCamera()->getCamera());
+		_driver->setViewPort(irr::core::rect<irr::s32>(0,0,_driver->getScreenSize().Width, _driver->getScreenSize().Height/2));
+		_sceneManagement->drawAll();
+
+		_sceneManagement->setActiveCamera(_match->getGroupPlayers()->getAllPlayers()->get(1).getSnake()->getCamera()->getCamera());
+		_driver->setViewPort(irr::core::rect<irr::s32>(0,_driver->getScreenSize().Height/2,_driver->getScreenSize().Width, _driver->getScreenSize().Height));
 	}
 
 }

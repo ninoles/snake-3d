@@ -26,7 +26,7 @@ namespace file{
 			irr::u8 _bitsPerPixel;
 
 		public:
-			//Constructor
+			//Constructors
 			ConfFrame(irr::IrrlichtDevice *__device);
             ConfFrame();
 

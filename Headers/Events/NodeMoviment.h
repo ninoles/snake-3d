@@ -10,7 +10,6 @@
 
 #include <irrlicht.h>
 
-#include "../GenericList/ArrayList.h"
 #include "../Base/FrameAnimatedNode.h"
 
 #define NUMBER_OF_MOVIMENTS 2
@@ -20,29 +19,25 @@ namespace Events{
 
         private:
 
-            int _movimentOne;
+			int _movimentOne;
             int _movimentTwo;
-
-            irr::IrrlichtDevice *_device;
-
-            GenericList::ArrayList<int> _keys;
-            GenericList::ArrayList<base::FrameAnimatedNode*> *_nodes;
 
             irr::f32 _movimentSpeed;
 
         public:
 
+            static irr::EKEY_CODE _currentMoviment;
+
             NodeMoviment(irr::IrrlichtDevice *__device);
             NodeMoviment();
 
-            void insertMovimentNode(base::FrameAnimatedNode *__node, irr::EKEY_CODE __moviments[NUMBER_OF_MOVIMENTS]);
             void changeKey(irr::EKEY_CODE __oldKey, irr::EKEY_CODE __newKey, int __idNode);
             void setMovementSpeed(irr::f32 __movementSpeed);
-            void runMovement(irr::EKEY_CODE __keyPressed);
+            void verifyKey(irr::EKEY_CODE __keyPressed);
+
+            static void setCurrentKey(irr::EKEY_CODE __key);
     };
 }
-
-#include "../../Codes/GenericList/ArrayList.cpp"
 
 #endif	/* _NODEMOVIMENT_H */
 

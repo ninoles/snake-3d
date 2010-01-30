@@ -90,8 +90,8 @@ void Events::ButtonEvents::handler(int __idEvent){
 
 			//Save in the file.
         	_confFrame->setArchiveWrite("conf/config_video.xml");
-        	_confFrame->writeConfigurations(GUIManagement::getTokens(GUIManagement::getTextElement(800, _rootElement), L" x ", 1),
-        			GUIManagement::getTokens(GUIManagement::getTextElement(800, _rootElement), L" x ", 2), L"32",
+        	_confFrame->writeConfigurations(GUIManagement::getTokens(GUIManagement::getTextElement(800, _rootElement), L"x", 1),
+        			GUIManagement::getTokens(GUIManagement::getTextElement(800, _rootElement), L"x", 2), L"32",
         			GUIManagement::toWChar(((irr::gui::IGUICheckBox*)GUIManagement::getElement(803, _rootElement))->isChecked()),
         			GUIManagement::toWChar(((irr::gui::IGUICheckBox*)GUIManagement::getElement(802, _rootElement))->isChecked()),
         			GUIManagement::toWChar(((irr::gui::IGUICheckBox*)GUIManagement::getElement(801, _rootElement))->isChecked()), L"0");

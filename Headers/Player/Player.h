@@ -6,7 +6,7 @@
 #include <Newton.h>
 
 #include "../Platform/Snake.h"
-#include "../Platform/Thread.h"
+#include "../Platform/ThreadSnake.h"
 
 using namespace std;
 
@@ -21,7 +21,7 @@ class Player{
 		int _numberGames;
 		
 		platform::Snake *_snake;
-		platform::Thread *_thread;
+		platform::ThreadSnake *_thread;
 
 		void createThread();
 

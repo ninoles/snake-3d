@@ -30,6 +30,39 @@ base::FrameAnimatedNode::FrameAnimatedNode(NewtonWorld *_nWorld, irr::scene::ISc
 
 }
 
+base::FrameAnimatedNode::FrameAnimatedNode() : SceneObjects(){
+	_indexMoviment = 0;
+
+}
+
+void base::FrameAnimatedNode::initComponent(NewtonWorld *_nWorld, irr::scene::ISceneManager *__sceneManager, int __id){
+	initObj(__sceneManager, _nWorld, this, __id);
+
+	_indexMoviment = 0;
+}
+
+void base::FrameAnimatedNode::createNode(NewtonWorld *_nWorld, irr::scene::ISceneManager *__sceneManager,
+            		int __id,const irr::c8* __filename,  irr::core::vector3df __rotarion, irr::core::vector3df __position,
+            		irr::core::vector3df __scale){
+
+	_mesh = _sceneManager->addAnimatedMeshSceneNode(_sceneManager->getMesh(__filename));
+	_mesh->setMaterialFlag(irr::video::EMF_LIGHTING, false);
+
+	_mesh->setRotation(__rotarion);
+	_mesh->setPosition(__position);
+	_mesh->setScale(__scale);
+
+	setPosition(__position.X, __position.Y, __position.Z);
+	setRotation(__rotarion.X, __rotarion.Y, __rotarion.Z);
+	setScale(__rotarion.X, __rotarion.Y, __rotarion.Z);
+
+	_mesh->setID(getId());
+
+	_indexMoviment = 0;
+	_movimentNode = true;
+
+}
+
 void base::FrameAnimatedNode::createNode(const irr::c8* __filename,  irr::core::vector3df __rotarion, irr::core::vector3df __position,
 		irr::core::vector3df __scale){
 	_mesh = _sceneManager->addAnimatedMeshSceneNode(_sceneManager->getMesh(__filename));
@@ -58,7 +91,8 @@ void base::FrameAnimatedNode::createNode(const irr::c8* __filename){
 }
 
 void base::FrameAnimatedNode::repaint(){
-	getSceneNode()->setPosition(_position);
+	getAnimatedMesh()->setPosition(_position);
+	getAnimatedMesh()->setRotation(_rotation);
 }
 
 void base::FrameAnimatedNode::drop(){
@@ -72,6 +106,10 @@ void base::FrameAnimatedNode::createCollision(){
 
 void base::FrameAnimatedNode::insertKeyMoviment(irr::EKEY_CODE __key){
 	_moviments[_indexMoviment++] = __key;
+}
+
+void base::FrameAnimatedNode::setDirection(base::directions __direction){
+	_direction = __direction;
 }
 
 irr::scene::IAnimatedMeshSceneNode* base::FrameAnimatedNode::getAnimatedMesh(){
@@ -88,6 +126,10 @@ irr::scene::IMesh* base::FrameAnimatedNode::getMesh(){
 
 irr::EKEY_CODE* base::FrameAnimatedNode::getKeyMoviment(){
 	return _moviments;
+}
+
+base::directions base::FrameAnimatedNode::getDirection(){
+	return _direction;
 }
 
 void base::FrameAnimatedNode::setMaterialFlag(irr::video::E_MATERIAL_FLAG __flag, bool __newvalue){

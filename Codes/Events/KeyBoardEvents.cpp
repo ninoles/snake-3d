@@ -7,6 +7,14 @@ KeyBoardEvents::KeyBoardEvents(){
         _keysDown[k] = false;
 }
 
+void KeyBoardEvents::inputKey(irr::EKEY_CODE __keyCode){
+	_keysDown[__keyCode] = true;
+}
+
+void KeyBoardEvents::deleteKey(irr::EKEY_CODE __keyCode){
+
+}
+
 bool KeyBoardEvents::isKeyDown(irr::EKEY_CODE __keyCode){
     return _keysDown[__keyCode];
 }

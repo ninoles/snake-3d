@@ -25,11 +25,10 @@ void platform::Match::setProperties(){
 	_maxPoints = _config->getMaxPoints();
 	_numberOfPlayers = _config->getNumberOfPlayers();
 
-	_players = new Players::GroupPlayers();
-
 	for(int k = 0; k < _numberOfPlayers; k++){
 		Players::Player tmp;
 		_players->addPlayer(tmp);
+		_players->getAllPlayers()->get(k).getSnake()->insertMoviment(k+1);
 	}
 
 	std::cout << "Number created players: " << _players->getNumberOfPlayers() << std::endl;
@@ -51,20 +50,21 @@ void platform::Match::initMatch(irr::video::IVideoDriver *__driver, irr::scene::
 }
 
 void platform::Match::runMatch(){
-	if(!endMatch() && _points->isRepetitions()){
-	}
 }
 
 void platform::Match::randomPoints(){
-	int positionX = 0,
-		positionZ = 0;
+	irr::core::vector3df position;
+	irr::core::vector3df positionMap;
 
 	srand(time(NULL));
 
-	positionX = (rand() % 3) + 6;
-	positionZ = 0;
+	positionMap = _map->getMap()->getSceneNode()->getPosition();
 
-	_points->insertPointInPosition(irr::core::vector3df(positionX, _points->getAnimatedNode()->getPosition().Y, positionZ));
+	position.X = rand() % positionMap.X;
+	position.Y = positionMap.Y + 0.1;
+	position.Z = rand() % positionMap.Z;
+
+	_points->insertPointInPosition(position);
 
 }
 
@@ -75,12 +75,15 @@ void platform::Match::randomBonus(){
 irr::core::vector3df platform::Match::randomPositionPlayers(){
 
 	irr::core::vector3df position;
+	irr::core::vector3df positionMap;
 
 	srand(time(NULL));
 
-	position.X = (rand() % 8) + 6;
-	position.Z = (rand() % -40) + 5;
-	position.Y = POSITION_Y_MAP + 0.4;
+	positionMap = _map->getMap()->getSceneNode()->getPosition();
+
+	position.X = rand() % positionMap.X;
+	position.Y = positionMap.Y + 0.25;
+	position.Z = rand() % positionMap.Z;
 
 	return position;
 

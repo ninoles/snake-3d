@@ -12,8 +12,8 @@ platform::FrameManagement::FrameManagement(int __width, int __heigth, irr::u8 __
 
 	_frame = new base::Frame(__width, __heigth, __bitsPerPixel, __fullScreen, __stencilBuffer, __activateJoystick, __antiAliasing);
 	_frame->addFontFrame("fonts/font800.xml");
-	_frame->setTitleFrame(L"->Snake 3D<-");
-	_frame->setColor(0,0,0,0);
+	_frame->setTitleFrame(L"                                                           Snake 3D");
+	_frame->setColor(255,255,255,255);
 
 	_frame->getGUIEnviroment()->loadGUI("xmlgui/guiMainMenu.xml", 0);
 
