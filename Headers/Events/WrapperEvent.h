@@ -29,11 +29,15 @@ namespace Events{
 
         public:
 
+            static bool _isPaused;
+
             WrapperEvents(irr::IrrlichtDevice *__device);
 
             void setAllEvents();
 
             bool OnEvent(const irr::SEvent& event);
+
+            static void setOption(bool __paused);
             
             Events::ButtonEvents* getButtonEvents();
             Events::NodeMoviment* getNodeMoviment();

@@ -31,6 +31,7 @@
 #include <time.h>
 
 #include "Gameplay.h"
+#include "../Events/WrapperEvent.h"
 
 void* pointManagement(void *__game);
 void* checkForCollision(void *__game);

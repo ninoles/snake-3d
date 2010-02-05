@@ -8,6 +8,7 @@
 		<color name="3DFace" value="fad2d2d2" />
 		<color name="3DHighlight" value="faffffff" />
 		<color name="3DLight" value="fad2d2d2" />
+
 		<color name="ActiveBorder" value="fa100e73" />
 		<color name="ActiveCaption" value="faffffff" />
 		<color name="AppWorkspace" value="fa646464" />
@@ -17,6 +18,7 @@
 		<color name="HighlightText" value="faffffff" />
 		<color name="InactiveBorder" value="faa5a5a5" />
 		<color name="InactiveCaption" value="fad2d2d2" />
+
 		<color name="ToolTip" value="fa000000" />
 		<color name="ToolTipBackground" value="faffffe1" />
 		<color name="ScrollBar" value="fae6e6e6" />
@@ -26,6 +28,7 @@
 		<color name="IconHighlight" value="fa08246b" />
 		<int name="ScrollBarSize" value="14" />
 		<int name="MenuHeight" value="30" />
+
 		<int name="WindowButtonWidth" value="15" />
 		<int name="CheckBoxWidth" value="18" />
 		<int name="MessageBoxWidth" value="500" />
@@ -34,9 +37,8 @@
 		<int name="ButtonHeight" value="30" />
 		<int name="TextDistanceX" value="2" />
 		<int name="TextDistanceY" value="0" />
-		<int name="TitleBarTextX" value="0" />
-		<int name="TitleBarTextY" value="0" />
 		<string name="MessageBoxOkay" value="OK" />
+
 		<string name="MessageBoxCancel" value="Cancel" />
 		<string name="MessageBoxYes" value="Yes" />
 		<string name="MessageBoxNo" value="No" />
@@ -46,6 +48,7 @@
 		<string name="WindowButtonRestore" value="Restore" />
 		<int name="windowMaximize" value="225" />
 		<int name="windowRestore" value="226" />
+
 		<int name="windowClose" value="227" />
 		<int name="windowMinimize" value="228" />
 		<int name="windowResize" value="242" />
@@ -55,6 +58,7 @@
 		<int name="cursorRight" value="232" />
 		<int name="menuMore" value="232" />
 		<int name="checkBoxChecked" value="233" />
+
 		<int name="dropDown" value="234" />
 		<int name="smallCursorUp" value="235" />
 		<int name="smallCursorDown" value="236" />
@@ -64,69 +68,126 @@
 		<int name="moreUp" value="240" />
 		<int name="moreDown" value="241" />
 		<int name="expand" value="243" />
+
 		<int name="collapse" value="244" />
 		<int name="file" value="245" />
 		<int name="directory" value="246" />
 	</attributes>
 
-	<element type="button">
+	<element type="image">
 
 		<attributes>
-			<int name="Id" value="506" />
-			<string name="Caption" value="Voltar" />
-			<rect name="Rect" value="350, 420, 480, 450" />
+			<int name="Id" value="1000" />
+			<string name="Caption" value="" />
+
+			<rect name="Rect" value="0, 0, 800, 600" />
 			<position name="MinSize" value="1, 1" />
 			<position name="MaxSize" value="0, 0" />
-			<enum name="LeftAlign" value="upperLeft" />
-			<enum name="RightAlign" value="upperLeft" />
-			<enum name="TopAlign" value="upperLeft" />
-			<enum name="BottomAlign" value="upperLeft" />
-			<bool name="Visible" value="true" />
-			<bool name="Enabled" value="true" />
-			<bool name="TabStop" value="true" />
-			<bool name="TabGroup" value="false" />
-			<int name="TabOrder" value="1" />
 			<bool name="NoClip" value="false" />
-			<bool name="PushButton" value="false" />
-			<texture name="Image" value="images/button.png" />
-			<rect name="ImageRect" value="0, 0, 160, 40" />
-			<texture name="PressedImage" value="images/button.png" />
-			<rect name="PressedImageRect" value="0, 0, 160, 40" />
-			<bool name="UseAlphaChannel" value="false" />
-			<bool name="Border" value="true" />
-			<bool name="ScaleImage" value="false" />
-		</attributes>
-
-	</element>
-
-	<element type="staticText">
-
-		<attributes>
-			<int name="Id" value="-1" />
-			<string name="Caption" value="Snake 3D			  O jogo é composto por um ou mais jogadores que competirão entre si ou entre a máquina afim de recolher vários itens no mapa. Durante esses jogos ocorrerão várias surpresas no mapa como a aparecimento de itens surpresas, obstáculos e passagens. O número máximo de jogadores pode ser de 4, e 2 humanos e 2 jogadores virtuais.										  		  Este jogo foi desenvolvido por: Henrique Jonas 		  Modelagem: Carlos Alberto 		  Versão: 1.0 BETA" />
-			<rect name="Rect" value="230, 70, 590, 380" />
-			<position name="MinSize" value="1, 1" />
-			<position name="MaxSize" value="0, 0" />
 			<enum name="LeftAlign" value="upperLeft" />
 			<enum name="RightAlign" value="upperLeft" />
 			<enum name="TopAlign" value="upperLeft" />
 			<enum name="BottomAlign" value="upperLeft" />
 			<bool name="Visible" value="true" />
+
 			<bool name="Enabled" value="true" />
 			<bool name="TabStop" value="false" />
 			<bool name="TabGroup" value="false" />
 			<int name="TabOrder" value="-1" />
-			<bool name="NoClip" value="false" />
-			<bool name="Border" value="true" />
-			<bool name="OverrideColorEnabled" value="true" />
-			<bool name="WordWrap" value="true" />
-			<bool name="Background" value="true" />
-			<color name="OverrideColor" value="fa323232" />
-			<enum name="HTextAlign" value="upperLeft" />
-			<enum name="VTextAlign" value="upperLeft" />
+			<texture name="Texture" value="images/op_about.png" />
+			<bool name="UseAlphaChannel" value="true" />
+			<color name="Color" value="ffffffff" />
+			<bool name="ScaleImage" value="false" />
 		</attributes>
+
+		<element type="image">
+
+			<attributes>
+				<int name="Id" value="-1" />
+				<string name="Caption" value="" />
+				<rect name="Rect" value="380, 0, 800, 200" />
+				<position name="MinSize" value="1, 1" />
+				<position name="MaxSize" value="0, 0" />
+				<bool name="NoClip" value="false" />
+
+				<enum name="LeftAlign" value="upperLeft" />
+				<enum name="RightAlign" value="upperLeft" />
+				<enum name="TopAlign" value="upperLeft" />
+				<enum name="BottomAlign" value="upperLeft" />
+				<bool name="Visible" value="true" />
+				<bool name="Enabled" value="true" />
+				<bool name="TabStop" value="false" />
+				<bool name="TabGroup" value="false" />
+				<int name="TabOrder" value="-1" />
+
+				<texture name="Texture" value="images/logoAbout.png" />
+				<bool name="UseAlphaChannel" value="true" />
+				<color name="Color" value="ffffffff" />
+				<bool name="ScaleImage" value="false" />
+			</attributes>
+
+		</element>
+
+		<element type="image">
+
+			<attributes>
+				<int name="Id" value="-1" />
+				<string name="Caption" value="" />
+				<rect name="Rect" value="200, 190, 600, 490" />
+				<position name="MinSize" value="1, 1" />
+				<position name="MaxSize" value="0, 0" />
+				<bool name="NoClip" value="false" />
+				<enum name="LeftAlign" value="upperLeft" />
+				<enum name="RightAlign" value="upperLeft" />
+
+				<enum name="TopAlign" value="upperLeft" />
+				<enum name="BottomAlign" value="upperLeft" />
+				<bool name="Visible" value="true" />
+				<bool name="Enabled" value="true" />
+				<bool name="TabStop" value="false" />
+				<bool name="TabGroup" value="false" />
+				<int name="TabOrder" value="-1" />
+				<texture name="Texture" value="images/aboutbox.bmp" />
+				<bool name="UseAlphaChannel" value="true" />
+
+				<color name="Color" value="ffffffff" />
+				<bool name="ScaleImage" value="false" />
+			</attributes>
+
+		</element>
+
+		<element type="button">
+
+			<attributes>
+				<int name="Id" value="506" />
+
+				<string name="Caption" value="" />
+				<rect name="Rect" value="320, 510, 440, 540" />
+				<position name="MinSize" value="1, 1" />
+				<position name="MaxSize" value="0, 0" />
+				<bool name="NoClip" value="false" />
+				<enum name="LeftAlign" value="upperLeft" />
+				<enum name="RightAlign" value="upperLeft" />
+				<enum name="TopAlign" value="upperLeft" />
+				<enum name="BottomAlign" value="upperLeft" />
+
+				<bool name="Visible" value="true" />
+				<bool name="Enabled" value="true" />
+				<bool name="TabStop" value="true" />
+				<bool name="TabGroup" value="false" />
+				<int name="TabOrder" value="1" />
+				<bool name="PushButton" value="false" />
+				<texture name="Image" value="images/buttonBack.png" />
+				<rect name="ImageRect" value="0, 0, 120, 30" />
+				<texture name="PressedImage" value="images/buttonBack.png" />
+
+				<rect name="PressedImageRect" value="0, 0, 120, 30" />
+				<bool name="Border" value="false" />
+				<bool name="UseAlphaChannel" value="true" />
+			</attributes>
+
+		</element>
 
 	</element>
 
 </irr_gui>
-

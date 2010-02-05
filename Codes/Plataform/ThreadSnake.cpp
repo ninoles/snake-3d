@@ -14,10 +14,12 @@ void* snakeForward(void* __snake){
 	platform::Snake* snake = (platform::Snake*)__snake;
 
 	while(true){
-		sleepms(65);
-		pthread_mutex_lock(&_mutex);
-		snake->snakeForward();
-		pthread_mutex_unlock(&_mutex);
+		if(!Events::WrapperEvents::_isPaused){
+			sleepms(65);
+			pthread_mutex_lock(&_mutex);
+			snake->snakeForward();
+			pthread_mutex_unlock(&_mutex);
+		}
 	}
 
 	pthread_exit(NULL);
@@ -29,27 +31,27 @@ void* turnSnake(void* __snake){
 
 
 	while(true){
+		if(!Events::WrapperEvents::_isPaused){
+			keyCode = Events::NodeMoviment::_currentMoviment;
 
-		keyCode = Events::NodeMoviment::_currentMoviment;
+			if(keyCode == snake->getMovimentLeft() || keyCode == snake->getMovimentRight()){
 
-		if(keyCode == snake->getMovimentLeft() || keyCode == snake->getMovimentRight()){
+				pthread_mutex_lock(&_mutex);
 
-			pthread_mutex_lock(&_mutex);
+				sleepms(500);
 
-			sleepms(500);
+				Events::NodeMoviment::_currentMoviment = irr::KEY_KEY_0;
 
-			Events::NodeMoviment::_currentMoviment = irr::KEY_KEY_0;
+				if(keyCode == snake->getMovimentLeft())
+					snake->turnLeft();
 
-			if(keyCode == snake->getMovimentLeft())
-				snake->turnLeft();
+				else if(keyCode == snake->getMovimentRight())
+					snake->turnRight();
 
-			else if(keyCode == snake->getMovimentRight())
-				snake->turnRight();
+				pthread_mutex_unlock(&_mutex);
 
-			pthread_mutex_unlock(&_mutex);
-
+			}
 		}
-
 	}
 
 	pthread_exit(NULL);

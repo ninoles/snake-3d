@@ -143,7 +143,7 @@ void base::Frame::repaint(int __width, int __heigth, irr::u8 __bitsPerPixel, boo
 	parameters.IgnoreInput = false;
 	parameters.Stencilbuffer = __stencilBuffer;
 	parameters.Vsync = true;
-	parameters.WindowSize = irr::core::dimension2d<irr::s32>(__width, __heigth);
+	parameters.WindowSize = irr::core::dimension2d<irr::s32>(__width, __heigth+20);
 	_activateJoyStick = __activateJoystick;
 
 	_device = irr::createDeviceEx(parameters);

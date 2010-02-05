@@ -5,7 +5,8 @@
  *      Author: Henrique Jonas
  */
 
- #include "../../Headers/Platform/Match.h"
+#include "../../Headers/Platform/Match.h"
+#include <iostream>
 
 platform::Match::Match(){
 	_config = new file::ConfMatch();
@@ -30,8 +31,6 @@ void platform::Match::setProperties(){
 		_players->addPlayer(tmp);
 		_players->getAllPlayers()->get(k).getSnake()->insertMoviment(k+1);
 	}
-
-	std::cout << "Number created players: " << _players->getNumberOfPlayers() << std::endl;
 }
 
 void platform::Match::initMatch(irr::video::IVideoDriver *__driver, irr::scene::ISceneManager *__sceneManager, NewtonWorld *__newtonW){
@@ -49,20 +48,22 @@ void platform::Match::initMatch(irr::video::IVideoDriver *__driver, irr::scene::
 
 }
 
-void platform::Match::runMatch(){
+bool platform::Match::runMatch(){
+	return endMatch();
+}
+
+void platform::Match::setVisiblePoint(bool __visible){
+	_points->getAnimatedNode()->setVisible(__visible);
 }
 
 void platform::Match::randomPoints(){
 	irr::core::vector3df position;
-	irr::core::vector3df positionMap;
 
 	srand(time(NULL));
 
-	positionMap = _map->getMap()->getSceneNode()->getPosition();
-
-	position.X = rand() % positionMap.X;
-	position.Y = positionMap.Y + 0.1;
-	position.Z = rand() % positionMap.Z;
+	position.X = (rand() % POSITION_X_MAP) + 3;
+	position.Y = POSITION_Y_MAP + 0.5;
+	position.Z = (rand() % POSITION_Z_MAP) + 3;
 
 	_points->insertPointInPosition(position);
 
@@ -75,15 +76,13 @@ void platform::Match::randomBonus(){
 irr::core::vector3df platform::Match::randomPositionPlayers(){
 
 	irr::core::vector3df position;
-	irr::core::vector3df positionMap;
 
 	srand(time(NULL));
 
-	positionMap = _map->getMap()->getSceneNode()->getPosition();
+	position.X = (rand() % POSITION_X_MAP) + 1;
+	position.Y = POSITION_Y_MAP + 0.25;
+	position.Z = (rand() % POSITION_Z_MAP) + 1;
 
-	position.X = rand() % positionMap.X;
-	position.Y = positionMap.Y + 0.25;
-	position.Z = rand() % positionMap.Z;
 
 	return position;
 
@@ -95,6 +94,10 @@ bool platform::Match::endMatch(){
 			return true;
 
 	return false;
+}
+
+bool platform::Match::isVisiblePoint(){
+	return _points->getAnimatedNode()->getAnimatedMesh()->isVisible();
 }
 
 Players::GroupPlayers* platform::Match::getGroupPlayers(){

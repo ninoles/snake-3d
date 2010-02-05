@@ -8,8 +8,6 @@
 #include "../../Headers/Platform/Snake.h"
 #include <iostream>
 
-using namespace std;
-
 platform::Snake::Snake(irr::core::vector3df __initialPosition, irr::scene::ISceneManager *__sceneManager, NewtonWorld *__newtonW){
 	_nodes = new GenericList::ArrayList<base::FrameAnimatedNode*>();
 	_indexCounterBreak = 0;
@@ -307,6 +305,8 @@ void platform::Snake::snakeForward(){
 	reposition(false);
 	repaintSnake();
 	repaintCamera();
+
+	//std::cout << "Posicao X: " << _head->getPosition().X << " Posicao Y: " << _head->getPosition().Y << " Posicao Z: " << _head->getPosition().Z << std::endl;
 }
 
 void platform::Snake::deleteNodes(int __numberNodes)
@@ -382,7 +382,7 @@ void platform::Snake::reposition(bool __moviment){
 		rotationTail = _tail->getRotation().rotationToDirection(rotation);
 		_tail->setRotation(-(rotationTail.X), rotationTail.Y, rotationTail.Z);
 
-		std::cerr << "Rotacao X: " << rotationTail.X << " Rotacao Y: " << rotationTail.Y << " Rotacao Z: " << rotationTail.Z << std::endl;
+		//std::cerr << "Rotacao X: " << rotationTail.X << " Rotacao Y: " << rotationTail.Y << " Rotacao Z: " << rotationTail.Z << std::endl;
 
 		switch(direction){
 

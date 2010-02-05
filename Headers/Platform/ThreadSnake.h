@@ -32,7 +32,7 @@
 
 #include "Snake.h"
 #include "../Events/NodeMoviment.h"
-#include "../Events/KeyBoardEvents.h"
+#include "../Events/WrapperEvent.h"
 
 void* snakeForward(void *__snake);
 void* turnSnake(void *__snake);

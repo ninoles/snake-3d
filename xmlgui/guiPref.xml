@@ -3,27 +3,27 @@
 
 	<attributes>
 		<enum name="Skin" value="windowsMetallic" />
-		<color name="3DDarkShadow" value="ee323232" />
-		<color name="3DShadow" value="fc828282" />
-		<color name="3DFace" value="f6d2d2d2" />
-		<color name="3DHighlight" value="f6ffffff" />
-		<color name="3DLight" value="f6d2d2d2" />
+		<color name="3DDarkShadow" value="fa323232" />
+		<color name="3DShadow" value="fa828282" />
+		<color name="3DFace" value="fad2d2d2" />
+		<color name="3DHighlight" value="faffffff" />
+		<color name="3DLight" value="fad2d2d2" />
 
 		<color name="ActiveBorder" value="fa100e73" />
 		<color name="ActiveCaption" value="faffffff" />
-		<color name="AppWorkspace" value="00000000" />
+		<color name="AppWorkspace" value="fa646464" />
 		<color name="ButtonText" value="fa0a0a0a" />
 		<color name="GrayText" value="fa828282" />
 		<color name="Highlight" value="fa08246b" />
 		<color name="HighlightText" value="faffffff" />
 		<color name="InactiveBorder" value="faa5a5a5" />
-		<color name="InactiveCaption" value="fad2d2a0" />
+		<color name="InactiveCaption" value="fad2d2d2" />
 
 		<color name="ToolTip" value="fa000000" />
 		<color name="ToolTipBackground" value="faffffe1" />
 		<color name="ScrollBar" value="fae6e6e6" />
-		<color name="Window" value="fa323232" />
-		<color name="WindowSymbol" value="f00a0a0a" />
+		<color name="Window" value="faffffff" />
+		<color name="WindowSymbol" value="fa0a0a0a" />
 		<color name="Icon" value="faffffff" />
 		<color name="IconHighlight" value="fa08246b" />
 		<int name="ScrollBarSize" value="14" />
@@ -74,333 +74,229 @@
 		<int name="directory" value="246" />
 	</attributes>
 
-	<element type="staticText">
+	<element type="image">
 
 		<attributes>
-			<int name="Id" value="-1" />
-			<string name="Caption" value="Ajustes do jogo..." />
-
-			<rect name="Rect" value="150, 70, 670, 140" />
-			<position name="MinSize" value="1, 1" />
-			<position name="MaxSize" value="0, 0" />
-			<bool name="NoClip" value="false" />
-			<enum name="LeftAlign" value="upperLeft" />
-			<enum name="RightAlign" value="upperLeft" />
-			<enum name="TopAlign" value="upperLeft" />
-			<enum name="BottomAlign" value="upperLeft" />
-			<bool name="Visible" value="true" />
-
-			<bool name="Enabled" value="true" />
-			<bool name="TabStop" value="false" />
-			<bool name="TabGroup" value="false" />
-			<int name="TabOrder" value="-1" />
-			<bool name="Border" value="false" />
-			<bool name="OverrideColorEnabled" value="true" />
-			<bool name="WordWrap" value="true" />
-			<bool name="Background" value="false" />
-			<color name="OverrideColor" value="fa323232" />
-
-			<enum name="HTextAlign" value="center" />
-			<enum name="VTextAlign" value="center" />
-		</attributes>
-
-	</element>
-
-	<element type="staticText">
-
-		<attributes>
-			<int name="Id" value="-1" />
-
-			<string name="Caption" value="Tela: " />
-			<rect name="Rect" value="210, 170, 390, 190" />
-			<position name="MinSize" value="1, 1" />
-			<position name="MaxSize" value="0, 0" />
-			<bool name="NoClip" value="false" />
-			<enum name="LeftAlign" value="upperLeft" />
-			<enum name="RightAlign" value="upperLeft" />
-			<enum name="TopAlign" value="upperLeft" />
-			<enum name="BottomAlign" value="upperLeft" />
-
-			<bool name="Visible" value="true" />
-			<bool name="Enabled" value="true" />
-			<bool name="TabStop" value="false" />
-			<bool name="TabGroup" value="false" />
-			<int name="TabOrder" value="-1" />
-			<bool name="Border" value="false" />
-			<bool name="OverrideColorEnabled" value="true" />
-			<bool name="WordWrap" value="true" />
-			<bool name="Background" value="false" />
-
-			<color name="OverrideColor" value="fa323232" />
-			<enum name="HTextAlign" value="lowerRight" />
-			<enum name="VTextAlign" value="upperLeft" />
-		</attributes>
-
-	</element>
-
-	<element type="staticText">
-
-		<attributes>
-
-			<int name="Id" value="-1" />
-			<string name="Caption" value="FullScreen: " />
-			<rect name="Rect" value="260, 210, 390, 230" />
-			<position name="MinSize" value="1, 1" />
-			<position name="MaxSize" value="0, 0" />
-			<bool name="NoClip" value="false" />
-			<enum name="LeftAlign" value="upperLeft" />
-			<enum name="RightAlign" value="upperLeft" />
-			<enum name="TopAlign" value="upperLeft" />
-
-			<enum name="BottomAlign" value="upperLeft" />
-			<bool name="Visible" value="true" />
-			<bool name="Enabled" value="true" />
-			<bool name="TabStop" value="false" />
-			<bool name="TabGroup" value="false" />
-			<int name="TabOrder" value="-1" />
-			<bool name="Border" value="false" />
-			<bool name="OverrideColorEnabled" value="true" />
-			<bool name="WordWrap" value="true" />
-
-			<bool name="Background" value="false" />
-			<color name="OverrideColor" value="fa323232" />
-			<enum name="HTextAlign" value="lowerRight" />
-			<enum name="VTextAlign" value="center" />
-		</attributes>
-
-	</element>
-
-	<element type="staticText">
-
-		<attributes>
-			<int name="Id" value="-1" />
-			<string name="Caption" value="Anti-Aliasing: " />
-			<rect name="Rect" value="260, 250, 390, 270" />
-			<position name="MinSize" value="1, 1" />
-			<position name="MaxSize" value="0, 0" />
-			<bool name="NoClip" value="false" />
-			<enum name="LeftAlign" value="upperLeft" />
-			<enum name="RightAlign" value="upperLeft" />
-
-			<enum name="TopAlign" value="upperLeft" />
-			<enum name="BottomAlign" value="upperLeft" />
-			<bool name="Visible" value="true" />
-			<bool name="Enabled" value="true" />
-			<bool name="TabStop" value="false" />
-			<bool name="TabGroup" value="false" />
-			<int name="TabOrder" value="-1" />
-			<bool name="Border" value="false" />
-			<bool name="OverrideColorEnabled" value="true" />
-
-			<bool name="WordWrap" value="true" />
-			<bool name="Background" value="false" />
-			<color name="OverrideColor" value="fa323232" />
-			<enum name="HTextAlign" value="lowerRight" />
-			<enum name="VTextAlign" value="center" />
-		</attributes>
-
-	</element>
-
-	<element type="staticText">
-
-		<attributes>
-			<int name="Id" value="-1" />
-			<string name="Caption" value="Ativar JoyStick: " />
-			<rect name="Rect" value="240, 290, 390, 310" />
-			<position name="MinSize" value="1, 1" />
-			<position name="MaxSize" value="0, 0" />
-			<bool name="NoClip" value="false" />
-			<enum name="LeftAlign" value="upperLeft" />
-
-			<enum name="RightAlign" value="upperLeft" />
-			<enum name="TopAlign" value="upperLeft" />
-			<enum name="BottomAlign" value="upperLeft" />
-			<bool name="Visible" value="true" />
-			<bool name="Enabled" value="true" />
-			<bool name="TabStop" value="false" />
-			<bool name="TabGroup" value="false" />
-			<int name="TabOrder" value="-1" />
-			<bool name="Border" value="false" />
-
-			<bool name="OverrideColorEnabled" value="true" />
-			<bool name="WordWrap" value="true" />
-			<bool name="Background" value="false" />
-			<color name="OverrideColor" value="fa323232" />
-			<enum name="HTextAlign" value="lowerRight" />
-			<enum name="VTextAlign" value="center" />
-		</attributes>
-
-	</element>
-
-	<element type="checkBox">
-
-		<attributes>
-			<int name="Id" value="803" />
+			<int name="Id" value="1000" />
 			<string name="Caption" value="" />
-			<rect name="Rect" value="410, 290, 430, 310" />
+
+			<rect name="Rect" value="0, 0, 800, 600" />
 			<position name="MinSize" value="1, 1" />
 			<position name="MaxSize" value="0, 0" />
 			<bool name="NoClip" value="false" />
-
 			<enum name="LeftAlign" value="upperLeft" />
 			<enum name="RightAlign" value="upperLeft" />
 			<enum name="TopAlign" value="upperLeft" />
 			<enum name="BottomAlign" value="upperLeft" />
 			<bool name="Visible" value="true" />
+
 			<bool name="Enabled" value="true" />
 			<bool name="TabStop" value="false" />
 			<bool name="TabGroup" value="false" />
-			<int name="TabOrder" value="4" />
-
-			<bool name="Checked" value="false" />
+			<int name="TabOrder" value="-1" />
+			<texture name="Texture" value="images/op_pref.png" />
+			<bool name="UseAlphaChannel" value="true" />
+			<color name="Color" value="ffffffff" />
+			<bool name="ScaleImage" value="false" />
 		</attributes>
 
-	</element>
+		<element type="image">
 
-	<element type="button">
+			<attributes>
+				<int name="Id" value="-1" />
+				<string name="Caption" value="" />
+				<rect name="Rect" value="370, 0, 800, 200" />
+				<position name="MinSize" value="1, 1" />
+				<position name="MaxSize" value="0, 0" />
+				<bool name="NoClip" value="false" />
 
-		<attributes>
-			<int name="Id" value="804" />
-			<string name="Caption" value="Salvar" />
+				<enum name="LeftAlign" value="upperLeft" />
+				<enum name="RightAlign" value="upperLeft" />
+				<enum name="TopAlign" value="upperLeft" />
+				<enum name="BottomAlign" value="upperLeft" />
+				<bool name="Visible" value="true" />
+				<bool name="Enabled" value="true" />
+				<bool name="TabStop" value="false" />
+				<bool name="TabGroup" value="false" />
+				<int name="TabOrder" value="-1" />
 
-			<rect name="Rect" value="240, 340, 360, 370" />
-			<position name="MinSize" value="1, 1" />
-			<position name="MaxSize" value="0, 0" />
-			<bool name="NoClip" value="false" />
-			<enum name="LeftAlign" value="upperLeft" />
-			<enum name="RightAlign" value="upperLeft" />
-			<enum name="TopAlign" value="upperLeft" />
-			<enum name="BottomAlign" value="upperLeft" />
-			<bool name="Visible" value="true" />
+				<texture name="Texture" value="images/logoPreference.png" />
+				<bool name="UseAlphaChannel" value="true" />
+				<color name="Color" value="ffffffff" />
+				<bool name="ScaleImage" value="false" />
+			</attributes>
 
-			<bool name="Enabled" value="true" />
-			<bool name="TabStop" value="true" />
-			<bool name="TabGroup" value="false" />
-			<int name="TabOrder" value="5" />
-			<bool name="PushButton" value="false" />
-			<texture name="Image" value="images/button.png" />
-			<rect name="ImageRect" value="0, 0, 160, 40" />
-			<texture name="PressedImage" value="images/button.png" />
-			<rect name="PressedImageRect" value="0, 0, 160, 40" />
+		</element>
 
-			<bool name="Border" value="true" />
-			<bool name="UseAlphaChannel" value="false" />
-		</attributes>
+		<element type="comboBox">
 
-	</element>
+			<attributes>
+				<int name="Id" value="800" />
+				<string name="Caption" value="640 x 480" />
+				<rect name="Rect" value="410, 260, 510, 280" />
+				<position name="MinSize" value="1, 1" />
+				<position name="MaxSize" value="0, 0" />
+				<bool name="NoClip" value="true" />
+				<enum name="LeftAlign" value="upperLeft" />
+				<enum name="RightAlign" value="upperLeft" />
 
-	<element type="button">
+				<enum name="TopAlign" value="upperLeft" />
+				<enum name="BottomAlign" value="upperLeft" />
+				<bool name="Visible" value="true" />
+				<bool name="Enabled" value="true" />
+				<bool name="TabStop" value="true" />
+				<bool name="TabGroup" value="false" />
+				<int name="TabOrder" value="1" />
+				<enum name="HTextAlign" value="center" />
+				<enum name="VTextAlign" value="center" />
 
-		<attributes>
-			<int name="Id" value="506" />
+				<int name="Selected" value="0" />
+				<int name="ItemCount" value="3" />
+				<string name="Item0Text" value="640 x 480" />
+				<string name="Item1Text" value="800 x 600" />
+				<string name="Item2Text" value="1280 x 768" />
+			</attributes>
 
-			<string name="Caption" value="Voltar" />
-			<rect name="Rect" value="410, 340, 530, 370" />
-			<position name="MinSize" value="1, 1" />
-			<position name="MaxSize" value="0, 0" />
-			<bool name="NoClip" value="false" />
-			<enum name="LeftAlign" value="upperLeft" />
-			<enum name="RightAlign" value="upperLeft" />
-			<enum name="TopAlign" value="upperLeft" />
-			<enum name="BottomAlign" value="upperLeft" />
+		</element>
 
-			<bool name="Visible" value="true" />
-			<bool name="Enabled" value="true" />
-			<bool name="TabStop" value="true" />
-			<bool name="TabGroup" value="false" />
-			<int name="TabOrder" value="6" />
-			<bool name="PushButton" value="false" />
-			<texture name="Image" value="images/button.png" />
-			<rect name="ImageRect" value="0, 0, 160, 40" />
-			<texture name="PressedImage" value="images/button.png" />
-			<rect name="PressedImageRect" value="0, 0, 160, 40" />
-			<bool name="Border" value="true" />
-			<bool name="UseAlphaChannel" value="false" />
-		</attributes>
+		<element type="checkBox">
 
-	</element>
+			<attributes>
+				<int name="Id" value="801" />
+				<string name="Caption" value="" />
+				<rect name="Rect" value="410, 290, 429, 320" />
+				<position name="MinSize" value="1, 1" />
+				<position name="MaxSize" value="0, 0" />
+				<bool name="NoClip" value="false" />
+				<enum name="LeftAlign" value="upperLeft" />
 
-	<element type="checkBox">
+				<enum name="RightAlign" value="upperLeft" />
+				<enum name="TopAlign" value="upperLeft" />
+				<enum name="BottomAlign" value="upperLeft" />
+				<bool name="Visible" value="true" />
+				<bool name="Enabled" value="true" />
+				<bool name="TabStop" value="true" />
+				<bool name="TabGroup" value="false" />
+				<int name="TabOrder" value="2" />
+				<bool name="Checked" value="false" />
 
-		<attributes>
+			</attributes>
 
-			<int name="Id" value="801" />
-			<string name="Caption" value="" />
-			<rect name="Rect" value="410, 210, 435, 238" />
-			<position name="MinSize" value="1, 1" />
-			<position name="MaxSize" value="0, 0" />
-			<bool name="NoClip" value="false" />
-			<enum name="LeftAlign" value="upperLeft" />
-			<enum name="RightAlign" value="upperLeft" />
-			<enum name="TopAlign" value="upperLeft" />
+		</element>
 
-			<enum name="BottomAlign" value="upperLeft" />
-			<bool name="Visible" value="true" />
-			<bool name="Enabled" value="true" />
-			<bool name="TabStop" value="true" />
-			<bool name="TabGroup" value="false" />
-			<int name="TabOrder" value="7" />
-			<bool name="Checked" value="false" />
-		</attributes>
+		<element type="checkBox">
 
-	</element>
+			<attributes>
+				<int name="Id" value="802" />
+				<string name="Caption" value="" />
+				<rect name="Rect" value="410, 330, 430, 364" />
 
-	<element type="checkBox">
+				<position name="MinSize" value="1, 1" />
+				<position name="MaxSize" value="0, 0" />
+				<bool name="NoClip" value="false" />
+				<enum name="LeftAlign" value="upperLeft" />
+				<enum name="RightAlign" value="upperLeft" />
+				<enum name="TopAlign" value="upperLeft" />
+				<enum name="BottomAlign" value="upperLeft" />
+				<bool name="Visible" value="true" />
+				<bool name="Enabled" value="true" />
 
-		<attributes>
-			<int name="Id" value="802" />
-			<string name="Caption" value="" />
-			<rect name="Rect" value="410, 250, 430, 277" />
-			<position name="MinSize" value="1, 1" />
-			<position name="MaxSize" value="0, 0" />
+				<bool name="TabStop" value="true" />
+				<bool name="TabGroup" value="false" />
+				<int name="TabOrder" value="3" />
+				<bool name="Checked" value="false" />
+			</attributes>
 
-			<bool name="NoClip" value="false" />
-			<enum name="LeftAlign" value="upperLeft" />
-			<enum name="RightAlign" value="upperLeft" />
-			<enum name="TopAlign" value="upperLeft" />
-			<enum name="BottomAlign" value="upperLeft" />
-			<bool name="Visible" value="true" />
-			<bool name="Enabled" value="true" />
-			<bool name="TabStop" value="true" />
-			<bool name="TabGroup" value="false" />
+		</element>
 
-			<int name="TabOrder" value="8" />
-			<bool name="Checked" value="false" />
-		</attributes>
+		<element type="checkBox">
 
-	</element>
+			<attributes>
+				<int name="Id" value="803" />
+				<string name="Caption" value="" />
+				<rect name="Rect" value="410, 370, 430, 400" />
+				<position name="MinSize" value="1, 1" />
+				<position name="MaxSize" value="0, 0" />
+				<bool name="NoClip" value="false" />
+				<enum name="LeftAlign" value="upperLeft" />
+				<enum name="RightAlign" value="upperLeft" />
 
-	<element type="comboBox">
+				<enum name="TopAlign" value="upperLeft" />
+				<enum name="BottomAlign" value="upperLeft" />
+				<bool name="Visible" value="true" />
+				<bool name="Enabled" value="true" />
+				<bool name="TabStop" value="true" />
+				<bool name="TabGroup" value="false" />
+				<int name="TabOrder" value="4" />
+				<bool name="Checked" value="false" />
+			</attributes>
 
-		<attributes>
-			<int name="Id" value="800" />
+		</element>
 
-			<string name="Caption" value="640 x 480" />
-			<rect name="Rect" value="410, 170, 510, 194" />
-			<position name="MinSize" value="1, 1" />
-			<position name="MaxSize" value="0, 0" />
-			<bool name="NoClip" value="true" />
-			<enum name="LeftAlign" value="upperLeft" />
-			<enum name="RightAlign" value="upperLeft" />
-			<enum name="TopAlign" value="upperLeft" />
-			<enum name="BottomAlign" value="upperLeft" />
+		<element type="button">
 
-			<bool name="Visible" value="true" />
-			<bool name="Enabled" value="true" />
-			<bool name="TabStop" value="true" />
-			<bool name="TabGroup" value="false" />
-			<int name="TabOrder" value="9" />
-			<enum name="HTextAlign" value="upperLeft" />
-			<enum name="VTextAlign" value="center" />
-			<int name="Selected" value="0" />
-			<int name="ItemCount" value="3" />
+			<attributes>
+				<int name="Id" value="804" />
+				<string name="Caption" value="" />
+				<rect name="Rect" value="267, 430, 387, 460" />
+				<position name="MinSize" value="1, 1" />
 
-			<string name="Item0Text" value="640 x 480" />
-			<string name="Item1Text" value="800 x 600" />
-			<string name="Item2Text" value="1024 x 786" />
-		</attributes>
+				<position name="MaxSize" value="0, 0" />
+				<bool name="NoClip" value="false" />
+				<enum name="LeftAlign" value="upperLeft" />
+				<enum name="RightAlign" value="upperLeft" />
+				<enum name="TopAlign" value="upperLeft" />
+				<enum name="BottomAlign" value="upperLeft" />
+				<bool name="Visible" value="true" />
+				<bool name="Enabled" value="true" />
+				<bool name="TabStop" value="true" />
+
+				<bool name="TabGroup" value="false" />
+				<int name="TabOrder" value="5" />
+				<bool name="PushButton" value="false" />
+				<texture name="Image" value="images/buttonSave.png" />
+				<rect name="ImageRect" value="0, 0, 120, 30" />
+				<texture name="PressedImage" value="images/buttonSave.png" />
+				<rect name="PressedImageRect" value="0, 0, 120, 30" />
+				<bool name="Border" value="false" />
+				<bool name="UseAlphaChannel" value="true" />
+
+			</attributes>
+
+		</element>
+
+		<element type="button">
+
+			<attributes>
+				<int name="Id" value="506" />
+				<string name="Caption" value="" />
+				<rect name="Rect" value="410, 430, 530, 460" />
+
+				<position name="MinSize" value="1, 1" />
+				<position name="MaxSize" value="0, 0" />
+				<bool name="NoClip" value="false" />
+				<enum name="LeftAlign" value="upperLeft" />
+				<enum name="RightAlign" value="upperLeft" />
+				<enum name="TopAlign" value="upperLeft" />
+				<enum name="BottomAlign" value="upperLeft" />
+				<bool name="Visible" value="true" />
+				<bool name="Enabled" value="true" />
+
+				<bool name="TabStop" value="true" />
+				<bool name="TabGroup" value="false" />
+				<int name="TabOrder" value="6" />
+				<bool name="PushButton" value="false" />
+				<texture name="Image" value="images/buttonBack.png" />
+				<rect name="ImageRect" value="0, 0, 120, 30" />
+				<texture name="PressedImage" value="images/buttonBack.png" />
+				<rect name="PressedImageRect" value="0, 0, 120, 30" />
+				<bool name="Border" value="false" />
+
+				<bool name="UseAlphaChannel" value="true" />
+			</attributes>
+
+		</element>
 
 	</element>
 
 </irr_gui>
-

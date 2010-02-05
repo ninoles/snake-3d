@@ -6,13 +6,18 @@
  */
 
 #include "../../Headers/Platform/ThreadMatch.h"
+#include <iostream>
+
+pthread_mutex_t mutex;
 
 void* pointManagement(void *__game){
 
 	platform::Gameplay* game = (platform::Gameplay*)__game;
 
-	while(true){
-		game->getMatch()->randomPoints();
+	while(!game->run()){
+		if(!Events::WrapperEvents::_isPaused)
+			if(!game->getMatch()->isVisiblePoint())
+				game->getMatch()->randomPoints();
 	}
 
 	pthread_exit(NULL);
@@ -21,8 +26,15 @@ void* pointManagement(void *__game){
 
 void* checkForCollision(void *__game){
 
-	while(true){
+	platform::Gameplay* game = (platform::Gameplay*)__game;
 
+	while(!game->run()){
+		if(!Events::WrapperEvents::_isPaused)
+			for(int k = 0; k < game->getMatch()->getGroupPlayers()->getNumberOfPlayers(); k++)
+				if(game->checkCollisionToPoint(game->getMatch()->getPoint(), game->getMatch()->getGroupPlayers()->getAllPlayers()->get(k).getSnake())){
+					game->insertPointToPlayer(k);
+					game->getMatch()->setVisiblePoint(false);
+				}
 	}
 
 	pthread_exit(NULL);
@@ -46,8 +58,10 @@ void platform::ThreadMatch::createThread(platform::Gameplay *__arg){
 	validate_1 = pthread_create(&_threadPoint, NULL, pointManagement, __arg);
 	validate_2 = pthread_create(&_threadCollision, NULL, checkForCollision, __arg);
 
+	pthread_mutex_init(&mutex, NULL);
+
 	if(validate_1 == validate_2)
-			std::cerr << "A thread on the game is running successfully." << std::endl;
+		std::cerr << "A thread on the game is running successfully." << std::endl;
 	else
 		std::cerr << "A thread on the game has a problem. The application will be aborted." << std::endl;
 
@@ -62,9 +76,9 @@ void platform::ThreadMatch::stopThread(){
 	int validate_2 = pthread_detach(_threadCollision);
 
 	if(validate_1 == validate_2)
-		std::cerr << "The threads number: " << _idThread << " was stopped successfully" << std::endl;
+		std::cerr << "The threads on the game was stopped successfully" << std::endl;
 	else
-		std::cerr << "The threads number: " << _idThread << " was not stopped successfully" << std::endl;
+		std::cerr << "A thread on the game has a problem. The application will be aborted." << std::endl;
 
 }
 

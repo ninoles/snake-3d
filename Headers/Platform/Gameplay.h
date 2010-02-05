@@ -9,6 +9,10 @@
 #define GAMEPLAY_H_
 
 #include "../Base/FrameAnimatedNode.h"
+#include "../Platform/Snake.h"
+#include "../Platform/Point.h"
+#include "../Player/Player.h"
+
 #include "Match.h"
 
 #include <Newton.h>
@@ -18,6 +22,7 @@
 #define NUMBER_CONTACTS 3
 #define CONTACTS (3*NUMBER_CONTACTS)
 #define NORMALS (3*NUMBER_CONTACTS)
+#define POINT_VALUE 	10
 
 typedef float contacts[CONTACTS];
 typedef float normals[NORMALS];
@@ -41,14 +46,14 @@ namespace platform{
 
 			void initMatch();
 			void randomMap();
-			void delayPoint();
 
-			void run();
+			bool run();
 
-			void checkCollisionToPoint();
-			void checkForCollisions(base::FrameAnimatedNode* __nodeA, base::FrameAnimatedNode* __nodeB);
+			bool checkCollisionToPoint(platform::Point *__point, platform::Snake* __snake);
+			bool checkForCollisions(base::FrameAnimatedNode* __nodeA, base::FrameAnimatedNode* __nodeB);
 
 			void splitScreenForPlayers();
+			void insertPointToPlayer(int __idPlayer);
 
 			NewtonWorld* getNewtonWorld();
 			Match* getMatch();

@@ -102,6 +102,7 @@ void Events::ButtonEvents::handler(int __idEvent){
 
         case GUI_ID_SAVE_TYPE_GAME:
         	_options = GAME_START_MATCH;
+        	_rootElement = GUIManagement::getElement(1000, _device->getGUIEnvironment()->getRootGUIElement());
 
         	//Save in the file
         	_confMatch->setArchiveWrite("conf/config_match.xml");
@@ -111,12 +112,6 @@ void Events::ButtonEvents::handler(int __idEvent){
         			GUIManagement::toWChar(((irr::gui::IGUICheckBox*)GUIManagement::getElement(603, _rootElement))->isChecked()));
 
         	_device->getGUIEnvironment()->clear();
-			break;
-
-        case GUI_ID_SAVE_CURRENT_GAME:
-        	_options = GAME_SAVE_CURRENT_GAME;
-        	_device->getGUIEnvironment()->clear();
-			_device->getGUIEnvironment()->loadGUI("xmlgui/guiError.xml",0);
 			break;
 
 		/*
@@ -137,6 +132,33 @@ void Events::ButtonEvents::handler(int __idEvent){
 		/*
 		 * End Players Score Options
 		 */
+
+		/*
+		 * Match Options
+		 */
+
+        case GAME_PAUSE_GAME:
+        	_device->getCursorControl()->setVisible(true);
+        	_device->getGUIEnvironment()->loadGUI("xmlgui/guiPauseGame.xml", 0);
+        	break;
+
+        case GAME_CONT_GAME:
+        	_device->getGUIEnvironment()->clear();
+        	_device->getCursorControl()->setVisible(false);
+        	break;
+
+        case GAME_SAVE_CURRENT_GAME:
+        	_device->getGUIEnvironment()->clear();
+        	break;
+
+        case GAME_QUIT_MATCH:
+        	_device->getGUIEnvironment()->clear();
+        	_device->getSceneManager()->clear();
+        	break;
+
+        /*
+         * End Match Options
+         */
 
 	}
 }

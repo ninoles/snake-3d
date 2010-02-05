@@ -10,6 +10,8 @@
 using namespace std;
 using namespace Events;
 
+bool WrapperEvents::_isPaused = false;
+
 WrapperEvents::WrapperEvents(irr::IrrlichtDevice* __device){
 	_device = __device;
 }
@@ -29,6 +31,10 @@ bool WrapperEvents::OnEvent(const irr::SEvent& event){
 
 		switch(event.GUIEvent.EventType){
 			case irr::gui::EGET_BUTTON_CLICKED:
+
+				if(idEvent == GAME_CONT_GAME)
+					_isPaused = false;
+
 				_eventButton->handler(idEvent);
 				break;
 
@@ -44,11 +50,22 @@ bool WrapperEvents::OnEvent(const irr::SEvent& event){
 				break;
 		}
 	} else if(event.EventType == irr::EET_KEY_INPUT_EVENT){
-		_eventNode->verifyKey(event.KeyInput.Key);
+		if(event.KeyInput.Key == irr::KEY_KEY_P){
+			setOption(true);
+			_eventButton->handler((_isPaused ? GAME_PAUSE_GAME : GAME_CONT_GAME));
+		} else
+			_eventNode->verifyKey(event.KeyInput.Key);
 	}
 
 
     return false;
+}
+
+void WrapperEvents::setOption(bool __paused){
+	if(_isPaused)
+		_isPaused = false;
+	else
+		_isPaused = true;
 }
 
 ButtonEvents* WrapperEvents::getButtonEvents(){

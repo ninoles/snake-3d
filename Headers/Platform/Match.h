@@ -52,10 +52,13 @@ namespace platform{
 			Match();
 
 			void initMatch(irr::video::IVideoDriver *__driver, irr::scene::ISceneManager *__sceneManager, NewtonWorld *__newtonW);
-            void runMatch();
+            bool runMatch();
 
             void randomPoints();
             void randomBonus();
+
+            void setVisiblePoint(bool __visible);
+            bool isVisiblePoint();
 
             Players::GroupPlayers* getGroupPlayers();
             platform::Map* getMap();
